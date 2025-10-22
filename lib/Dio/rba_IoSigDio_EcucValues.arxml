@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-2.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>RB</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>UBK</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE>
+              <SHORT-NAME>Project</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE>
+                  <SHORT-NAME>EcucModuleConfigurationValuess</SHORT-NAME>
+                  <ELEMENTS>
+                    <ECUC-MODULE-CONFIGURATION-VALUES>
+                      <SHORT-NAME>Port</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR_Port/EcucModuleDefs/Port</DEFINITION-REF>
+                      <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>PortConfigSet</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet</DEFINITION-REF>
+                          <SUB-CONTAINERS>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>Port_20</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer</DEFINITION-REF>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>CTO_S7000_LSS_EN</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_DIRECTION_OUT</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_OUTPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_OUTPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinModeChangeable</DEFINITION-REF>
+                                      <VALUE>false</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbCharacteristicOutput</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_CHARACTERISTIC_OUTPUT_PUSHPULL</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbHwConnector</DEFINITION-REF>
+                                      <VALUE>PORT_20_09</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinStrength</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_STRENGTH_MEDIUM</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>CTO_S7000_LSS_ST</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_DIRECTION_IN</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinModeChangeable</DEFINITION-REF>
+                                      <VALUE>false</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbCharacteristicInput</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_CHARACTERISTIC_INPUT_NOPULL</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbFeature</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_FEATURE_INPUT_TTL</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbHwConnector</DEFINITION-REF>
+                                      <VALUE>PORT_20_10</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>Port_00</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer</DEFINITION-REF>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>CTO_ST_INH1</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_DIRECTION_IN</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinModeChangeable</DEFINITION-REF>
+                                      <VALUE>false</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbCharacteristicInput</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_CHARACTERISTIC_INPUT_NOPULL</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbFeature</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_FEATURE_INPUT_AUTOMOTIVE</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbHwConnector</DEFINITION-REF>
+                                      <VALUE>PORT_00_10</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>CTO_ST_INH2</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_DIRECTION_IN</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinModeChangeable</DEFINITION-REF>
+                                      <VALUE>false</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbCharacteristicInput</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_CHARACTERISTIC_INPUT_NOPULL</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbFeature</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_FEATURE_INPUT_AUTOMOTIVE</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbHwConnector</DEFINITION-REF>
+                                      <VALUE>PORT_00_09</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>Port_23</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer</DEFINITION-REF>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>CTO_ST_INH</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinDirection</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_DIRECTION_IN</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinInitialMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinLevelValue</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_LEVEL_LOW</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinMode</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_MODE_INPUT_DIO</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinModeChangeable</DEFINITION-REF>
+                                      <VALUE>false</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbCharacteristicInput</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_CHARACTERISTIC_INPUT_NOPULL</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbFeature</DEFINITION-REF>
+                                      <VALUE>PORT_PIN_FEATURE_INPUT_TTL</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/AUTOSAR_Port/EcucModuleDefs/Port/PortConfigSet/PortContainer/PortPin/PortPinRbHwConnector</DEFINITION-REF>
+                                      <VALUE>PORT_23_03</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                          </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                      </CONTAINERS>
+                    </ECUC-MODULE-CONFIGURATION-VALUES>
+                    <ECUC-MODULE-CONFIGURATION-VALUES>
+                      <SHORT-NAME>rba_IoSigDio</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-MODULE-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio</DEFINITION-REF>
+                      <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>rba_IoSigDio_General</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_General</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_General/rba_IoSigDio_DevErrorDetect</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_General/rba_IoSigDio_RequestHandling</DEFINITION-REF>
+                              <VALUE>Strict</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_General/rba_IoSigDio_ValidationInversion</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_General/rba_IoSigDio_VersionInfoApi</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>rba_IoSigDio_ConfigSet</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet</DEFINITION-REF>
+                          <SUB-CONTAINERS>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CTO_AOV</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>CTO_AOV</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>DIO_01_03</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>CTO_AOV</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CTO_RST_INH1</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>CTO_RST_INH1</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>DIO_23_00</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>CTO_RST_INH1</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CTO_S7000_LSS_EN</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>CTO_S7000_LSS_EN</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>DIO_20_09</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>CTO_S7000_LSS_EN</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CTO_S7000_LSS_ST</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>DIO_20_10</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>INTERNAL</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CTO_ST_INH</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VARIATION-POINT>
+                                    <SW-SYSCOND BINDING-TIME="CODE-GENERATION-TIME">
+                                      <SYSC-REF DEST="SW-SYSTEMCONST">/RB/UBK/Project/SwSystemconsts/MDG1CPUVENDOR_SC</SYSC-REF>
+                                      == 1
+                                    </SW-SYSCOND>
+                                  </VARIATION-POINT>
+                                  <VALUE>DIO_23_03</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CTO_ST_INH1</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VARIATION-POINT>
+                                    <SW-SYSCOND BINDING-TIME="CODE-GENERATION-TIME">
+                                      <SYSC-REF DEST="SW-SYSTEMCONST">/RB/UBK/Project/SwSystemconsts/MDG1CPUVENDOR_SC</SYSC-REF>
+                                      == 1
+                                    </SW-SYSCOND>
+                                  </VARIATION-POINT>
+                                  <VALUE>DIO_00_10</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K22_I_S_DIG1</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CTO_ST_INH2</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VARIATION-POINT>
+                                    <SW-SYSCOND BINDING-TIME="CODE-GENERATION-TIME">
+                                      <SYSC-REF DEST="SW-SYSTEMCONST">/RB/UBK/Project/SwSystemconsts/MDG1CPUVENDOR_SC</SYSC-REF>
+                                      == 1
+                                    </SW-SYSCOND>
+                                  </VARIATION-POINT>
+                                  <VALUE>DIO_00_09</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K21_I_S_DIG2</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>I_S_X10</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>I_S_X10</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>L9966_01_10</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K43_I_S_X10</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>I_S_X13</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>I_S_X13</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>L9966_01_13</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K33_I_S_X13</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>I_S_X14</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>I_S_X14</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>L9966_01_14</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K32_I_S_X14</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>I_S_X15</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>I_S_X15</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>L9966_01_15</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K31_I_S_X15</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>I_S_X28</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>I_S_X28</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>L9966_02_13</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K34_I_S_X28</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>I_S_X29</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>I_S_X29</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>L9966_02_14</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K35_I_S_X29</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>I_S_X30</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>I_S_X30</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>L9966_02_15</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Input</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K30_I_S_X30</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_S_RL09</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_S_RL09</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_05</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K84_O_S_RL09</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>rba_IoSigDio_Diagnosis</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulse</DEFINITION-REF>
+                                      <VALUE>true</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurActive</DEFINITION-REF>
+                                      <VALUE>4</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurIdle</DEFINITION-REF>
+                                      <VALUE>65</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_S_RL10</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_S_RL10</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_06</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K85_O_S_RL10</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>rba_IoSigDio_Diagnosis</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulse</DEFINITION-REF>
+                                      <VALUE>true</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurActive</DEFINITION-REF>
+                                      <VALUE>4</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurIdle</DEFINITION-REF>
+                                      <VALUE>65</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_S_RL11</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_S_RL11</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_07</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K86_O_S_RL11</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>rba_IoSigDio_Diagnosis</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulse</DEFINITION-REF>
+                                      <VALUE>true</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurActive</DEFINITION-REF>
+                                      <VALUE>4</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurIdle</DEFINITION-REF>
+                                      <VALUE>65</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_S_RL12</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_S_RL12</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_08</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K87_O_S_RL12</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>rba_IoSigDio_Diagnosis</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulse</DEFINITION-REF>
+                                      <VALUE>true</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurActive</DEFINITION-REF>
+                                      <VALUE>4</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurIdle</DEFINITION-REF>
+                                      <VALUE>65</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>PMD_O_D</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>PMD_O_D</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>NULL_00_01</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>rba_IoSigDio_Diagnosis</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulse</DEFINITION-REF>
+                                      <VALUE>true</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurActive</DEFINITION-REF>
+                                      <VALUE>250</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurIdle</DEFINITION-REF>
+                                      <VALUE>379</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_S_RL05</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_S_RL05</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_01</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>K80_O_S_RL05</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Idle</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <SUB-CONTAINERS>
+                                <ECUC-CONTAINER-VALUE>
+                                  <SHORT-NAME>rba_IoSigDio_Diagnosis</SHORT-NAME>
+                                  <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis</DEFINITION-REF>
+                                  <PARAMETER-VALUES>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagMonitoredCompOther</DEFINITION-REF>
+                                      <VALUE>_anystring_</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulse</DEFINITION-REF>
+                                      <VALUE>true</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurActive</DEFINITION-REF>
+                                      <VALUE>250</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-NUMERICAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DiagTestPulseDurIdle</DEFINITION-REF>
+                                      <VALUE>379</VALUE>
+                                    </ECUC-NUMERICAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DynCreate_RBA_IODIAGPS_OL</DEFINITION-REF>
+                                      <VALUE>Disabled</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DynCreate_RBA_IODIAGPS_OT</DEFINITION-REF>
+                                      <VALUE>Disabled</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DynCreate_RBA_IODIAGPS_SCB</DEFINITION-REF>
+                                      <VALUE>Disabled</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                    <ECUC-TEXTUAL-PARAM-VALUE>
+                                      <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Diagnosis/rba_IoSigDio_DynCreate_RBA_IODIAGPS_SCG</DEFINITION-REF>
+                                      <VALUE>Disabled</VALUE>
+                                    </ECUC-TEXTUAL-PARAM-VALUE>
+                                  </PARAMETER-VALUES>
+                                </ECUC-CONTAINER-VALUE>
+                              </SUB-CONTAINERS>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>VDD12SPLY1ENA_O_D</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>CTO_S3180_INH</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>DIO_22_02</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>CTO_S3180_INH</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>VDD5VSPLY1ENA_O_D</SHORT-NAME>
+                              <ANNOTATIONS>
+                                <ANNOTATION>
+                                  <LABEL>
+                                    <L-4 L="FOR-ALL" />
+                                  </LABEL>
+                                  <ANNOTATION-ORIGIN>BCT</ANNOTATION-ORIGIN>
+                                  <ANNOTATION-TEXT>
+                                    <VERBATIM>
+                                      <L-5 L="FOR-ALL" xml:space="preserve">ASIC TLE4254GA</L-5>
+                                    </VERBATIM>
+                                  </ANNOTATION-TEXT>
+                                </ANNOTATION>
+                              </ANNOTATIONS>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>CTO_S3150_EN</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>DIO_22_03</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>CTO_S3150_EN</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <VARIATION-POINT>
+                                <SW-SYSCOND BINDING-TIME="CODE-GENERATION-TIME">
+                                  <SYSC-REF DEST="SW-SYSTEMCONST">/RB/UBK/Project/SwSystemconsts/SSPMON_5VSPLY1AVL_SC</SYSC-REF>
+                                  == 1
+                                </SW-SYSCOND>
+                              </VARIATION-POINT>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>VDD5VSPLY2ENA_O_D</SHORT-NAME>
+                              <ANNOTATIONS>
+                                <ANNOTATION>
+                                  <LABEL>
+                                    <L-4 L="FOR-ALL" />
+                                  </LABEL>
+                                  <ANNOTATION-ORIGIN>BCT</ANNOTATION-ORIGIN>
+                                  <ANNOTATION-TEXT>
+                                    <VERBATIM>
+                                      <L-5 L="FOR-ALL" xml:space="preserve">ASIC TLE4254GA</L-5>
+                                    </VERBATIM>
+                                  </ANNOTATION-TEXT>
+                                </ANNOTATION>
+                              </ANNOTATIONS>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>CTO_S3190_EN</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
+                                  <VALUE>DIO_00_11</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
+                                  <VALUE>Output</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Invert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>CTO_S3190_EN</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_CalibratableInvert</DEFINITION-REF>
+                                  <VALUE>false</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitState</DEFINITION-REF>
+                                  <VALUE>Active</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                              <VARIATION-POINT>
+                                <SW-SYSCOND BINDING-TIME="CODE-GENERATION-TIME">
+                                  <SYSC-REF DEST="SW-SYSTEMCONST">/RB/UBK/Project/SwSystemconsts/SSPMON_5VSPLY2AVL_SC</SYSC-REF>
+                                  == 1
+                                </SW-SYSCOND>
+                              </VARIATION-POINT>
+                            </ECUC-CONTAINER-VALUE>
+                          </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>CTO_AOV</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Output</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>I_S_X10</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Input</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>I_S_X13</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Input</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>I_S_X14</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Input</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>I_S_X15</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Input</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>I_S_X28</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Input</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>I_S_X29</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Input</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>I_S_X30</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Input</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>PMD_O_D</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Output</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>O_S_RL05</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Output</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>VDD5VSPLY1ENA_O_D</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Output</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_Diag</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_InitState</DEFINITION-REF>
+                              <VALUE>Active</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                              <VALUE>AnyReset</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                              <VALUE>SwitchOff</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <VARIATION-POINT>
+                            <SW-SYSCOND BINDING-TIME="CODE-GENERATION-TIME">
+                              <SYSC-REF DEST="SW-SYSTEMCONST">/RB/UBK/Project/SwSystemconsts/SSPMON_5VSPLY1AVL_SC</SYSC-REF>
+                              == 1
+                            </SW-SYSCOND>
+                          </VARIATION-POINT>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>VDD5VSPLY2ENA_O_D</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>Output</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_Diag</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_InitState</DEFINITION-REF>
+                              <VALUE>Active</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                              <VALUE>AnyReset</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                              <VALUE>SwitchOff</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                          <VARIATION-POINT>
+                            <SW-SYSCOND BINDING-TIME="CODE-GENERATION-TIME">
+                              <SYSC-REF DEST="SW-SYSTEMCONST">/RB/UBK/Project/SwSystemconsts/SSPMON_5VSPLY2AVL_SC</SYSC-REF>
+                              == 1
+                            </SW-SYSCOND>
+                          </VARIATION-POINT>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>ADC</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_Device</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_Device/rba_IoSigDio_DeviceCompName</DEFINITION-REF>
+                              <VALUE>rba_IoSigDio_DioOverAdc</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-LINKER-SYMBOL-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_Device/rba_IoSigDio_DeviceDescName</DEFINITION-REF>
+                              <VALUE>rba_IoSigDio_DioOverAdcInterface_cst</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_Device/rba_IoSigDio_DeviceHeader</DEFINITION-REF>
+                              <VALUE>rba_IoSigDio_DioOverAdc.h</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </CONTAINERS>
+                    </ECUC-MODULE-CONFIGURATION-VALUES>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

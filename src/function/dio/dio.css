@@ -1,0 +1,167 @@
+/* Tab Navigation Styles */
+.tab-navigation {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px 5px 0 0;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background: #ddd;
+}
+
+.tab-button.active {
+    background: #007bff;
+    color: white;
+}
+
+/* Tab Content Styles */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Form Grid Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-column {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Collapsible Section Styles */
+.collapsible-header {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.collapsible-header:hover {
+    background-color: #e9ecef;
+}
+
+.collapsible-header h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 5px 0;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.toggle-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+    color: #666;
+}
+
+.collapsible-header.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.collapsible-content.collapsed {
+    max-height: 0;
+}
+
+.collapsible-content.expanded {
+    max-height: 500px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 3px;
+    color: #666;
+    font-size: 12px;
+}
+
+/* Button Styles */
+.button-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary { background: #007bff; color: white; }
+.btn-secondary { background: #6c757d; color: white; }
+.btn-info { background: #17a2b8; color: white; }
+.btn-success { background: #28a745; color: white; }
+.btn-warning { background: #ffc107; color: black; }
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* Pin Information Display */
+.pin-info-display {
+    margin-top: 30px;
+    padding: 15px;
+    background: #e9ecef;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.pin-info-display h3 {
+    margin-top: 0;
+    color: #495057;
+}

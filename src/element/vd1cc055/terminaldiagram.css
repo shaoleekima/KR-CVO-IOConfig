@@ -1,0 +1,685 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Select Panel Styles */
+.select-panel {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.select-panel h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+.panel-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pin-type-info {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 10px;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.pin-type-info small {
+    display: block;
+    margin: 2px 0;
+}
+
+.panel-button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    border: 1px solid #666;
+    border-radius: 4px;
+    color: #333;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.panel-button:hover {
+    background-color: #e0e0e0;
+    border-color: #333;
+}
+
+.panel-button:active {
+    background-color: #d0d0d0;
+    transform: translateY(1px);
+}
+
+.panel-button.active {
+    background-color: #007acc;
+    color: white;
+    border-color: #005a99;
+}
+
+.terminaldiagram {
+    width: 800px;
+    height: 800px;
+    background-color: #ffffff;
+    border: 1px solid #000;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.terminaldiagram.expanded {
+    width: 1200px;
+    height: 1200px;
+}
+
+/* body of terminal*/
+.terminal-body {
+    margin: 50px;
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.expansion-content {
+    background-color: #e8f4fd;
+    border: 2px solid #007acc;
+    border-radius: 8px;
+    padding: 15px 20px;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 122, 204, 0.2);
+}
+
+.expansion-label {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: #005a99;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.expansion-details {
+    font-size: 12px;
+    color: #333;
+}
+
+.pin-mapping, .signal-info {
+    margin: 8px 0;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    border-left: 3px solid #007acc;
+}
+
+.connector {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #000;
+    position: absolute;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.connector:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 5px rgba(0, 150, 255, 0.8);
+}
+
+.connector.selected {
+    background-color: #007acc !important;
+    border-color: #005a99 !important;
+    transform: translateY(-50%) scale(1.1) !important;
+    box-shadow: 0 0 8px rgba(0, 122, 204, 0.6) !important;
+}
+
+.connector.selected:hover {
+    transform: translateY(-50%) scale(1.2) !important;
+}
+
+/* Wire (dây nối) chung */
+.wire {
+    position: absolute;
+    height: 2px;
+    background-color: #333;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+/* Wire cho connector bên trái - nối từ connector ra bên trái */
+.wire-left {
+    width: 100px;
+    right: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Wire cho connector bên phải - nối từ connector ra bên phải */
+.wire-right {
+    width: 100px;
+    left: 100%;
+    transition: width 0.3s ease;
+}
+
+/* Wire cho connector bên trên - nối từ connector ra bên trên */
+.wire-top {
+    height: 100px;
+    width: 2px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: height 0.3s ease;
+}
+
+/* Wire cho connector bên dưới - nối từ connector ra bên dưới */
+.wire-bottom {
+    height: 100px;
+    width: 2px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: height 0.3s ease;
+}
+
+/* Điểm nối tròn đen */
+.v-bat-junction::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Wire nghiêng 45 độ từ R1 và R3 */
+.v-bat-wire-diagonal {
+    position: absolute;
+    height: 2px;
+    background-color: #333;
+    transform-origin: left center;
+    z-index: 1;
+    transition: left 0.3s ease;
+}
+
+/* Horizontal wires for V_BAT connectors */
+.v-bat-horizontal-wire {
+    transition: width 0.3s ease;
+}
+
+/* Wire nghiêng từ R1 (lên trên) */
+.v-bat-wire-r1 {
+    transform: rotate(45deg);
+}
+
+/* Wire nghiêng từ R3 (xuống dưới) */
+.v-bat-wire-r3 {
+    transform: rotate(-45deg);
+}
+
+/* Label cho connector */
+.connector-label {
+    position: absolute;
+    top: -15px; /* Cách wire 2px, wire ở giữa connector (5px), nên label ở -15px */
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 1;
+}
+
+/* Label cho connector bên trái */
+.connector-label-left {
+    text-align: right;
+    transform: translateX(-100%);
+    left: 0;
+}
+
+/* Label cho connector bên phải */
+.connector-label-right {
+    text-align: left;
+    transform: translateX(0);
+    left: 100%;
+}
+
+/* Auto-generate labels using CSS */
+.connector-left::before {
+    content: attr(pin-lable);
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* Label bên phải của connector trái, cách 2px */
+.connector-left::after {
+    content: "K" attr(data-number);
+    position: absolute;
+    top: 50%;
+    left: 12px; /* Cách connector 2px (10px connector + 2px gap) */
+    transform: translateY(-50%);
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.connector-right::before {
+    content: attr(pin-lable);
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* Label "K + number" bên trái connector phải, cách 2px */
+.connector-right::after {
+    content: "K" attr(data-number);
+    position: absolute;
+    top: 50%;
+    right: 12px; /* Cách connector 2px (10px connector + 2px gap) */
+    transform: translateY(-50%);
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* Labels for top connectors */
+.connector-top::before {
+    content: attr(pin-lable);
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.connector-top::after {
+    content: "K" attr(data-number);
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* Labels for bottom connectors */
+.connector-bottom::before {
+    content: attr(pin-lable);
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.connector-bottom::after {
+    content: "K" attr(data-number);
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.connector-left-container {
+    position: absolute;
+    left: -5px;
+    top: 50px;
+    height: calc(100% - 100px);
+    width: 10px;
+}
+
+.connector-left {
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+.connector-right-container {
+    position: absolute;
+    right: -5px;
+    top: 50px;
+    height: calc(100% - 100px);
+    width: 10px;
+}
+
+.connector-right {
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+/* New containers for top and bottom */
+.connector-top-container {
+    position: absolute;
+    top: -5px;
+    left: 50px;
+    width: calc(100% - 100px);
+    height: 10px;
+}
+
+.connector-top {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+.connector-bottom-container {
+    position: absolute;
+    bottom: -5px;
+    left: 50px;
+    width: calc(100% - 100px);
+    height: 10px;
+}
+
+.connector-bottom {
+    position: absolute;
+    transform: translateX(-50%);
+}
+
+/* 64 Connector bên trái - distributed in square layout */
+.connector-left-1 { top: 5%; }
+.connector-left-2 { top: 10%; }
+.connector-left-3 { top: 15%; }
+.connector-left-4 { top: 20%; }
+.connector-left-5 { top: 25%; }
+.connector-left-6 { top: 30%; }
+.connector-left-7 { top: 35%; }
+.connector-left-8 { top: 40%; }
+.connector-left-9 { top: 45%; }
+.connector-left-10 { top: 50%; }
+.connector-left-11 { top: 55%; }
+.connector-left-12 { top: 60%; }
+.connector-left-13 { top: 65%; }
+.connector-left-14 { top: 70%; }
+.connector-left-15 { top: 75%; }
+.connector-left-16 { top: 80%; }
+.connector-left-17 { top: 85%; }
+.connector-left-18 { top: 90%; }
+.connector-left-19 { top: 95%; }
+
+/* Top connectors - distributed horizontally */
+.connector-top-1 { left: 5%; }
+.connector-top-2 { left: 10%; }
+.connector-top-3 { left: 15%; }
+.connector-top-4 { left: 20%; }
+.connector-top-5 { left: 25%; }
+.connector-top-6 { left: 30%; }
+.connector-top-7 { left: 35%; }
+.connector-top-8 { left: 40%; }
+.connector-top-9 { left: 45%; }
+.connector-top-10 { left: 50%; }
+.connector-top-11 { left: 55%; }
+.connector-top-12 { left: 60%; }
+.connector-top-13 { left: 65%; }
+.connector-top-14 { left: 70%; }
+.connector-top-15 { left: 75%; }
+.connector-top-16 { left: 80%; }
+.connector-top-17 { left: 85%; }
+.connector-top-18 { left: 90%; }
+.connector-top-19 { left: 95%; }
+
+/* Right connectors - distributed vertically */
+.connector-right-1 { top: 5%; }
+.connector-right-2 { top: 10%; }
+.connector-right-3 { top: 15%; }
+.connector-right-4 { top: 20%; }
+.connector-right-5 { top: 25%; }
+.connector-right-6 { top: 30%; }
+.connector-right-7 { top: 35%; }
+.connector-right-8 { top: 40%; }
+.connector-right-9 { top: 45%; }
+.connector-right-10 { top: 50%; }
+.connector-right-11 { top: 55%; }
+.connector-right-12 { top: 60%; }
+.connector-right-13 { top: 65%; }
+.connector-right-14 { top: 70%; }
+.connector-right-15 { top: 75%; }
+.connector-right-16 { top: 80%; }
+.connector-right-17 { top: 85%; }
+.connector-right-18 { top: 90%; }
+.connector-right-19 { top: 95%; }
+
+/* Bottom connectors - distributed horizontally */
+.connector-bottom-1 { left: 5%; }
+.connector-bottom-2 { left: 10%; }
+.connector-bottom-3 { left: 15%; }
+.connector-bottom-4 { left: 20%; }
+.connector-bottom-5 { left: 25%; }
+.connector-bottom-6 { left: 30%; }
+.connector-bottom-7 { left: 35%; }
+.connector-bottom-8 { left: 40%; }
+.connector-bottom-9 { left: 45%; }
+.connector-bottom-10 { left: 50%; }
+.connector-bottom-11 { left: 55%; }
+.connector-bottom-12 { left: 60%; }
+.connector-bottom-13 { left: 65%; }
+.connector-bottom-14 { left: 70%; }
+.connector-bottom-15 { left: 75%; }
+.connector-bottom-16 { left: 80%; }
+.connector-bottom-17 { left: 85%; }
+.connector-bottom-18 { left: 90%; }
+.connector-bottom-19 { left: 95%; }
+
+/* Context Menu Styles */
+.context-menu {
+    position: fixed;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    min-width: 200px;
+    max-width: 300px;
+    z-index: 10000;
+    display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    user-select: none;
+}
+
+.context-menu-header {
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 6px 6px 0 0;
+}
+
+.connector-info {
+    line-height: 1.4;
+    color: #333;
+}
+
+.connector-info strong {
+    color: #007acc;
+    font-size: 14px;
+}
+
+.connector-info small {
+    color: #666;
+    font-size: 11px;
+    display: block;
+    margin-top: 2px;
+}
+
+.context-menu-divider {
+    height: 1px;
+    background-color: #e9ecef;
+    margin: 0;
+}
+
+.context-menu-actions {
+    padding: 8px 0;
+}
+
+.menu-section {
+    margin-bottom: 8px;
+}
+
+.menu-section:last-child {
+    margin-bottom: 0;
+}
+
+.menu-section-title {
+    padding: 6px 16px 4px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #f1f3f4;
+    margin-bottom: 4px;
+}
+
+.menu-options-container {
+    padding: 0;
+}
+
+.menu-option {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+
+.menu-option:hover {
+    background-color: #f5f5f5;
+}
+
+.menu-option:active {
+    background-color: #e9ecef;
+}
+
+.menu-option.disabled {
+    color: #999;
+    cursor: not-allowed;
+}
+
+.menu-option.disabled:hover {
+    background-color: transparent;
+}
+
+.menu-option-icon {
+    display: inline-block;
+    width: 16px;
+    margin-right: 8px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.menu-option-text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.menu-option-shortcut {
+    float: right;
+    color: #999;
+    font-size: 11px;
+    margin-left: 16px;
+}
+
+/* Sub-menu styles (for future expansion) */
+.menu-option.has-submenu::after {
+    content: '▶';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #666;
+}
+
+/* Animation for context menu */
+.context-menu {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.context-menu[style*="display: block"] {
+    opacity: 1;
+    transform: scale(1);
+}

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Diagram</title>
+    <link rel="stylesheet" href="terminaldiagram.css">
+    <link rel="stylesheet" href="tle7244.css">
+    <script src="terminaldiagram.js"></script>
+</head>
+<body>
+    <div class="select-panel">
+        <h3>Filter Panel</h3>
+        
+        <div class="panel-section">
+            <div class="section-title">Pin Type Classification</div>
+            <div class="pin-type-info">
+                <small>Type 1: SENT/ANALOG/DIGITAL</small><br>
+                <small>Type 2: ANALOG/DIGITAL</small><br>
+                <small>Type 3: DIGITAL only</small>
+            </div>
+        </div>
+        
+        <div class="panel-section">
+            <div class="section-title">Filter by Signal</div>
+            <button class="panel-button" data-filter="sent">SENT</button>
+            <button class="panel-button" data-filter="analog">ANALOG</button>
+            <button class="panel-button" data-filter="digital">DIGITAL</button>
+        </div>
+        
+        <div class="panel-section">
+            <div class="section-title">Output</div>
+            <button class="panel-button" data-filter="dio">DIO</button>
+            <button class="panel-button" data-filter="pwm">PWM</button>
+        </div>
+        
+        <div class="panel-section">
+            <div class="section-title">View</div>
+            <button class="panel-button" id="expand-button">Expand Width</button>
+        </div>
+    </div>
+    
+    <!-- <div class="terminaldiagram"> -->
+    <div class="terminaldiagram expanded">
+        <!-- Architech of Terminal-->
+        <div class="terminal-body" style="display: block;">
+            <div class="tle7244">
+                <div class="tle7244-container-left">
+                    <div class="tle7244-connector left-connector left-connector-1" data-number="1" pin-lable="SO">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-2" data-number="2" pin-lable="SI">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-3" data-number="3" pin-lable="SCLK">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-4" data-number="4" pin-lable="CS">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-5" data-number="5" pin-lable="RST">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-6" data-number="6" pin-lable="LHI">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-7" data-number="7" pin-lable="IN1">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-8" data-number="8" pin-lable="IN2">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-9" data-number="9" pin-lable="IN3">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                    <div class="tle7244-connector left-connector left-connector-10" data-number="10" pin-lable="IN4">
+                        <div class="tle7244-wire tle7244-wire-left"></div>
+                    </div>
+                </div>
+                <div class="tle7244-container-right">
+                    <div class="tle7244-connector right-connector right-connector-1" data-number="80" pin-lable="Output1">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-2" data-number="81" pin-lable="Output2">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-3" data-number="82" pin-lable="Output3">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-4" data-number="83" pin-lable="Output4">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-5" data-number="84" pin-lable="Output5">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-6" data-number="85" pin-lable="Output6">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-7" data-number="86" pin-lable="Output7">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-8" data-number="87" pin-lable="Output8">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Top Connectors -->
+        <div class="connector-top-container">
+            <div class="connector connector-top connector-top-1" data-number="101" pin-lable="T_D_CAN_H">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-2" data-number="102" pin-lable="T_D_CAN_L">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-3" data-number="103" pin-lable="T_V_5V_REF">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-4" data-number="104" pin-lable="T_A_TEMP1">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-5" data-number="105" pin-lable="T_A_TEMP2">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-6" data-number="106" pin-lable="T_D_SPI_CS">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-7" data-number="107" pin-lable="T_D_SPI_CLK">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-8" data-number="108" pin-lable="T_D_SPI_MOSI">
+                <div class="wire wire-top"></div>
+            </div>
+            <div class="connector connector-top connector-top-9" data-number="109" pin-lable="T_D_SPI_MISO">
+                <div class="wire wire-top"></div>
+            </div>
+        </div>
+        
+        <!-- Left Connectors (redistributed) -->
+        <div class="connector-left-container">
+            <div class="connector connector-left connector-left-1" data-number="2" pin-lable="G_G_BAT1">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-2" data-number="4" pin-lable="G_G_BAT2">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-3" data-number="6" pin-lable="G_G_BAT3">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-4" data-number="90" pin-lable="B_D_CANH0">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-5" data-number="68" pin-lable="B_D_CANL0">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-6" data-number="89" pin-lable="B_D_CANH1">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-7" data-number="67" pin-lable="B_D_CANL1">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-8" data-number="88" pin-lable="B_D_CANH2">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-9" data-number="66" pin-lable="B_D_CANL2">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-10" data-number="91" pin-lable="B_D_CANH3">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-11" data-number="69" pin-lable="B_D_CANL3">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-12" data-number="87" pin-lable="B_D_CANH4">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-13" data-number="65" pin-lable="B_D_CANL4">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-14" data-number="92" pin-lable="B_D_LIN1">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-15" data-number="10" pin-lable="B_D_LIN2">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-16" data-number="52" pin-lable="X_X_XX01" pin-type="1">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-17" data-number="60" pin-lable="X_X_XX02" pin-type="1">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-18" data-number="53" pin-lable="X_X_XX03" pin-type="1">
+                <div class="wire wire-left"></div>
+            </div>
+            <div class="connector connector-left connector-left-19" data-number="59" pin-lable="X_X_XX04" pin-type="1">
+                <div class="wire wire-left"></div>
+            </div>
+        </div>
+        
+        <!-- Right Connectors (redistributed) -->
+        <div class="connector-right-container">
+            <div class="connector connector-right connector-right-1" data-number="1" pin-lable="V_V_BAT1">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-2" data-number="3" pin-lable="V_V_BAT2">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-3" data-number="5" pin-lable="V_V_BAT3">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-4" data-number="27" pin-lable="B_D_ETHP">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-5" data-number="28" pin-lable="B_D_ETHM">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-6" data-number="24" pin-lable="I_S_T15">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-7" data-number="10" pin-lable="O_T_FSCOD1">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-8" data-number="86" pin-lable="O_T_FSCOD2">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-9" data-number="09" pin-lable="O_S_RH05">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-10" data-number="80" pin-lable="O_T_RL05">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-11" data-number="81" pin-lable="O_T_RL06">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-12" data-number="82" pin-lable="O_T_RL07">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-13" data-number="83" pin-lable="O_T_RL08">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-14" data-number="84" pin-lable="O_S_RL09">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-15" data-number="85" pin-lable="O_S_RL10">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-16" data-number="86" pin-lable="O_S_RL11">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-17" data-number="87" pin-lable="O_S_RL12">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-18" data-number="25" pin-lable="O_S_LS13">
+                <div class="wire wire-right"></div>
+            </div>
+            <div class="connector connector-right connector-right-19" data-number="29" pin-lable="O_T_RH04">
+                <div class="wire wire-right"></div>
+            </div>
+        </div>
+        
+        <!-- Bottom Connectors -->
+        <div class="connector-bottom-container">
+            <div class="connector connector-bottom connector-bottom-1" data-number="201" pin-lable="B_A_VBAT_SENSE">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-2" data-number="202" pin-lable="B_A_CURR_SENSE">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-3" data-number="203" pin-lable="B_D_WAKE">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-4" data-number="204" pin-lable="B_D_RESET">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-5" data-number="205" pin-lable="B_V_3V3_OUT">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-6" data-number="206" pin-lable="B_G_GND_PWR">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-7" data-number="207" pin-lable="B_G_GND_SIG">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-8" data-number="208" pin-lable="B_V_5V_OUT">
+                <div class="wire wire-bottom"></div>
+            </div>
+            <div class="connector connector-bottom connector-bottom-9" data-number="209" pin-lable="B_D_STATUS">
+                <div class="wire wire-bottom"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

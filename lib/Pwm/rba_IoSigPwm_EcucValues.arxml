@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-2.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>RB</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>UBK</SHORT-NAME>
+          <AR-PACKAGES>
+            <AR-PACKAGE>
+              <SHORT-NAME>Project</SHORT-NAME>
+              <AR-PACKAGES>
+                <AR-PACKAGE>
+                  <SHORT-NAME>EcucModuleConfigurationValuess</SHORT-NAME>
+                  <ELEMENTS>
+                    <ECUC-MODULE-CONFIGURATION-VALUES>
+                      <SHORT-NAME>Pwm</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-MODULE-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm</DEFINITION-REF>
+                      <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>PwmChannelConfigSet</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmChannelConfigSet</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>PwmOptionalApi</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi/PwmDeInitApi</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi/PwmGetOutputStateApi</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi/PwmRbMedc17LegacyApi</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi/PwmSetDutyCycleApi</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi/PwmSetOutputToIdleApi</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi/PwmSetPeriodAndDutyApi</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/AUTOSAR_Pwm/EcucModuleDefs/Pwm/PwmOptionalApi/PwmVersionInfoApi</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </CONTAINERS>
+                    </ECUC-MODULE-CONFIGURATION-VALUES>
+                    <ECUC-MODULE-CONFIGURATION-VALUES>
+                      <SHORT-NAME>rba_Gtm</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-MODULE-DEF">/RB/RBA/rba_Gtm/EcucModuleDefs/rba_Gtm</DEFINITION-REF>
+                      <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>rba_Gtm_Config</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_Gtm/EcucModuleDefs/rba_Gtm/rba_Gtm_Config</DEFINITION-REF>
+                        </ECUC-CONTAINER-VALUE>
+                      </CONTAINERS>
+                    </ECUC-MODULE-CONFIGURATION-VALUES>
+                    <ECUC-MODULE-CONFIGURATION-VALUES>
+                      <SHORT-NAME>rba_IoSigPwm</SHORT-NAME>
+                      <DEFINITION-REF DEST="ECUC-MODULE-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm</DEFINITION-REF>
+                      <CONTAINERS>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>rba_IoSigPwm_General</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_General</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_General/rba_IoSigPwm_DevErrorDetect</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_General/rba_IoSigPwm_RequestHandling</DEFINITION-REF>
+                              <VALUE>Strict</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_General/rba_IoSigPwm_VersionInfoApi</DEFINITION-REF>
+                              <VALUE>false</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>rba_IoSigPwm_ConfigSet</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet</DEFINITION-REF>
+                          <SUB-CONTAINERS>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>CABVlv_O_P</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>Charged_Air_Coolant_Bypass_Valve</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>DUMMY_PWM_01</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ChannelClass</DEFINITION-REF>
+                                  <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ClockBase</DEFINITION-REF>
+                                  <VALUE>PWM_TIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ConnectedTo</DEFINITION-REF>
+                                  <VALUE>NULL_02_01</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitDutyCycle</DEFINITION-REF>
+                                  <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitPeriod</DEFINITION-REF>
+                                  <VALUE>10000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MaxPeriod</DEFINITION-REF>
+                                  <VALUE>10000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MinPeriod</DEFINITION-REF>
+                                  <VALUE>500</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Polarity</DEFINITION-REF>
+                                  <VALUE>PWM_HIGH</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_T_RL06</SHORT-NAME>
+                              <LONG-NAME>
+                                <L-4 L="FOR-ALL">TLE7244 O_T_RL06</L-4>
+                              </LONG-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ClockBase</DEFINITION-REF>
+                                  <VALUE>PWM_TIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_T_RL06</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>O_T_RL06</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ChannelClass</DEFINITION-REF>
+                                  <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitDutyCycle</DEFINITION-REF>
+                                  <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitPeriod</DEFINITION-REF>
+                                  <VALUE>10000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MaxPeriod</DEFINITION-REF>
+                                  <VALUE>1000000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MinPeriod</DEFINITION-REF>
+                                  <VALUE>5000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Polarity</DEFINITION-REF>
+                                  <VALUE>PWM_HIGH</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_02</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_T_RL07</SHORT-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ClockBase</DEFINITION-REF>
+                                  <VALUE>PWM_TIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_T_RL07</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>O_T_RL07</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ChannelClass</DEFINITION-REF>
+                                  <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitDutyCycle</DEFINITION-REF>
+                                  <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitPeriod</DEFINITION-REF>
+                                  <VALUE>10000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MaxPeriod</DEFINITION-REF>
+                                  <VALUE>1000000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MinPeriod</DEFINITION-REF>
+                                  <VALUE>5000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Polarity</DEFINITION-REF>
+                                  <VALUE>PWM_HIGH</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_03</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                            <ECUC-CONTAINER-VALUE>
+                              <SHORT-NAME>O_T_RL08</SHORT-NAME>
+                              <LONG-NAME>
+                                <L-4 L="FOR-ALL" />
+                              </LONG-NAME>
+                              <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal</DEFINITION-REF>
+                              <PARAMETER-VALUES>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Calibratable</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ClockBase</DEFINITION-REF>
+                                  <VALUE>PWM_TIME</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitStrategy</DEFINITION-REF>
+                                  <VALUE>AnyReset</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_OutProtectStrategy</DEFINITION-REF>
+                                  <VALUE>SwitchOff</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_0CustSpecName</DEFINITION-REF>
+                                  <VALUE>O_T_RL08</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_CalibAlterText</DEFINITION-REF>
+                                  <VALUE>O_T_RL08</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ChannelClass</DEFINITION-REF>
+                                  <VALUE>PWM_VARIABLE_PERIOD</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitDutyCycle</DEFINITION-REF>
+                                  <VALUE>0</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_InitPeriod</DEFINITION-REF>
+                                  <VALUE>10000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MaxPeriod</DEFINITION-REF>
+                                  <VALUE>1000000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_MinPeriod</DEFINITION-REF>
+                                  <VALUE>5000</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-NUMERICAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_OutDiagCurrent</DEFINITION-REF>
+                                  <VALUE>true</VALUE>
+                                </ECUC-NUMERICAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_Polarity</DEFINITION-REF>
+                                  <VALUE>PWM_HIGH</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                                <ECUC-TEXTUAL-PARAM-VALUE>
+                                  <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_ConfigSet/rba_IoSigPwm_Signal/rba_IoSigPwm_ConnectedTo</DEFINITION-REF>
+                                  <VALUE>TLE7244_01_04</VALUE>
+                                </ECUC-TEXTUAL-PARAM-VALUE>
+                              </PARAMETER-VALUES>
+                            </ECUC-CONTAINER-VALUE>
+                          </SUB-CONTAINERS>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>O_T_RL06</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_SignalRequest/rba_IoSigPwm_Calibratable</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>O_T_RL07</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_SignalRequest/rba_IoSigPwm_Calibratable</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>O_T_RL08</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigPwm/EcucModuleDefs/rba_IoSigPwm/rba_IoSigPwm_SignalRequest/rba_IoSigPwm_Calibratable</DEFINITION-REF>
+                              <VALUE>true</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>
+                      </CONTAINERS>
+                    </ECUC-MODULE-CONFIGURATION-VALUES>
+                  </ELEMENTS>
+                </AR-PACKAGE>
+              </AR-PACKAGES>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
+

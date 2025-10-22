@@ -1,0 +1,34 @@
+                        <ECUC-CONTAINER-VALUE>
+                          <SHORT-NAME>{{SIGNAL_NAME}}</SHORT-NAME>
+                          <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
+                          <PARAMETER-VALUES>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1Direction</DEFINITION-REF>
+                              <VALUE>{{DIRECTION}}</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_1DirectionChangeable</DEFINITION-REF>
+                              <VALUE>{{DIRECTION_CHANGEABLE}}</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_Calibratable</DEFINITION-REF>
+                              <VALUE>{{CALIBRATABLE}}</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_Diag</DEFINITION-REF>
+                              <VALUE>{{OUT_DIAG_CURRENT}}</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_InitState</DEFINITION-REF>
+                              <VALUE>{{INIT_STATE}}</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_InitStrategy</DEFINITION-REF>
+                              <VALUE>{{INIT_STRATEGY}}</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                            <ECUC-TEXTUAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest/rba_IoSigDio_OutProtectStrategy</DEFINITION-REF>
+                              <VALUE>{{OUT_PROTECT_STRATEGY_PARAM}}</VALUE>
+                            </ECUC-TEXTUAL-PARAM-VALUE>
+                          </PARAMETER-VALUES>
+                        </ECUC-CONTAINER-VALUE>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIO Configuration - TLE7244</title>
+    <link rel="stylesheet" href="dio.css">
+    <!-- <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tle7244.css"> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>DIO Configuration</h1>
+            <div class="nav-links">
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="config-section">
+            <h2>Digital I/O Configuration for TLE7244</h2>
+            <p>Configure digital input/output settings for the selected pin.</p>
+            
+            <!-- DIO Configuration Form -->
+            <div class="config-form" id="dioConfigForm">
+                <!-- Tab Navigation -->
+                <div class="tab-navigation">
+                    <button type="button" class="tab-button active" data-tab="basic">Basic Configuration</button>
+                    <button type="button" class="tab-button" data-tab="advanced">Advanced Configuration</button>
+                </div>
+                
+                <!-- Basic Tab Content -->
+                <div class="tab-content active" id="basic-tab">
+                    <div class="form-grid">
+                        <div class="form-column">
+
+                            <div class="form-group">
+                                <label for="dio-custSpecName">Customer Specific Name (Short Name):</label>
+                                <input type="text" id="dio-custSpecName" name="custSpecName" 
+                                    placeholder="Custom signal name">
+                                <small>Customer-specific name for documentation</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dio-direction">Direction *:</label>
+                                <select id="dio-direction" name="direction" required>
+                                    <option value="Output" selected>Output</option>
+                                    <option value="Input">Input</option>
+                                </select>
+                                <small>Signal direction (Input/Output)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dio-connectedTo">Connected To *:</label>
+                                <input type="text" id="dio-connectedTo" name="connectedTo" 
+                                    placeholder="DevType_DevOrPortIdx_Pin" 
+                                    pattern="^[A-Z][A-Za-z0-9]*?_.*"
+                                    title="Format: DevType_DevOrPortIdx_Pin" required>
+                                <small>Device and pin connection specification</small>
+                            </div> 
+                            
+                        </div>
+                    </div>
+                
+                <!-- Advanced Tab Content -->
+                <div class="tab-content" id="advanced-tab">
+                    <div class="form-grid">
+                        <!-- Column 1 - Signal Control -->
+                        <div class="form-column">
+                            <div class="collapsible-header" data-target="signal-control">
+                                <h4>Signal Control <span class="toggle-icon">▼</span></h4>
+                            </div>
+                            <div class="collapsible-content collapsed" id="signal-control">
+                                <div class="form-group">
+                                    <label for="dio-directionChangeable">Direction Changeable:</label>
+                                    <select id="dio-directionChangeable" name="directionChangeable">
+                                        <option value="false" selected>False</option>
+                                        <option value="true">True</option>
+                                    </select>
+                                    <small>Enable runtime direction change</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="dio-invert">Signal Inversion:</label>
+                                    <select id="dio-invert" name="invert">
+                                        <option value="false" selected>False</option>
+                                        <option value="true">True</option>
+                                    </select>
+                                    <small>Invert signal polarity (negative logic)</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Column 2 - Calibration -->
+                        <div class="form-column">
+                            <div class="collapsible-header" data-target="calibration-settings">
+                                <h4>Calibration Settings <span class="toggle-icon">▼</span></h4>
+                            </div>
+                            <div class="collapsible-content collapsed" id="calibration-settings">
+                                <div class="form-group">
+                                    <label for="dio-calibAlterText">Calibration Alternate Text:</label>
+                                    <input type="text" id="dio-calibAlterText" name="calibAlterText" 
+                                           maxlength="32" placeholder="A2L alternate text">
+                                    <small>Alternate text for A2L file (1-32 chars)</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="dio-calibratable">Calibration Routing Support:</label>
+                                    <select id="dio-calibratable" name="calibratable">
+                                        <option value="false" selected>False</option>
+                                        <option value="true">True</option>
+                                    </select>
+                                    <small>Enable HW signal routing calibration</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="dio-calibratableInvert">Calibration Inversion Support:</label>
+                                    <select id="dio-calibratableInvert" name="calibratableInvert">
+                                        <option value="false" selected>False</option>
+                                        <option value="true">True</option>
+                                    </select>
+                                    <small>Enable signal inversion calibration</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Column 3 - Initialization -->
+                        <div class="form-column">
+                            <div class="collapsible-header" data-target="initialization-settings">
+                                <h4>Initialization Settings <span class="toggle-icon">▼</span></h4>
+                            </div>
+                            <div class="collapsible-content collapsed" id="initialization-settings">
+                                <div class="form-group">
+                                    <label for="dio-initState">Initial State:</label>
+                                    <select id="dio-initState" name="initState">
+                                        <option value="Idle" selected>Idle</option>
+                                        <option value="Active">Active</option>
+                                    </select>
+                                    <small>Signal state after initialization</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="dio-initStrategy">Initialization Strategy:</label>
+                                    <select id="dio-initStrategy" name="initStrategy">
+                                        <option value="AnyReset" selected>Any Reset</option>
+                                        <option value="PwrOnReset">Power-On Reset</option>
+                                    </select>
+                                    <small>When to re-initialize signal</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Column 4 - Diagnostic & Protection -->
+                        <div class="form-column">
+                            <div class="collapsible-header" data-target="diagnostic-protection">
+                                <h4>Diagnostic & Protection <span class="toggle-icon">▼</span></h4>
+                            </div>
+                            <div class="collapsible-content collapsed" id="diagnostic-protection">
+                                <div class="form-group">
+                                    <label for="dio-outDiagCurrent">Output Diagnostic Current:</label>
+                                    <select id="dio-outDiagCurrent" name="outDiagCurrent">
+                                        <option value="true" selected>Enabled</option>
+                                        <option value="false">Disabled</option>
+                                    </select>
+                                    <small>Enable diagnostic current for power stages</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="dio-outProtectStrategy">Output Protection Strategy:</label>
+                                    <select id="dio-outProtectStrategy" name="outProtectStrategy">
+                                        <option value="">Not Specified</option>
+                                        <option value="SwitchOff" selected>Switch-Off</option>
+                                        <option value="CurrentLimit">Current Limitation</option>
+                                        <option value="NoProtect">No Protection</option>
+                                    </select>
+                                    <small>Overload protection behavior</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons Row -->
+                <div class="button-row">
+                    <button type="button" id="dio-saveConfig" class="btn btn-primary">💾 Save Configuration</button>
+                    <button type="button" id="dio-loadConfig" class="btn btn-secondary">📁 Load Default</button>
+                    <button type="button" id="dio-validateConfig" class="btn btn-info">✓ Validate</button>
+                    <button type="button" id="dio-exportConfig" class="btn btn-success">📤 Export AUTOSAR</button>
+                    <button type="button" id="dio-clearConfig" class="btn btn-warning">🗑️ Clear</button>
+                </div>
+            </div>
+            
+            <!-- Pin Information Display -->
+            <div class="pin-info-display" id="pinInfoDisplay">
+                <h3>Pin Information</h3>
+                <div id="selectedPinInfo">
+                    <p>Please select a pin from the main interface to configure.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 TLE7244 Configuration Tool</p>
+    </footer>
+    
+    <!-- Scripts -->
+    <!-- <script src="src/function/bsw_function.js"></script> -->
+    <script src="dio.js"></script>
+    <script src="../bsw_function.js"></script>
+    <script>
+        // DIO Configuration specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DIO Configuration page loaded');
+            
+            // Get pin number from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const pinNumber = urlParams.get('pin');
+            
+            if (pinNumber) {
+                // Load configuration for specific pin
+                loadDIOConfigForPin(pinNumber);
+            }
+            
+            // Setup form event listeners
+            setupDIOFormListeners();
+            
+            // Setup tab functionality
+            setupTabFunctionality();
+        });
+        
+        function setupTabFunctionality() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and content
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab + '-tab').classList.add('active');
+                });
+            });
+            
+            // Setup collapsible sections
+            setupCollapsibleSections();
+        }
+        
+        function setupCollapsibleSections() {
+            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+            
+            collapsibleHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+                    const icon = this.querySelector('.toggle-icon');
+                    
+                    // Toggle classes
+                    this.classList.toggle('expanded');
+                    content.classList.toggle('collapsed');
+                    content.classList.toggle('expanded');
+                });
+            });
+        }
+        
+        function loadDIOConfigForPin(pinNumber) {
+            // Update pin info display
+            document.getElementById('selectedPinInfo').innerHTML = `
+                <h4>Configuring Pin ${pinNumber}</h4>
+                <p>Digital I/O configuration for TLE7244 Pin ${pinNumber}</p>
+            `;
+            
+            // Load saved configuration if exists
+            const savedConfig = localStorage.getItem(`tle7244_dio_pin_${pinNumber}`);
+            if (savedConfig) {
+                const config = JSON.parse(savedConfig);
+                populateDIOForm(config);
+            }
+        }
+        
+        function setupDIOFormListeners() {
+            // Save button
+            document.getElementById('dio-saveConfig').addEventListener('click', saveDIOConfiguration);
+            
+            // Load default button
+            document.getElementById('dio-loadConfig').addEventListener('click', loadDefaultDIOConfiguration);
+            
+            // Validate button
+            document.getElementById('dio-validateConfig').addEventListener('click', validateDIOConfiguration);
+            
+            // Export button
+            document.getElementById('dio-exportConfig').addEventListener('click', exportDIOConfiguration);
+            
+            // Clear button
+            document.getElementById('dio-clearConfig').addEventListener('click', clearDIOConfiguration);
+        }
+        
+        function saveDIOConfiguration() {
+            const config = collectDIOFormData();
+            const urlParams = new URLSearchParams(window.location.search);
+            const pinNumber = urlParams.get('pin');
+            
+            if (pinNumber && config) {
+                localStorage.setItem(`tle7244_dio_pin_${pinNumber}`, JSON.stringify(config));
+                alert('DIO configuration saved successfully!');
+            }
+        }
+        
+        function loadDefaultDIOConfiguration() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const pinNumber = urlParams.get('pin') || '3';
+            
+            const defaultConfig = {
+                connectedTo: `TLE7244_01_0${pinNumber}`,
+                direction: 'Output',
+                custSpecName: `DIO_Pin_${pinNumber}`,
+                directionChangeable: 'false',
+                invert: 'false',
+                calibAlterText: `Pin${pinNumber}_DIO`,
+                calibratable: 'false',
+                calibratableInvert: 'false',
+                initState: 'Idle',
+                initStrategy: 'AnyReset',
+                outDiagCurrent: 'true',
+                outProtectStrategy: 'SwitchOff'
+            };
+            
+            populateDIOForm(defaultConfig);
+        }
+        
+        function validateDIOConfiguration() {
+            const config = collectDIOFormData();
+            
+            // Basic validation
+            if (!config.connectedTo) {
+                alert('Connected To field is required');
+                return false;
+            }
+            
+            if (!config.direction) {
+                alert('Direction field is required');
+                return false;
+            }
+            
+            alert('DIO configuration is valid!');
+            return true;
+        }
+        
+        function exportDIOConfiguration() {
+            if (!validateDIOConfiguration()) return;
+            
+            const config = collectDIOFormData();
+            const urlParams = new URLSearchParams(window.location.search);
+            const pinNumber = urlParams.get('pin') || '3';
+            
+            // Add pin number to config
+            config.pinNumber = pinNumber;
+            
+            // Generate AUTOSAR XML for DIO using the template-based function
+            const autosarXml = exportDIOToAutosar(config);
+            
+            // Download file
+            const blob = new Blob([autosarXml], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `TLE7244_DIO_Pin${pinNumber}_Config.arxml`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function clearDIOConfiguration() {
+            if (confirm('Are you sure you want to clear the configuration?')) {
+                // Clear all form fields manually
+                document.getElementById('dio-connectedTo').value = '';
+                document.getElementById('dio-direction').value = 'Output';
+                document.getElementById('dio-custSpecName').value = '';
+                document.getElementById('dio-directionChangeable').value = 'false';
+                document.getElementById('dio-invert').value = 'false';
+                document.getElementById('dio-calibAlterText').value = '';
+                document.getElementById('dio-calibratable').value = 'false';
+                document.getElementById('dio-calibratableInvert').value = 'false';
+                document.getElementById('dio-initState').value = 'Idle';
+                document.getElementById('dio-initStrategy').value = 'AnyReset';
+                document.getElementById('dio-outDiagCurrent').value = 'true';
+                document.getElementById('dio-outProtectStrategy').value = 'SwitchOff';
+                
+                const urlParams = new URLSearchParams(window.location.search);
+                const pinNumber = urlParams.get('pin');
+                if (pinNumber) {
+                    localStorage.removeItem(`tle7244_dio_pin_${pinNumber}`);
+                }
+            }
+        }
+        
+        function collectDIOFormData() {
+            const config = {};
+            
+            // Basic Configuration
+            config.connectedTo = document.getElementById('dio-connectedTo')?.value || '';
+            config.direction = document.getElementById('dio-direction')?.value || '';
+            config.custSpecName = document.getElementById('dio-custSpecName')?.value || '';
+            
+            // Direction & Signal Control
+            config.directionChangeable = document.getElementById('dio-directionChangeable')?.value || '';
+            config.invert = document.getElementById('dio-invert')?.value || '';
+            config.calibAlterText = document.getElementById('dio-calibAlterText')?.value || '';
+            
+            // Calibration & Initialization
+            config.calibratable = document.getElementById('dio-calibratable')?.value || '';
+            config.calibratableInvert = document.getElementById('dio-calibratableInvert')?.value || '';
+            config.initState = document.getElementById('dio-initState')?.value || '';
+            
+            // Advanced Settings
+            config.initStrategy = document.getElementById('dio-initStrategy')?.value || '';
+            config.outDiagCurrent = document.getElementById('dio-outDiagCurrent')?.value || '';
+            config.outProtectStrategy = document.getElementById('dio-outProtectStrategy')?.value || '';
+            
+            return config;
+        }
+        
+        function populateDIOForm(config) {
+            Object.keys(config).forEach(key => {
+                const element = document.getElementById(`dio-${key}`);
+                if (element) {
+                    element.value = config[key];
+                }
+            });
+        }
+        
+
+    </script>
+</body>
+</html>
