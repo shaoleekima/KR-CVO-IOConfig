@@ -1,13 +1,29 @@
-# DIO Configuration Generator
+# TLE7244 Terminal Diagram Project
 
-A web-based tool for generating AUTOSAR DIO signal configuration files using customizable templates.
+An interactive terminal diagram visualization tool for the TLE7244 chip with integrated DIO configuration capabilities.
 
 ## Features
 
-- ✅ Interactive form for DIO signal configuration
-- ✅ Real-time validation with error and warning messages
-- ✅ Template-based ARXML generation
-- ✅ Uses external template files for flexibility
+### 🔌 Interactive Terminal Diagram
+- **Square layout** with connectors on all 4 sides (Top, Right, Bottom, Left)
+- **Right-click context menus** for each connector
+- **Filter system** for different signal types (SENT, Analog, Digital, DIO, PWM)
+- **Visual feedback** with hover effects and selection highlighting
+- **Expandable view** with detailed terminal body visualization
+
+### ⚙️ DIO Configuration Tool
+- **Tabbed interface** with Basic and Advanced configuration sections
+- **Template-based AUTOSAR XML export** for professional automotive standards
+- **Real-time validation** and form data collection
+- **Collapsible sections** for better UX organization
+- **Local storage** for configuration persistence
+
+### 🎨 Modern UI/UX
+- **Responsive design** that adapts to different screen sizes
+- **Professional styling** with CSS3 transitions and effects
+- **Context-sensitive menus** with smart positioning
+- **Filter panel** with pin type classification
+- **Information display** with comprehensive connector details
 - ✅ Object-oriented JavaScript architecture
 - ✅ Responsive design for desktop and mobile
 - ✅ Professional UI/UX with modern styling
