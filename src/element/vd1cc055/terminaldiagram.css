@@ -16,15 +16,15 @@ body {
 .select-panel {
     position: fixed;
     left: 20px;
-    top: 20px;
-    width: 250px;
-    background-color: rgba(255, 255, 255, 0.95);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    background-color: transparent;
     border: 2px solid #333;
     border-radius: 8px;
     padding: 20px;
     font-family: Arial, sans-serif;
     z-index: 1000;
-    backdrop-filter: blur(10px);
 }
 
 .select-panel h3 {
@@ -98,29 +98,28 @@ body {
 }
 
 .terminaldiagram {
-    width: 800px;
-    height: 800px;
+    width: 240px;
+    height: 1600px;
     background-color: #ffffff;
     border: 1px solid #000;
     position: relative;
-    transition: all 0.3s ease;
+    transition: width 0.3s ease;
 }
 
 .terminaldiagram.expanded {
-    width: 1200px;
-    height: 1200px;
+    width: 800px;
 }
 
 /* body of terminal*/
 .terminal-body {
-    margin: 50px;
-    width: calc(100% - 100px);
-    height: calc(100% - 100px);
+    margin: 5px 25px 5px 25px;
+    height: 1580px;
+    /* background-color: #00ff40; */
     border: 2px solid #333;
     border-radius: 8px;
-    padding: 30px;
+    padding: 20px 30px;
     transition: all 0.3s ease;
-    pointer-events: auto;
+    pointer-events: auto; /* Re-enable pointer events for the terminal body */
 }
 
 .expansion-content {
@@ -205,26 +204,6 @@ body {
     width: 100px;
     left: 100%;
     transition: width 0.3s ease;
-}
-
-/* Wire cho connector bên trên - nối từ connector ra bên trên */
-.wire-top {
-    height: 100px;
-    width: 2px;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: height 0.3s ease;
-}
-
-/* Wire cho connector bên dưới - nối từ connector ra bên dưới */
-.wire-bottom {
-    height: 100px;
-    width: 2px;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: height 0.3s ease;
 }
 
 /* Điểm nối tròn đen */
@@ -345,65 +324,11 @@ body {
     z-index: 1;
 }
 
-/* Labels for top connectors */
-.connector-top::before {
-    content: attr(pin-lable);
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 10px;
-    font-family: Arial, sans-serif;
-    color: #000;
-    white-space: nowrap;
-    z-index: 1;
-}
-
-.connector-top::after {
-    content: "K" attr(data-number);
-    position: absolute;
-    left: 50%;
-    top: 12px;
-    transform: translateX(-50%);
-    font-size: 10px;
-    font-family: Arial, sans-serif;
-    color: #000;
-    white-space: nowrap;
-    z-index: 1;
-}
-
-/* Labels for bottom connectors */
-.connector-bottom::before {
-    content: attr(pin-lable);
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 10px;
-    font-family: Arial, sans-serif;
-    color: #000;
-    white-space: nowrap;
-    z-index: 1;
-}
-
-.connector-bottom::after {
-    content: "K" attr(data-number);
-    position: absolute;
-    left: 50%;
-    bottom: 12px;
-    transform: translateX(-50%);
-    font-size: 10px;
-    font-family: Arial, sans-serif;
-    color: #000;
-    white-space: nowrap;
-    z-index: 1;
-}
-
 .connector-left-container {
     position: absolute;
     left: -5px;
-    top: 50px;
-    height: calc(100% - 100px);
+    top: 0;
+    height: 100%;
     width: 10px;
 }
 
@@ -415,8 +340,8 @@ body {
 .connector-right-container {
     position: absolute;
     right: -5px;
-    top: 50px;
-    height: calc(100% - 100px);
+    top: 0;
+    height: 100%;
     width: 10px;
 }
 
@@ -425,116 +350,119 @@ body {
     transform: translateY(-50%);
 }
 
-/* New containers for top and bottom */
-.connector-top-container {
-    position: absolute;
-    top: -5px;
-    left: 50px;
-    width: calc(100% - 100px);
-    height: 10px;
-}
+/* 64 Connector bên trái - cách đều nhau */
+.connector-left-1 { top: 1%; }
+.connector-left-2 { top: 3%; }
+.connector-left-3 { top: 5%; }
+/* Communication */
+.connector-left-4 { top: 7%; }
+.connector-left-5 { top: 8.5%; }
+.connector-left-6 { top: 10%; }
+.connector-left-7 { top: 11.5%; }
+.connector-left-8 { top: 13%; }
+.connector-left-9 { top: 14.5%; }
+.connector-left-10 { top: 16%; }
+.connector-left-11 { top: 17.5%; }
+.connector-left-12 { top: 19%; }
+.connector-left-13 { top: 20.5%; }
+.connector-left-14 { top: 22%; }
+.connector-left-15 { top: 23.5%; }
+/* Input */
+.connector-left-16 { top: 25.5%; }
+.connector-left-17 { top: 27%; }
+.connector-left-18 { top: 28.5%; }
+.connector-left-19 { top: 30%; }
+.connector-left-20 { top: 31.5%; }
+.connector-left-21 { top: 33%; }
+.connector-left-22 { top: 34.5%; }
+.connector-left-23 { top: 36%; }
+.connector-left-24 { top: 37.5%; }
+.connector-left-25 { top: 39%; }
+.connector-left-26 { top: 40.5%; }
+.connector-left-27 { top: 42%; }
+.connector-left-28 { top: 43.5%; }
+.connector-left-29 { top: 45%; }
+.connector-left-30 { top: 46.5%; }
+.connector-left-31 { top: 48%; }
+.connector-left-32 { top: 49.5%; }
+.connector-left-33 { top: 51%; }
+.connector-left-34 { top: 52.5%; }
+.connector-left-35 { top: 54%; }
+.connector-left-36 { top: 55.5%; }
+.connector-left-37 { top: 57%; }
+.connector-left-38 { top: 58.5%; }
+.connector-left-39 { top: 60%; }
+.connector-left-40 { top: 61.5%; }
+.connector-left-41 { top: 63%; }
+.connector-left-42 { top: 64.5%; }
+.connector-left-43 { top: 66%; }
+.connector-left-44 { top: 67.5%; }
+.connector-left-45 { top: 69%; }
+.connector-left-46 { top: 70.5%; }
+.connector-left-47 { top: 72%; }
+.connector-left-48 { top: 73.5%; }
+.connector-left-49 { top: 75%; }
+.connector-left-50 { top: 76.5%; }
+.connector-left-51 { top: 78%; }
 
-.connector-top {
-    position: absolute;
-    transform: translateX(-50%);
-}
+.connector-left-52 { top: 80%; }
+.connector-left-53 { top: 81.5%; }
+.connector-left-54 { top: 83%; }
+.connector-left-55 { top: 84.5%; }
+.connector-left-56 { top: 86%; }
+.connector-left-57 { top: 87.5%; }
+.connector-left-58 { top: 89%; }
+.connector-left-59 { top: 90.5%; }
+.connector-left-60 { top: 92%; }
+.connector-left-61 { top: 93.5%; }
+.connector-left-62 { top: 95%; }
+.connector-left-63 { top: 96.5%; }
+.connector-left-64 { top: 98%; }
 
-.connector-bottom-container {
-    position: absolute;
-    bottom: -5px;
-    left: 50px;
-    width: calc(100% - 100px);
-    height: 10px;
-}
+/* 32 Connector bên phải - cách đều nhau */
+.connector-right-1 { top: 1%; }
+.connector-right-2 { top: 4%; }
+.connector-right-3 { top: 7%; }
+/*Ethernet*/
+.connector-right-4 { top: 10%; }
+.connector-right-5 { top: 12%; }
+/*T15*/
+.connector-right-6 { top: 15%; }
+/**/
+.connector-right-7 { top: 20%; }
+.connector-right-8 { top: 22%; }
+/*Output Tle7244*/
+.connector-right-9 { top: 27%; }
+.connector-right-10 { top: 29%; }
+.connector-right-11 { top: 31%; }
+.connector-right-12 { top: 33%; }
+.connector-right-13 { top: 35%; }
+.connector-right-14 { top: 37%; }
+.connector-right-15 { top: 39%; }
+.connector-right-16 { top: 41%; }
+.connector-right-17 { top: 43%; }
+/**/
+.connector-right-18 { top: 48%; }
+.connector-right-19 { top: 50%; }
 
-.connector-bottom {
-    position: absolute;
-    transform: translateX(-50%);
-}
+.connector-right-20 { top: 55%; }
+.connector-right-21 { top: 57%; }
+.connector-right-22 { top: 59%; }
 
-/* 64 Connector bên trái - distributed in square layout */
-.connector-left-1 { top: 5%; }
-.connector-left-2 { top: 10%; }
-.connector-left-3 { top: 15%; }
-.connector-left-4 { top: 20%; }
-.connector-left-5 { top: 25%; }
-.connector-left-6 { top: 30%; }
-.connector-left-7 { top: 35%; }
-.connector-left-8 { top: 40%; }
-.connector-left-9 { top: 45%; }
-.connector-left-10 { top: 50%; }
-.connector-left-11 { top: 55%; }
-.connector-left-12 { top: 60%; }
-.connector-left-13 { top: 65%; }
-.connector-left-14 { top: 70%; }
-.connector-left-15 { top: 75%; }
-.connector-left-16 { top: 80%; }
-.connector-left-17 { top: 85%; }
-.connector-left-18 { top: 90%; }
-.connector-left-19 { top: 95%; }
+.connector-right-23 { top: 64%; }
+.connector-right-24 { top: 66%; }
 
-/* Top connectors - distributed horizontally */
-.connector-top-1 { left: 5%; }
-.connector-top-2 { left: 10%; }
-.connector-top-3 { left: 15%; }
-.connector-top-4 { left: 20%; }
-.connector-top-5 { left: 25%; }
-.connector-top-6 { left: 30%; }
-.connector-top-7 { left: 35%; }
-.connector-top-8 { left: 40%; }
-.connector-top-9 { left: 45%; }
-.connector-top-10 { left: 50%; }
-.connector-top-11 { left: 55%; }
-.connector-top-12 { left: 60%; }
-.connector-top-13 { left: 65%; }
-.connector-top-14 { left: 70%; }
-.connector-top-15 { left: 75%; }
-.connector-top-16 { left: 80%; }
-.connector-top-17 { left: 85%; }
-.connector-top-18 { left: 90%; }
-.connector-top-19 { left: 95%; }
+.connector-right-25 { top: 71%; }
+.connector-right-26 { top: 73%; }
 
-/* Right connectors - distributed vertically */
-.connector-right-1 { top: 5%; }
-.connector-right-2 { top: 10%; }
-.connector-right-3 { top: 15%; }
-.connector-right-4 { top: 20%; }
-.connector-right-5 { top: 25%; }
-.connector-right-6 { top: 30%; }
-.connector-right-7 { top: 35%; }
-.connector-right-8 { top: 40%; }
-.connector-right-9 { top: 45%; }
-.connector-right-10 { top: 50%; }
-.connector-right-11 { top: 55%; }
-.connector-right-12 { top: 60%; }
-.connector-right-13 { top: 65%; }
-.connector-right-14 { top: 70%; }
-.connector-right-15 { top: 75%; }
-.connector-right-16 { top: 80%; }
-.connector-right-17 { top: 85%; }
-.connector-right-18 { top: 90%; }
-.connector-right-19 { top: 95%; }
+.connector-right-27 { top: 78%; }
+.connector-right-28 { top: 80%; }
 
-/* Bottom connectors - distributed horizontally */
-.connector-bottom-1 { left: 5%; }
-.connector-bottom-2 { left: 10%; }
-.connector-bottom-3 { left: 15%; }
-.connector-bottom-4 { left: 20%; }
-.connector-bottom-5 { left: 25%; }
-.connector-bottom-6 { left: 30%; }
-.connector-bottom-7 { left: 35%; }
-.connector-bottom-8 { left: 40%; }
-.connector-bottom-9 { left: 45%; }
-.connector-bottom-10 { left: 50%; }
-.connector-bottom-11 { left: 55%; }
-.connector-bottom-12 { left: 60%; }
-.connector-bottom-13 { left: 65%; }
-.connector-bottom-14 { left: 70%; }
-.connector-bottom-15 { left: 75%; }
-.connector-bottom-16 { left: 80%; }
-.connector-bottom-17 { left: 85%; }
-.connector-bottom-18 { left: 90%; }
-.connector-bottom-19 { left: 95%; }
+.connector-right-29 { top: 85%; }
+.connector-right-30 { top: 87%; }
+
+.connector-right-31 { top: 93%; }
+.connector-right-32 { top: 96%; }
 
 /* Context Menu Styles */
 .context-menu {

@@ -80,14 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const pinNumber = connector.getAttribute('data-number');
                     const pinLabel = connector.getAttribute('pin-lable') || 'No label';
                     const pinType = connector.getAttribute('pin-type') || 'N/A';
-                    
-                    // Determine connector side/position
-                    let side = 'U';
-                    if (connector.classList.contains('connector-left')) side = 'L';
-                    else if (connector.classList.contains('connector-right')) side = 'R';
-                    else if (connector.classList.contains('connector-top')) side = 'T';
-                    else if (connector.classList.contains('connector-bottom')) side = 'B';
-                    
+                    const side = connector.classList.contains('connector-left') ? 'L' : 'R';
                     pinMappingContent += `${side}${pinNumber}: ${pinLabel} (Type ${pinType})<br>`;
                 });
                 pinMapping.innerHTML = pinMappingContent;
@@ -289,14 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const pinNumber = connector.getAttribute('data-number');
         const pinLabel = connector.getAttribute('pin-lable') || 'No label';
         const pinType = connector.getAttribute('pin-type') || 'N/A';
-        
-        // Determine connector side/position
-        let side = 'Unknown';
-        if (connector.classList.contains('connector-left')) side = 'Left';
-        else if (connector.classList.contains('connector-right')) side = 'Right';
-        else if (connector.classList.contains('connector-top')) side = 'Top';
-        else if (connector.classList.contains('connector-bottom')) side = 'Bottom';
-        
+        const side = connector.classList.contains('connector-left') ? 'Left' : 'Right';
         const isSelected = connector.classList.contains('selected');
         
         // Create menu content (empty container structure for now)
@@ -475,16 +461,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h4 style="margin: 0 0 10px 0; color: #007acc;">Selected Connectors (${selectedConnectors.length})</h4>
             `;
             
-                selectedConnectors.forEach((connector, index) => {
-                    const pinNumber = connector.getAttribute('data-number');
-                    const pinLabel = connector.getAttribute('pin-lable') || 'No label';
-                    
-                    // Determine connector side/position
-                    let side = 'Unknown';
-                    if (connector.classList.contains('connector-left')) side = 'Left';
-                    else if (connector.classList.contains('connector-right')) side = 'Right';
-                    else if (connector.classList.contains('connector-top')) side = 'Top';
-                    else if (connector.classList.contains('connector-bottom')) side = 'Bottom';                infoHTML += `
+            selectedConnectors.forEach((connector, index) => {
+                const pinNumber = connector.getAttribute('data-number');
+                const pinLabel = connector.getAttribute('pin-lable') || 'No label';
+                const side = connector.classList.contains('connector-left') ? 'Left' : 'Right';
+                
+                infoHTML += `
                     <div style="margin: 5px 0; padding: 5px; background: rgba(255, 255, 255, 0.1); border-radius: 4px;">
                         <strong>${side} Pin ${pinNumber}</strong><br>
                         <span style="font-size: 10px;">${pinLabel}</span>
@@ -537,29 +519,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Global function to select connectors by side
     window.selectConnectorsBySide = function(side) {
         clearSelection();
-        let className = '';
-        switch(side.toLowerCase()) {
-            case 'left':
-                className = 'connector-left';
-                break;
-            case 'right':
-                className = 'connector-right';
-                break;
-            case 'top':
-                className = 'connector-top';
-                break;
-            case 'bottom':
-                className = 'connector-bottom';
-                break;
-        }
-        
-        if (className) {
-            connectors.forEach(connector => {
-                if (connector.classList.contains(className)) {
-                    toggleConnectorSelection(connector);
-                }
-            });
-        }
+        const className = side === 'left' ? 'connector-left' : 'connector-right';
+        connectors.forEach(connector => {
+            if (connector.classList.contains(className)) {
+                toggleConnectorSelection(connector);
+            }
+        });
     };
     
     // Add keyboard shortcuts
@@ -597,7 +562,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Terminal Diagram Interactive Functions:');
     console.log('- clearSelection(): Clear all selected connectors');
     console.log('- selectConnectorsByLabel(pattern): Select connectors by label pattern');
-    console.log('- selectConnectorsBySide("left"|"right"|"top"|"bottom"): Select all connectors on specified side');
+    console.log('- selectConnectorsBySide("left"|"right"): Select all connectors on one side');
     console.log('- toggleExpansion(): Toggle diagram width expansion');
     console.log('- Keyboard shortcuts: Escape (clear), Ctrl+A (select all)');
 });
