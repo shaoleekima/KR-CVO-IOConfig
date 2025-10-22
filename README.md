@@ -1,6 +1,6 @@
-# TLE7244 Terminal Diagram Project
+# KR-CVO-IOConfig (TLE7244 Terminal Diagram Project)
 
-An interactive terminal diagram visualization tool for the TLE7244 chip with integrated DIO configuration capabilities.
+An interactive terminal diagram visualization tool for the TLE7244 chip with integrated DIO configuration capabilities and AUTOSAR XML generation.
 
 ## Features
 
@@ -17,6 +17,9 @@ An interactive terminal diagram visualization tool for the TLE7244 chip with int
 - **Real-time validation** and form data collection
 - **Collapsible sections** for better UX organization
 - **Local storage** for configuration persistence
+- **Object-oriented JavaScript architecture**
+- **Responsive design** for desktop and mobile
+- **Professional UI/UX** with modern styling
 
 ### 🎨 Modern UI/UX
 - **Responsive design** that adapts to different screen sizes
@@ -24,9 +27,6 @@ An interactive terminal diagram visualization tool for the TLE7244 chip with int
 - **Context-sensitive menus** with smart positioning
 - **Filter panel** with pin type classification
 - **Information display** with comprehensive connector details
-- ✅ Object-oriented JavaScript architecture
-- ✅ Responsive design for desktop and mobile
-- ✅ Professional UI/UX with modern styling
 
 ## Project Structure
 
@@ -162,3 +162,17 @@ The application is built with:
 - Template loading with fallback path detection
 - Comprehensive validation system
 - Professional error handling and user feedback
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built for TLE7244 chip configuration and visualization
+- Supports AUTOSAR automotive standards
+- Designed for professional automotive development workflows
+
+---
+
+**KR-CVO-IOConfig - IO Configuration Tool for TLE7244**
