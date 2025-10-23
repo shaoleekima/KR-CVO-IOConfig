@@ -18,24 +18,24 @@ function diodata() {
         // Get all form elements from the DIO configuration form
         const formData = {
             // Basic Configuration
-            connectedTo: getElementValue('dio-connectedTo'),
+            connectedTo: getElementValue('rba_IoSigDio_1ConnectedTo'),
             direction: getElementValue('dio-direction'),
-            custSpecName: getElementValue('dio-custSpecName'),
+            custSpecName: getElementValue('rba_IoSigDio_0CustSpecName'),
             
             // Direction & Signal Control
-            directionChangeable: getElementValue('dio-directionChangeable'),
-            invert: getElementValue('dio-invert'),
-            calibAlterText: getElementValue('dio-calibAlterText'),
+            directionChangeable: getElementValue('rba_IoSigDio_1DirectionChangeable'),
+            invert: getElementValue('rba_IoSigDio_1Invert'),
+            calibAlterText: getElementValue('rba_IoSigDio_CalibAlterText'),
             
             // Calibration & Initialization
-            calibratable: getElementValue('dio-calibratable'),
-            calibratableInvert: getElementValue('dio-calibratableInvert'),
-            initState: getElementValue('dio-initState'),
+            calibratable: getElementValue('rba_IoSigDio_Calibratable'),
+            calibratableInvert: getElementValue('rba_IoSigDio_CalibratableInvert'),
+            initState: getElementValue('rba_IoSigDio_InitState'),
             
             // Advanced Settings
-            initStrategy: getElementValue('dio-initStrategy'),
-            outDiagCurrent: getElementValue('dio-outDiagCurrent'),
-            outProtectStrategy: getElementValue('dio-outProtectStrategy')
+            initStrategy: getElementValue('rba_IoSigDio_InitStrategy'),
+            outDiagCurrent: getElementValue('rba_IoSigDio_OutDiagCurrent'),
+            outProtectStrategy: getElementValue('rba_IoSigDio_OutProtectStrategy')
         };
 
         // Get pin number from URL parameters if available

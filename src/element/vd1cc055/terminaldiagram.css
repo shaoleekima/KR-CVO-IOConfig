@@ -15,29 +15,39 @@ body {
 /* Select Panel Styles */
 .select-panel {
     position: fixed;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
-    background-color: transparent;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
     border: 2px solid #333;
     border-radius: 8px;
-    padding: 20px;
     font-family: Arial, sans-serif;
     z-index: 1000;
 }
 
-.select-panel h3 {
-    margin: 0 0 15px 0;
-    font-size: 16px;
-    color: #333;
-    text-align: center;
-    border-bottom: 1px solid #333;
-    padding-bottom: 8px;
+/* Horizontal layout styles */
+.panel-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 0;
 }
 
-.panel-section {
-    margin-bottom: 20px;
+.section-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title-inline {
+    font-size: 12px;
+    font-weight: bold;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 5px;
+    white-space: nowrap;
 }
 
 .section-title {
@@ -69,7 +79,7 @@ body {
     display: block;
     width: 100%;
     padding: 8px 12px;
-    margin-bottom: 8px;
+    margin: 5px 0px 5px 0px;
     background-color: transparent;
     border: 1px solid #666;
     border-radius: 4px;
@@ -98,8 +108,11 @@ body {
 }
 
 .terminaldiagram {
+    justify-content: center;
     width: 240px;
     height: 1600px;
+    top: 40px;
+    margin-bottom: 10px;
     background-color: #ffffff;
     border: 1px solid #000;
     position: relative;
@@ -112,12 +125,13 @@ body {
 
 /* body of terminal*/
 .terminal-body {
-    margin: 5px 25px 5px 25px;
+    margin: 5px auto;
+    width: 730px;
     height: 1580px;
     /* background-color: #00ff40; */
     border: 2px solid #333;
     border-radius: 8px;
-    padding: 20px 30px;
+    padding: 20px 20px;
     transition: all 0.3s ease;
     pointer-events: auto; /* Re-enable pointer events for the terminal body */
 }
@@ -166,20 +180,25 @@ body {
     transition: all 0.2s ease;
 }
 
+.connector::before {
+    width: 100px;
+    height: 25px;
+    /* background-color: rgb(255, 0, 0); */
+}
+
 .connector:hover {
-    transform: translateY(-50%) scale(1.1);
     box-shadow: 0 0 5px rgba(0, 150, 255, 0.8);
 }
 
 .connector.selected {
-    background-color: #007acc !important;
-    border-color: #005a99 !important;
-    transform: translateY(-50%) scale(1.1) !important;
-    box-shadow: 0 0 8px rgba(0, 122, 204, 0.6) !important;
+    background-color: #007acc;
+    border-color: #005a99 ;
+    transform: translateY(-50%) ;
+    box-shadow: 0 0 8px rgba(0, 122, 204, 0.6) ;
 }
 
 .connector.selected:hover {
-    transform: translateY(-50%) scale(1.2) !important;
+    transform: translateY(-50%);
 }
 
 /* Wire (dây nối) chung */
@@ -610,4 +629,316 @@ body {
 .context-menu[style*="display: block"] {
     opacity: 1;
     transform: scale(1);
+}
+
+/* Enhanced Context Menu Styles */
+.context-menu {
+    position: fixed;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    min-width: 220px;
+    max-width: 300px;
+    z-index: 10000;
+    display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    user-select: none;
+}
+
+.context-menu-header {
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 6px 6px 0 0;
+}
+
+.connector-info {
+    line-height: 1.4;
+    color: #333;
+}
+
+.connector-info strong {
+    color: #007acc;
+    font-size: 14px;
+}
+
+.connector-info small {
+    color: #666;
+    font-size: 11px;
+    display: block;
+    margin-top: 2px;
+}
+
+.context-menu-divider {
+    height: 1px;
+    background-color: #e9ecef;
+    margin: 0;
+}
+
+.context-menu-actions {
+    padding: 4px 0;
+}
+
+.menu-section {
+    border-bottom: 1px solid #f1f3f4;
+    margin-bottom: 4px;
+}
+
+.menu-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.menu-section-title {
+    padding: 6px 16px 4px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.5px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 2px;
+}
+
+.menu-options-container {
+    padding: 2px 0;
+}
+
+.menu-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: relative;
+    min-height: 32px;
+}
+
+.menu-option:hover {
+    background-color: #e8f0fe;
+}
+
+.menu-option:active {
+    background-color: #d2e3fc;
+}
+
+.menu-option.disabled {
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.menu-option.disabled:hover {
+    background-color: transparent;
+}
+
+.menu-option-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.menu-option-text {
+    flex: 1;
+    font-weight: 400;
+}
+
+.menu-option-shortcut {
+    font-size: 11px;
+    color: #5f6368;
+    margin-left: 16px;
+    opacity: 0.7;
+}
+
+/* Special styling for different option types */
+.menu-option[onclick*="configure"] .menu-option-icon {
+    color: #1976d2;
+}
+
+.menu-option[onclick*="show"] .menu-option-icon {
+    color: #388e3c;
+}
+
+.menu-option[onclick*="export"] .menu-option-icon {
+    color: #f57c00;
+}
+
+.menu-option[onclick*="select"] .menu-option-icon,
+.menu-option[onclick*="clear"] .menu-option-icon {
+    color: #7b1fa2;
+}
+
+/* Hover effects for different types */
+.menu-option[onclick*="configure"]:hover {
+    background-color: #e3f2fd;
+}
+
+.menu-option[onclick*="show"]:hover {
+    background-color: #e8f5e8;
+}
+
+.menu-option[onclick*="export"]:hover {
+    background-color: #fff3e0;
+}
+
+.menu-option[onclick*="select"]:hover,
+.menu-option[onclick*="clear"]:hover {
+    background-color: #f3e5f5;
+}
+
+/* Configuration Form Styles */
+.config-section {
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+.pwm-fields {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 3px;
+    transition: opacity 0.3s ease;
+}
+
+.config-row {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+    gap: 8px;
+}
+
+.config-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #495057;
+    min-width: 80px;
+    text-align: right;
+}
+
+.config-input {
+    flex: 1;
+    padding: 4px 8px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: inherit;
+    background-color: white;
+    transition: border-color 0.2s ease;
+}
+
+.config-input:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.1);
+}
+
+.config-input::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.config-select {
+    flex: 1;
+    padding: 4px 8px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: inherit;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.config-select:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.1);
+}
+
+.config-apply {
+    margin-top: 8px;
+    background-color: #00ff3c !important;
+    color: white !important;
+    border: 1px solid #1e7e34 !important;
+    font-weight: 600;
+}
+
+.config-apply:hover {
+    background-color: #218838 !important;
+    border-color: #1c7430 !important;
+}
+
+.config-apply .menu-option-icon {
+    color: white !important;
+}
+
+/* Temporary highlighting styles */
+.connector.temp-highlighted {
+    transition: all 0.3s ease;
+}
+
+/* Support for dynamic label color changes */
+.connector {
+    --label-color: #000;
+}
+
+.connector-left::before,
+.connector-left::after {
+    color: var(--label-color);
+}
+
+.connector-right::before,
+.connector-right::after {
+    color: var(--label-color);
+}
+
+/* Context Menu Header Actions */
+.context-menu-header-actions {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.remove-config-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.remove-config-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+.remove-config-btn:active {
+    transform: translateY(0);
 }

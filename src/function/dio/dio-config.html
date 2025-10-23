@@ -36,8 +36,8 @@
                         <div class="form-column">
 
                             <div class="form-group">
-                                <label for="dio-custSpecName">Customer Specific Name (Short Name):</label>
-                                <input type="text" id="dio-custSpecName" name="custSpecName" 
+                                <label for="rba_IoSigDio_0CustSpecName">Customer Specific Name (Short Name):</label>
+                                <input type="text" id="rba_IoSigDio_0CustSpecName" name="custSpecName" 
                                     placeholder="Custom signal name">
                                 <small>Customer-specific name for documentation</small>
                             </div>
@@ -52,8 +52,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="dio-connectedTo">Connected To *:</label>
-                                <input type="text" id="dio-connectedTo" name="connectedTo" 
+                                <label for="rba_IoSigDio_1ConnectedTo">Connected To *:</label>
+                                <input type="text" id="rba_IoSigDio_1ConnectedTo" name="connectedTo" 
                                     placeholder="DevType_DevOrPortIdx_Pin" 
                                     pattern="^[A-Z][A-Za-z0-9]*?_.*"
                                     title="Format: DevType_DevOrPortIdx_Pin" required>
@@ -73,8 +73,8 @@
                             </div>
                             <div class="collapsible-content collapsed" id="signal-control">
                                 <div class="form-group">
-                                    <label for="dio-directionChangeable">Direction Changeable:</label>
-                                    <select id="dio-directionChangeable" name="directionChangeable">
+                                    <label for="rba_IoSigDio_1DirectionChangeable">Direction Changeable:</label>
+                                    <select id="rba_IoSigDio_1DirectionChangeable" name="directionChangeable">
                                         <option value="false" selected>False</option>
                                         <option value="true">True</option>
                                     </select>
@@ -82,8 +82,8 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="dio-invert">Signal Inversion:</label>
-                                    <select id="dio-invert" name="invert">
+                                    <label for="rba_IoSigDio_1Invert">Signal Inversion:</label>
+                                    <select id="rba_IoSigDio_1Invert" name="invert">
                                         <option value="false" selected>False</option>
                                         <option value="true">True</option>
                                     </select>
@@ -99,15 +99,15 @@
                             </div>
                             <div class="collapsible-content collapsed" id="calibration-settings">
                                 <div class="form-group">
-                                    <label for="dio-calibAlterText">Calibration Alternate Text:</label>
-                                    <input type="text" id="dio-calibAlterText" name="calibAlterText" 
+                                    <label for="rba_IoSigDio_CalibAlterText">Calibration Alternate Text:</label>
+                                    <input type="text" id="rba_IoSigDio_CalibAlterText" name="calibAlterText" 
                                            maxlength="32" placeholder="A2L alternate text">
                                     <small>Alternate text for A2L file (1-32 chars)</small>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="dio-calibratable">Calibration Routing Support:</label>
-                                    <select id="dio-calibratable" name="calibratable">
+                                    <label for="rba_IoSigDio_Calibratable">Calibration Routing Support:</label>
+                                    <select id="rba_IoSigDio_Calibratable" name="calibratable">
                                         <option value="false" selected>False</option>
                                         <option value="true">True</option>
                                     </select>
@@ -115,8 +115,8 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="dio-calibratableInvert">Calibration Inversion Support:</label>
-                                    <select id="dio-calibratableInvert" name="calibratableInvert">
+                                    <label for="rba_IoSigDio_CalibratableInvert">Calibration Inversion Support:</label>
+                                    <select id="rba_IoSigDio_CalibratableInvert" name="calibratableInvert">
                                         <option value="false" selected>False</option>
                                         <option value="true">True</option>
                                     </select>
@@ -132,8 +132,8 @@
                             </div>
                             <div class="collapsible-content collapsed" id="initialization-settings">
                                 <div class="form-group">
-                                    <label for="dio-initState">Initial State:</label>
-                                    <select id="dio-initState" name="initState">
+                                    <label for="rba_IoSigDio_InitState">Initial State:</label>
+                                    <select id="rba_IoSigDio_InitState" name="initState">
                                         <option value="Idle" selected>Idle</option>
                                         <option value="Active">Active</option>
                                     </select>
@@ -141,8 +141,8 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="dio-initStrategy">Initialization Strategy:</label>
-                                    <select id="dio-initStrategy" name="initStrategy">
+                                    <label for="rba_IoSigDio_InitStrategy">Initialization Strategy:</label>
+                                    <select id="rba_IoSigDio_InitStrategy" name="initStrategy">
                                         <option value="AnyReset" selected>Any Reset</option>
                                         <option value="PwrOnReset">Power-On Reset</option>
                                     </select>
@@ -158,8 +158,8 @@
                             </div>
                             <div class="collapsible-content collapsed" id="diagnostic-protection">
                                 <div class="form-group">
-                                    <label for="dio-outDiagCurrent">Output Diagnostic Current:</label>
-                                    <select id="dio-outDiagCurrent" name="outDiagCurrent">
+                                    <label for="rba_IoSigDio_OutDiagCurrent">Output Diagnostic Current:</label>
+                                    <select id="rba_IoSigDio_OutDiagCurrent" name="outDiagCurrent">
                                         <option value="true" selected>Enabled</option>
                                         <option value="false">Disabled</option>
                                     </select>
@@ -167,8 +167,8 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="dio-outProtectStrategy">Output Protection Strategy:</label>
-                                    <select id="dio-outProtectStrategy" name="outProtectStrategy">
+                                    <label for="rba_IoSigDio_OutProtectStrategy">Output Protection Strategy:</label>
+                                    <select id="rba_IoSigDio_OutProtectStrategy" name="outProtectStrategy">
                                         <option value="">Not Specified</option>
                                         <option value="SwitchOff" selected>Switch-Off</option>
                                         <option value="CurrentLimit">Current Limitation</option>
@@ -378,18 +378,18 @@
         function clearDIOConfiguration() {
             if (confirm('Are you sure you want to clear the configuration?')) {
                 // Clear all form fields manually
-                document.getElementById('dio-connectedTo').value = '';
+                document.getElementById('rba_IoSigDio_1ConnectedTo').value = '';
                 document.getElementById('dio-direction').value = 'Output';
-                document.getElementById('dio-custSpecName').value = '';
-                document.getElementById('dio-directionChangeable').value = 'false';
-                document.getElementById('dio-invert').value = 'false';
-                document.getElementById('dio-calibAlterText').value = '';
-                document.getElementById('dio-calibratable').value = 'false';
-                document.getElementById('dio-calibratableInvert').value = 'false';
-                document.getElementById('dio-initState').value = 'Idle';
-                document.getElementById('dio-initStrategy').value = 'AnyReset';
-                document.getElementById('dio-outDiagCurrent').value = 'true';
-                document.getElementById('dio-outProtectStrategy').value = 'SwitchOff';
+                document.getElementById('rba_IoSigDio_0CustSpecName').value = '';
+                document.getElementById('rba_IoSigDio_1DirectionChangeable').value = 'false';
+                document.getElementById('rba_IoSigDio_1Invert').value = 'false';
+                document.getElementById('rba_IoSigDio_CalibAlterText').value = '';
+                document.getElementById('rba_IoSigDio_Calibratable').value = 'false';
+                document.getElementById('rba_IoSigDio_CalibratableInvert').value = 'false';
+                document.getElementById('rba_IoSigDio_InitState').value = 'Idle';
+                document.getElementById('rba_IoSigDio_InitStrategy').value = 'AnyReset';
+                document.getElementById('rba_IoSigDio_OutDiagCurrent').value = 'true';
+                document.getElementById('rba_IoSigDio_OutProtectStrategy').value = 'SwitchOff';
                 
                 const urlParams = new URLSearchParams(window.location.search);
                 const pinNumber = urlParams.get('pin');
@@ -403,24 +403,24 @@
             const config = {};
             
             // Basic Configuration
-            config.connectedTo = document.getElementById('dio-connectedTo')?.value || '';
+            config.connectedTo = document.getElementById('rba_IoSigDio_1ConnectedTo')?.value || '';
             config.direction = document.getElementById('dio-direction')?.value || '';
-            config.custSpecName = document.getElementById('dio-custSpecName')?.value || '';
+            config.custSpecName = document.getElementById('rba_IoSigDio_0CustSpecName')?.value || '';
             
             // Direction & Signal Control
-            config.directionChangeable = document.getElementById('dio-directionChangeable')?.value || '';
-            config.invert = document.getElementById('dio-invert')?.value || '';
-            config.calibAlterText = document.getElementById('dio-calibAlterText')?.value || '';
+            config.directionChangeable = document.getElementById('rba_IoSigDio_1DirectionChangeable')?.value || '';
+            config.invert = document.getElementById('rba_IoSigDio_1Invert')?.value || '';
+            config.calibAlterText = document.getElementById('rba_IoSigDio_CalibAlterText')?.value || '';
             
             // Calibration & Initialization
-            config.calibratable = document.getElementById('dio-calibratable')?.value || '';
-            config.calibratableInvert = document.getElementById('dio-calibratableInvert')?.value || '';
-            config.initState = document.getElementById('dio-initState')?.value || '';
+            config.calibratable = document.getElementById('rba_IoSigDio_Calibratable')?.value || '';
+            config.calibratableInvert = document.getElementById('rba_IoSigDio_CalibratableInvert')?.value || '';
+            config.initState = document.getElementById('rba_IoSigDio_InitState')?.value || '';
             
             // Advanced Settings
-            config.initStrategy = document.getElementById('dio-initStrategy')?.value || '';
-            config.outDiagCurrent = document.getElementById('dio-outDiagCurrent')?.value || '';
-            config.outProtectStrategy = document.getElementById('dio-outProtectStrategy')?.value || '';
+            config.initStrategy = document.getElementById('rba_IoSigDio_InitStrategy')?.value || '';
+            config.outDiagCurrent = document.getElementById('rba_IoSigDio_OutDiagCurrent')?.value || '';
+            config.outProtectStrategy = document.getElementById('rba_IoSigDio_OutProtectStrategy')?.value || '';
             
             return config;
         }

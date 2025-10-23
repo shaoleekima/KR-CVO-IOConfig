@@ -10,40 +10,32 @@
 </head>
 <body>
     <div class="select-panel">
-        <h3>Filter Panel</h3>
-        
-        <div class="panel-section">
-            <div class="section-title">Pin Type Classification</div>
-            <div class="pin-type-info">
-                <small>Type 1: SENT/ANALOG/DIGITAL</small><br>
-                <small>Type 2: ANALOG/DIGITAL</small><br>
-                <small>Type 3: DIGITAL only</small>
+        <div class="panel-section">Filter Panel
+            <div class="section-group">
+                <span class="section-title-inline">Signal:</span>
+                <button class="panel-button" data-filter="sent">SENT</button>
+                <button class="panel-button" data-filter="analog">ANALOG</button>
+                <button class="panel-button" data-filter="digital">DIGITAL</button>
             </div>
-        </div>
-        
-        <div class="panel-section">
-            <div class="section-title">Filter by Signal</div>
-            <button class="panel-button" data-filter="sent">SENT</button>
-            <button class="panel-button" data-filter="analog">ANALOG</button>
-            <button class="panel-button" data-filter="digital">DIGITAL</button>
-        </div>
-        
-        <div class="panel-section">
-            <div class="section-title">Output</div>
-            <button class="panel-button" data-filter="dio">DIO</button>
-            <button class="panel-button" data-filter="pwm">PWM</button>
-        </div>
-        
-        <div class="panel-section">
-            <div class="section-title">View</div>
-            <button class="panel-button" id="expand-button">Expand Width</button>
+            
+            <div class="section-group">
+                <span class="section-title-inline">Output:</span>
+                <button class="panel-button" data-filter="dio">DIO</button>
+                <button class="panel-button" data-filter="pwm">PWM</button>
+            </div>
+            
+            <div class="section-group">
+                <span class="section-title-inline">View:</span>
+                <button class="panel-button" id="expand-button">Expand Width</button>
+                <button class="panel-button" id="config-button" onclick="window.open('../vd1cc055/configuration.html', '_blank')">Configuration</button>
+            </div>
         </div>
     </div>
     
     <!-- <div class="terminaldiagram"> -->
-    <div class="terminaldiagram expanded">
+    <div class="terminaldiagram">
         <!-- Architech of Terminal-->
-        <div class="terminal-body" style="display: block;">
+        <div class="terminal-body" style="display: none;">
             <div class="tle7244">
                 <div class="tle7244-container-left">
                     <div class="tle7244-connector left-connector left-connector-1" data-number="1" pin-lable="SO">
@@ -105,22 +97,25 @@
                 </div>
             </div>
         </div>
+        <!-- pin-type: 1 = Sent; 2 = Analog; 3 = Digital; 
+         If Pin has more than one type, combine number to get correct typr.
+         Example: Pin A has type Sent and Analog => pin-type = 12. -->
         <!-- 64 Connector bên trái -->
         <div class="connector-left-container">
             <div class="connector connector-left connector-left-1" data-number="2" pin-lable="G_G_BAT1">
-            <div class="wire wire-left"></div>
+                <div class="wire wire-left"></div>
             </div>
             <div class="connector connector-left connector-left-2" data-number="4" pin-lable="G_G_BAT2">
-            <div class="wire wire-left"></div>
+                <div class="wire wire-left"></div>
             </div>
             <div class="connector connector-left connector-left-3" data-number="6" pin-lable="G_G_BAT3">
-            <div class="wire wire-left"></div>
+                <div class="wire wire-left"></div>
             </div>
             <div class="connector connector-left connector-left-4" data-number="90" pin-lable="B_D_CANH0">
-            <div class="wire wire-left"></div>
+                <div class="wire wire-left"></div>
             </div>
             <div class="connector connector-left connector-left-5" data-number="68" pin-lable="B_D_CANL0">
-            <div class="wire wire-left"></div>
+                <div class="wire wire-left"></div>
             </div>
             <div class="connector connector-left connector-left-6" data-number="89" pin-lable="B_D_CANH1">
             <div class="wire wire-left"></div>
@@ -152,67 +147,67 @@
             <div class="connector connector-left connector-left-15" data-number="10" pin-lable="B_D_LIN2">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-16" data-number="52" pin-lable="X_X_XX01" pin-type="1">
+            <div class="connector connector-left connector-left-16" data-number="52" pin-lable="X_X_XX01" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-17" data-number="60" pin-lable="X_X_XX02" pin-type="1">
+            <div class="connector connector-left connector-left-17" data-number="60" pin-lable="X_X_XX02" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-18" data-number="53" pin-lable="X_X_XX03" pin-type="1">
+            <div class="connector connector-left connector-left-18" data-number="53" pin-lable="X_X_XX03" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-19" data-number="59" pin-lable="X_X_XX04" pin-type="1">
+            <div class="connector connector-left connector-left-19" data-number="59" pin-lable="X_X_XX04" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-20" data-number="57" pin-lable="X_X_XX16" pin-type="1">
+            <div class="connector connector-left connector-left-20" data-number="57" pin-lable="X_X_XX16" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-21" data-number="58" pin-lable="X_X_XX17" pin-type="1">
+            <div class="connector connector-left connector-left-21" data-number="58" pin-lable="X_X_XX17" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-22" data-number="36" pin-lable="X_X_XX18" pin-type="1">
+            <div class="connector connector-left connector-left-22" data-number="36" pin-lable="X_X_XX18" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-23" data-number="56" pin-lable="X_X_XX19" pin-type="1">
+            <div class="connector connector-left connector-left-23" data-number="56" pin-lable="X_X_XX19" pin-type="123">
             <div class="wire wire-left"></div>
             </div>
             <div class="connector connector-left connector-left-24" data-number="70" pin-lable="O_V_5V_G3">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-25" data-number="39" pin-lable="X_X_XX05" pin-type="2">
+            <div class="connector connector-left connector-left-25" data-number="39" pin-lable="X_X_XX05" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-26" data-number="38" pin-lable="X_X_XX06" pin-type="2">
+            <div class="connector connector-left connector-left-26" data-number="38" pin-lable="X_X_XX06" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-27" data-number="40" pin-lable="X_X_XX07" pin-type="2">
+            <div class="connector connector-left connector-left-27" data-number="40" pin-lable="X_X_XX07" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-28" data-number="41" pin-lable="X_X_XX08" pin-type="2">
+            <div class="connector connector-left connector-left-28" data-number="41" pin-lable="X_X_XX08" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-29" data-number="42" pin-lable="X_X_XX09" pin-type="2">
+            <div class="connector connector-left connector-left-29" data-number="42" pin-lable="X_X_XX09" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-30" data-number="43" pin-lable="X_X_XX10" pin-type="2">
+            <div class="connector connector-left connector-left-30" data-number="43" pin-lable="X_X_XX10" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-31" data-number="45" pin-lable="X_X_XX20" pin-type="2">
+            <div class="connector connector-left connector-left-31" data-number="45" pin-lable="X_X_XX20" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-32" data-number="44" pin-lable="X_X_XX21" pin-type="2">
+            <div class="connector connector-left connector-left-32" data-number="44" pin-lable="X_X_XX21" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-33" data-number="65" pin-lable="X_X_XX22" pin-type="2">
+            <div class="connector connector-left connector-left-33" data-number="65" pin-lable="X_X_XX22" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-34" data-number="63" pin-lable="X_X_XX23" pin-type="2">
+            <div class="connector connector-left connector-left-34" data-number="63" pin-lable="X_X_XX23" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-35" data-number="64" pin-lable="X_X_XX24" pin-type="2">
+            <div class="connector connector-left connector-left-35" data-number="64" pin-lable="X_X_XX24" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
-            <div class="connector connector-left connector-left-36" data-number="62" pin-lable="X_X_XX25" pin-type="2">
+            <div class="connector connector-left connector-left-36" data-number="62" pin-lable="X_X_XX25" pin-type="23">
             <div class="wire wire-left"></div>
             </div>
             <div class="connector connector-left connector-left-37" data-number="33" pin-lable="X_X_XX13" pin-type="3">
@@ -342,20 +337,20 @@
             <div class="connector connector-right connector-right-7" data-number="10" pin-lable="O_T_FSCOD1" style="background-color: blue;"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-8" data-number="86" pin-lable="O_T_FSCOD2" style="background-color: blue;"><div class="wire wire-right"></div></div>
 
-            <div class="connector connector-right connector-right-9" data-number="09" pin-lable="O S RH05"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-10" data-number="80" pin-lable="O_T_RL05"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-11" data-number="81" pin-lable="O_T_RL06"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-12" data-number="82" pin-lable="O_T_RL07"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-13" data-number="83" pin-lable="O_T_RL08"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-14" data-number="84" pin-lable="O_S_RL09"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-15" data-number="85" pin-lable="O_S_RL10"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-16" data-number="86" pin-lable="O_S_RL11"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-17" data-number="87" pin-lable="O_S_RL12"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-18" data-number="25" pin-lable="O_S_LS13"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-9" data-number="09" pin-lable="O S RH05" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-10" data-number="80" pin-lable="O_T_RL05" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-11" data-number="81" pin-lable="O_T_RL06" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-12" data-number="82" pin-lable="O_T_RL07" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-13" data-number="83" pin-lable="O_T_RL08" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-14" data-number="84" pin-lable="O_S_RL09" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-15" data-number="85" pin-lable="O_S_RL10" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-16" data-number="86" pin-lable="O_S_RL11" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-17" data-number="87" pin-lable="O_S_RL12" pin-type="4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-18" data-number="25" pin-lable="O_S_LS13" pin-type="4"><div class="wire wire-right"></div></div>
 
             <div class="connector connector-right connector-right-19" data-number="29" pin-lable="O_T_RH04"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-20" data-number="15" pin-lable="O_T_RL04"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-21" data-number="24" pin-lable="O_V_G4"><div class="wire wire-right"></div></div>
+            <div class="connector connector-right connector-right-21" data-number="20" pin-lable="O_V_G4"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-22" data-number="25" pin-lable="I_X_XX31"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-23" data-number="79" pin-lable="G_R_12V_G4"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-24" data-number="19" pin-lable="G_R_5V_G3"><div class="wire wire-right"></div></div>
