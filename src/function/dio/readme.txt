@@ -9,3 +9,5 @@ Struture:
 + UI/UX: dio.html
 + logic: dio.js
 + style: dio.css
+
+create warning when user select more than 4 pin for each type

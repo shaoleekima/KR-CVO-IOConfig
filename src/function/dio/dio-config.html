@@ -90,6 +90,20 @@
                 title="Format: DevType_DevOrPortIdx_Pin" value="${VD1CC055.getIcByPin(config.pin)}" required>
             <small>Device and pin connection specification</small>
         </div>
+
+        <div class="form-group">
+            <label for="rba_IoExtTle7244_ConnectedTo">Connected To Port *:</label>
+            <select type="text" id="rba_IoExtTle7244_ConnectedTo" name="extConnectedTo" 
+                placeholder="DevType_DevOrPortIdx_Pin" 
+                pattern="^[A-Z][A-Za-z0-9]*?_.*"
+                title="Format: DevType_DevOrPortIdx_Pin" required>
+                <option value="${config.outputType}_10_00">${config.outputType}_10_00</option>
+                <option value="${config.outputType}_10_06">${config.outputType}_10_06</option>
+                <option value="${config.outputType}_10_05">${config.outputType}_10_05</option>
+                <option value="${config.outputType}_23_01">${config.outputType}_23_01</option>
+            <small>Device and pin connection specification</small>
+            </select>
+        </div>
         
         <!-- Advanced Configuration -->
         <div class="collapsible-header" data-target="signal-control">

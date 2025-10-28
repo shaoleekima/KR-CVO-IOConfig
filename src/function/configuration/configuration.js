@@ -389,6 +389,7 @@ function collectDIOFormData() {
     
     // Basic Configuration
     config.connectedTo = document.getElementById('rba_IoSigDio_1ConnectedTo')?.value || '';
+    config.extConnectedTo = document.getElementById('rba_IoExtTle7244_ConnectedTo')?.value || '';
     config.direction = document.getElementById('dio-direction')?.value || '';
     config.custSpecName = document.getElementById('rba_IoSigDio_0CustSpecName')?.value || '';
     
@@ -427,7 +428,8 @@ function exportARXML(pinNumber) {
     alert(`AUTOSAR XML exported for Pin ${pinNumber}`);
     // if (!validateDIOConfiguration()) return;
     
-    const config = collectDIOFormData();
+    // const config = collectDIOFormData();
+    const config = diodata();
     //const urlParams = new URLSearchParams(window.location.search);
     //pinNumber = urlParams.get('pin');
     
@@ -451,7 +453,7 @@ function exportAllData(){
     //alert(`AUTOSAR XML exported for Pin ${pinNumber}`);
     // if (!validateDIOConfiguration()) return;
     
-    const config = collectDIOFormLocalStorgate();
+    const config = diodata();
     //const urlParams = new URLSearchParams(window.location.search);
     //pinNumber = urlParams.get('pin') || '3';
     
@@ -459,14 +461,14 @@ function exportAllData(){
     //config.pinNumber = pinNumber;
     
     // Generate AUTOSAR XML for DIO using the template-based function
-    const autosarXml = exportDIOToAutosar(config);
+    const autosarXml = exportToArxml(TLE7244_TEMPLATES, config);
     
     // Download file
     const blob = new Blob([autosarXml], { type: 'application/xml' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `TLE7244_DIO_All_Pin_Config.arxml`;
+    a.download = `TLE7244_DIO_Ext_Config.arxml`;
     a.click();
     URL.revokeObjectURL(url);
 }
