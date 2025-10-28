@@ -1,64 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dio Config</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f5f5f5;
-            margin: 0;
-            position: relative;
-        }
-        /* Sidebar container */
-        .sidebar {
-            display: block;
-            position: fixed;
-            width: 400px;
-            height: 100vh;
-            background: #ffffff;
-            border-left: 2px solid #dee2e6;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-            z-index: 1000;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-        }
-        .sidebar.active { animation: slideInRight 0.3s ease-out; }
-        .sidebar.closing { animation: slideOutRight 0.3s ease-in; }
-        @keyframes slideInRight { from{transform:translateX(100%)} to{transform:translateX(0)} }
-        @keyframes slideOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
-
-        /* Pin header */
-        .pin-info h4{margin:0 0 6px}
-        .pin-info p{margin:4px 0;color:#333}
-
-        /* Advanced Settings Styles */
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display:block; font-weight:600; margin-bottom:5px; color:#333; font-size:13px }
-        .form-group input, .form-group select { width:100%; padding:8px 12px; border:1px solid #ddd; border-radius:4px; font-size:13px; box-sizing:border-box }
-        .form-group input:focus, .form-group select:focus { outline:none; border-color:#007acc; box-shadow:0 0 0 2px rgba(0,122,204,0.1) }
-        .form-group small { display:block; color:#666; font-size:11px; margin-top:4px }
-
-        .collapsible-header { background:#e9ecef; padding:10px 15px; margin:10px 0 5px 0; border-radius:4px; cursor:pointer; user-select:none }
-        .collapsible-header h4{margin:0; font-size:14px; color:#495057; display:flex; justify-content:space-between; align-items:center }
-        .toggle-icon { transition: transform 0.2s ease }
-        .collapsible-header.collapsed .toggle-icon { transform: rotate(-90deg) }
-
-        .collapsible-content { padding:0 10px; max-height:1000px; overflow:hidden; transition:max-height 0.3s ease }
-        .collapsible-content.collapsed { max-height:0; padding:0 10px }
-
-        .button-row { margin-top:20px; display:flex; gap:10px; flex-wrap:wrap }
-        .btn { padding:8px 16px; border:none; border-radius:4px; font-size:12px; cursor:pointer }
-        .btn-primary{ background:#007acc; color:white }
-        .btn-secondary{ background:#6c757d; color:white }
-        .btn-info{ background:#17a2b8; color:white }
-        .btn-success{ background:#28a745; color:white }
-    </style>
-</head>
-<body>
-    <div class="sidebar">
+export function generateSideBarDio(config) {
+    return `
         <div class="pin-info">
             <h4>Pin ${config.pin} - ${config.shortName}</h4>
             <p><strong>Type:</strong> ${config.outputType}</p>
@@ -119,6 +60,7 @@
             <h4>Calibration Settings <span class="toggle-icon">▼</span></h4>
         </div>
         <div class="collapsible-content collapsed" id="calibration-settings">
+            
             <div class="form-group">
                 <label for="rba_IoSigDio_Calibratable">Calibration Routing Support:</label>
                 <select id="rba_IoSigDio_Calibratable" name="calibratable">
@@ -131,7 +73,7 @@
             <div class="form-group">
                 <label for="rba_IoSigDio_CalibAlterText">Calibration Alternate Text:</label>
                 <input type="text" id="rba_IoSigDio_CalibAlterText" name="calibAlterText" 
-                    maxlength="32" placeholder="A2L alternate text">
+                        maxlength="32" placeholder="A2L alternate text">
                 <small>Alternate text for A2L file (1-32 chars)</small>
             </div>
             
@@ -193,9 +135,9 @@
             </div>
 
             <div class="form-group">
-                <label for=""></label>
+                <lable for=""> </lable>
                 <select id="" name="">
-                    <option value=""></option>
+                    <option value=""> </option>
                 </select>
                 <small></small>
             </div>
@@ -207,23 +149,5 @@
             <button type="button" class="btn btn-info" onclick="validateConfig()">✓ Validate</button>
             <button type="button" class="btn btn-success" onclick="exportARXML('${config.pin}')">📤 Export AUTOSAR</button>
         </div>
-    </div>
-</body>
-<script>
-    initializeCollapsibles();
-
-    function initializeCollapsibles() {
-            document.querySelectorAll('.collapsible-header').forEach(header => {
-                header.addEventListener('click', function() {
-                    const targetId = this.getAttribute('data-target');
-                    const content = document.getElementById(targetId);
-                    
-                    if (content) {
-                        content.classList.toggle('collapsed');
-                        this.classList.toggle('collapsed');
-                    }
-                });
-            });
-        }
-</script>
-</html>
+    `;
+}

@@ -17,7 +17,24 @@ window.PinConfigurationManager = {
             // Add new configuration
             this.configurations.push(config);
         }
+
+        if(config.outputType === 'DIO') {
+        config.CustSpecName = config.shortName;
+        config.direction= 'Output';
+        config.ConnectedTo = VD1CC055.getIcByPin(config.pin);
+        config.DirectionChangeable = 'FALSE';
+        config.Invert = 'FALSE';
+        config.CalibAlterText = '';
+        config.Calibratable = 'FALSE';
+        config.CalibratableInvert = 'FALSE';
+        config.InitState = 'Idle';
+        config.InitStrategy = 'AnyReset';
+        config.OutDiagCurrent = 'FALSE';
+        config.OutProtectStrategy = 'SwitchOff';
+        }
+        if(config.outputType === 'PWM') {
         
+        }
         // Save to localStorage for persistence
         this.saveToStorage();
         
@@ -416,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let options = '';
         
         // Add DIO/PWM configuration section with short name input and type selection
-        if (capabilities.includes('DIO') || capabilities.includes('PWM') || capabilities.includes('Digital') || capabilities.includes('Output')) {
+        if (capabilities.includes('DIO') || capabilities.includes('PWM') || capabilities.includes('Digital') && capabilities.includes('Output')) {
             options += `
                 <div class="config-section">
                     <div class="config-row">
@@ -445,39 +462,59 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span class="menu-option-text">Apply Configuration</span>
                     </button>
                 </div>`;
+        } else {
+            options += `
+                <div class="config-section">
+                    <div class="config-row">
+                        <label class="config-label">Short Name:</label>
+                        <input type="text" id="shortName_${pinNumber}" class="config-input" placeholder="Enter short name" maxlength="20">
+                    </div>
+                    <div class="config-row">
+                        <label class="config-label">Input Type:</label>
+                        <select id="inputType_${pinNumber}" class="config-select" onchange="toggleFields('${pinNumber}')">
+                            <option value="SENT"${capabilities.includes('SENT') ? ' selected' : ''}>SENT</option>
+                            <option value="Analog"${capabilities.includes('Analog') ? ' selected' : ''}>Analog</option>
+                            <option value="Digital"${capabilities.includes('Digital') ? ' selected' : ''}>Digital</option>
+                        </select>
+                    </div>
+                    <button class="menu-option config-apply" onclick="applyDIOPWMConfig('${pinNumber}', '${pinLabel}')">
+                        <span class="menu-option-icon">✅</span>
+                        <span class="menu-option-text">Apply Configuration</span>
+                    </button>
+                </div>`;
         }
         
-        // Add individual configuration options based on capabilities
-        if (capabilities.includes('Analog')) {
-            options += `
-                <button class="menu-option" onclick="configureAnalog('${pinNumber}', '${pinLabel}')">
-                    <span class="menu-option-icon">📊</span>
-                    <span class="menu-option-text">Configure Analog</span>
-                </button>`;
-        }
+        // // Add individual configuration options based on capabilities
+        // if (capabilities.includes('Analog')) {
+        //     options += `
+        //         <button class="menu-option" onclick="configureAnalog('${pinNumber}', '${pinLabel}')">
+        //             <span class="menu-option-icon">📊</span>
+        //             <span class="menu-option-text">Configure Analog</span>
+        //         </button>`;
+        // }
         
-        if (capabilities.includes('SENT')) {
-            options += `
-                <button class="menu-option" onclick="configureSENT('${pinNumber}', '${pinLabel}')">
-                    <span class="menu-option-icon">📡</span>
-                    <span class="menu-option-text">Configure SENT</span>
-                </button>`;
-        }
+        // if (capabilities.includes('SENT')) {
+        //     options += `
+        //         <button class="menu-option" onclick="configureSENT('${pinNumber}', '${pinLabel}')">
+        //             <span class="menu-option-icon">📡</span>
+        //             <span class="menu-option-text">Configure SENT</span>
+        //         </button>`;
+        // }
         
-        if (capabilities.includes('Digital') && !capabilities.includes('DIO') && !capabilities.includes('PWM')) {
-            options += `
-                <button class="menu-option" onclick="configureDigital('${pinNumber}', '${pinLabel}')">
-                    <span class="menu-option-icon">🔲</span>
-                    <span class="menu-option-text">Configure Digital Input</span>
-                </button>`;
-        }
+        // if (capabilities.includes('Digital') && !capabilities.includes('DIO') && !capabilities.includes('PWM')) {
+        //     options += `
+        //         <button class="menu-option" onclick="configureDigital('${pinNumber}', '${pinLabel}')">
+        //             <span class="menu-option-icon">🔲</span>
+        //             <span class="menu-option-text">Configure Digital Input</span>
+        //         </button>`;
+        // }
         
         // Add general configuration option
-        options += `
-            <button class="menu-option" onclick="openPinConfiguration('${pinNumber}', '${pinLabel}')">
-                <span class="menu-option-icon">⚙</span>
-                <span class="menu-option-text">Advanced Settings</span>
-            </button>`;
+        // options += `
+        //     <button class="menu-option" onclick="openPinConfiguration('${pinNumber}', '${pinLabel}')">
+        //         <span class="menu-option-icon">⚙</span>
+        //         <span class="menu-option-text">Advanced Settings</span>
+        //     </button>`;
         
         // If no specific configurations available
         if (capabilities.includes('Unconfigured')) {
@@ -527,7 +564,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 ` : ''}
             </div>
-            <div class="context-menu-divider"></div>
             <div class="context-menu-actions">                
                 <!-- Configuration options container -->
                 <div class="menu-section" id="configuration-options">

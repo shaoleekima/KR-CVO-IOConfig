@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pin Configuration Viewer</title>
     <script src="../../main.js"></script>
-    <script src="configuration.js"></script>
     <script src="../../function/dio/dio.js"></script>
+    <sctipt src="../configuration/sidebar/side-dio.js"></sctipt>
     <sctipt src="terminaldiagram.js"></sctipt>
+    <script src="configuration.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -321,7 +322,7 @@
                 <button class="refresh-btn" onclick="exportData()">Export JSON</button>
                 <button class="refresh-btn" onclick="exportCSV()">Export CSV</button>
                 <button class="refresh-btn" onclick="clearAllData()" style="background: #dc3545;">Clear All Data</button>
-                <button class="refresh-btn" onclick="exportAllData()" style="background: #00ff2a;">Export All Data</button>
+                <button class="refresh-btn" onclick="exportAllData()" style="background: #3700ff;">Export All Data</button>
             </div>
 
             <div id="summary-section">

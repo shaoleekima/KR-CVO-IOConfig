@@ -44,16 +44,16 @@
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet</DEFINITION-REF>
                           <SUB-CONTAINERS>
                             <ECUC-CONTAINER-VALUE>
-                              <SHORT-NAME>DIO1</SHORT-NAME>
+                              <SHORT-NAME>trs7hc</SHORT-NAME>
                               <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal</DEFINITION-REF>
                               <PARAMETER-VALUES>
                                 <ECUC-TEXTUAL-PARAM-VALUE>
                                   <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_0CustSpecName</DEFINITION-REF>
-                                  <VALUE>DIO1</VALUE>
+                                  <VALUE>trs7hc</VALUE>
                                 </ECUC-TEXTUAL-PARAM-VALUE>
                                 <ECUC-TEXTUAL-PARAM-VALUE>
                                   <DEFINITION-REF DEST="ECUC-STRING-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1ConnectedTo</DEFINITION-REF>
-                                  <VALUE>TLE7244_01_01</VALUE>
+                                  <VALUE>TLE7244_01_03</VALUE>
                                 </ECUC-TEXTUAL-PARAM-VALUE>
                                 <ECUC-TEXTUAL-PARAM-VALUE>
                                   <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_ConfigSet/rba_IoSigDio_Signal/rba_IoSigDio_1Direction</DEFINITION-REF>
@@ -140,7 +140,7 @@
                           </SUB-CONTAINERS>
                         </ECUC-CONTAINER-VALUE>
                         <ECUC-CONTAINER-VALUE>
-                          <SHORT-NAME>DIO1</SHORT-NAME>
+                          <SHORT-NAME>trs7hc</SHORT-NAME>
                           <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/RB/RBA/rba_IoSigDio/EcucModuleDefs/rba_IoSigDio/rba_IoSigDio_SignalRequest</DEFINITION-REF>
                           <PARAMETER-VALUES>
                             <ECUC-TEXTUAL-PARAM-VALUE>
