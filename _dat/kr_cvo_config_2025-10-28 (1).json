@@ -1,6 +1,6 @@
 {
   "generalSettings": {
-    "lastUpdated": "2025-10-28T10:00:00.000Z",
+    "lastUpdated": "2025-10-28T22:07:30.436Z",
     "version": "1.0",
     "autoSave": true,
     "loadDefaultsOnStart": false
@@ -53,6 +53,27 @@
         "timestamp": "2025-10-28T10:00:00.000Z",
         "pinNumber": "80",
         "originalLabel": "O_T_RL05"
+      },
+      "81": {
+        "pin": "81",
+        "originalLabel": "O_T_RL06",
+        "shortName": "luan",
+        "outputType": "DIO",
+        "timestamp": "2025-10-28T22:07:30.436Z",
+        "configured": true,
+        "CustSpecName": "luan",
+        "direction": "Output",
+        "ConnectedTo": "TLE7244_01_02",
+        "DirectionChangeable": "FALSE",
+        "Invert": "FALSE",
+        "CalibAlterText": "",
+        "Calibratable": "FALSE",
+        "CalibratableInvert": "FALSE",
+        "InitState": "Idle",
+        "InitStrategy": "AnyReset",
+        "OutDiagCurrent": "FALSE",
+        "OutProtectStrategy": "SwitchOff",
+        "pinNumber": "81"
       }
     },
     "PWM": {
