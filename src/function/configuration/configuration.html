@@ -325,6 +325,7 @@
             <div class="header">
                 <h1>Pin Configuration Viewer</h1>
                 <p>This page demonstrates how to access configuration data from the terminal diagram.</p>
+                <button class="refresh-btn" onclick="backToTerminalDiagram()" style="background: #17a2b8;">← Back to Terminal Diagram</button>
                 <button class="refresh-btn" onclick="loadConfigurations()">Refresh Data</button>
                 <button class="refresh-btn" onclick="loadConfigData()" style="background: #28a745;">Load Config Data</button>
                 <input type="file" id="configFileInput" accept=".json" style="display: none;" onchange="handleConfigFileLoad(event)">

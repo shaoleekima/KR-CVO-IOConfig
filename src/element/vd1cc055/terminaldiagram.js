@@ -256,17 +256,27 @@ function applyConfigurationToPin(pinNumber, config) {
     
     const connector = document.querySelector(`.connector[data-number="${pinNumber}"]`);
     if (connector) {
-        // Add configured class
+        // Add configured class and type-specific class
         connector.classList.add('configured');
         
-        // Apply green highlighting
-        highlightPin(pinNumber, true);
+        // Add type-specific styling
+        if (config.outputType === 'DIO') {
+            connector.classList.add('dio');
+        } else if (config.outputType === 'PWM') {
+            connector.classList.add('pwm');
+        }
+        
+        // Apply configuration highlighting with specific colors
+        highlightPin(pinNumber, true, config.outputType);
         
         // Update title to show configuration
         const originalLabel = connector.getAttribute('pin-lable') || '';
-        connector.title = `${config.shortName} (${config.outputType}) - Configured`;
+        connector.title = `${config.shortName || config.custSpecName || 'Configured'} (${config.outputType}) - Click for details`;
         
-        console.log(`✅ Applied styling to Pin ${pinNumber} (${originalLabel}): ${config.shortName}`);
+        // Store configuration data for context menu
+        connector.setAttribute('data-config', JSON.stringify(config));
+        
+        console.log(`✅ Applied styling to Pin ${pinNumber} (${originalLabel}): ${config.shortName || config.custSpecName}`);
     } else {
         console.error(`❌ Could not find connector for pin ${pinNumber}`);
         
@@ -283,7 +293,8 @@ window.refreshTerminalDiagram = function() {
     // Clear all current visual configurations
     const connectors = document.querySelectorAll('.connector');
     connectors.forEach(connector => {
-        connector.classList.remove('configured');
+        connector.classList.remove('configured', 'dio', 'pwm');
+        connector.removeAttribute('data-config');
         const pinNumber = connector.getAttribute('data-number');
         if (pinNumber) {
             highlightPin(pinNumber, false);
@@ -727,6 +738,60 @@ document.addEventListener('DOMContentLoaded', function() {
         const existingConfig = window.PinConfigurationManager.getConfiguration(pinNumber);
         const isConfigured = existingConfig !== undefined;
         
+        // Get stored configuration data from connector attribute
+        let storedConfigData = null;
+        try {
+            const configAttr = connector.getAttribute('data-config');
+            if (configAttr) {
+                storedConfigData = JSON.parse(configAttr);
+            }
+        } catch (e) {
+            console.warn('Error parsing stored config data:', e);
+        }
+        
+        // Use stored config or existing config
+        const configData = storedConfigData || existingConfig;
+        
+        // Create detailed configuration info if available
+        let configDetailsHtml = '';
+        if (configData && isConfigured) {
+            configDetailsHtml = `
+                <div class="config-details">
+                    <div class="config-detail-item">
+                        <strong>Short Name:</strong> ${configData.shortName || configData.custSpecName || 'N/A'}
+                    </div>
+                    <div class="config-detail-item">
+                        <strong>Output Type:</strong> ${configData.outputType || 'N/A'}
+                    </div>
+                    ${configData.outputType === 'DIO' ? `
+                        <div class="config-detail-item">
+                            <strong>Direction:</strong> ${configData.direction || 'N/A'}
+                        </div>
+                        <div class="config-detail-item">
+                            <strong>Connected To:</strong> ${configData.connectedTo || configData.ConnectedTo || 'N/A'}
+                        </div>
+                        <div class="config-detail-item">
+                            <strong>Init State:</strong> ${configData.initState || configData.InitState || 'N/A'}
+                        </div>
+                    ` : ''}
+                    ${configData.outputType === 'PWM' ? `
+                        <div class="config-detail-item">
+                            <strong>Frequency:</strong> ${configData.frequency || 'N/A'} Hz
+                        </div>
+                        <div class="config-detail-item">
+                            <strong>Duty Cycle:</strong> ${configData.dutyCycle || 'N/A'}%
+                        </div>
+                        <div class="config-detail-item">
+                            <strong>Connected To:</strong> ${configData.connectedTo || 'N/A'}
+                        </div>
+                    ` : ''}
+                    <div class="config-detail-item">
+                        <strong>Timestamp:</strong> ${configData.timestamp ? new Date(configData.timestamp).toLocaleString() : 'N/A'}
+                    </div>
+                </div>
+            `;
+        }
+        
         // Create menu content based on connector type and capabilities
         menu.innerHTML = `
             <div class="context-menu-header">
@@ -735,20 +800,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     <small>${pinLabel}</small><br>
                     <small>Type: ${pinType} | ${functionType}</small>
                     <small>Capabilities: ${capabilities.join(', ')}</small>
-                    ${isConfigured ? `<small style="color: #4caf50; font-weight: bold;">✓ Configured: ${existingConfig.shortName} (${existingConfig.outputType})</small>` : ''}
+                    ${isConfigured ? `<div style="color: #4caf50; font-weight: bold; margin-top: 5px;">✓ Configured: ${configData.shortName || configData.custSpecName || 'Unknown'} (${configData.outputType || 'Unknown'})</div>` : ''}
                 </div>
                 ${isConfigured ? `
                     <div class="context-menu-header-actions">
                         <button class="remove-config-btn" onclick="removePinConfiguration('${pinNumber}', '${pinLabel}')" title="Remove Configuration">
                             <span style="font-size: 12px;">🗑️</span> Remove
                         </button>
+                        <button class="edit-config-btn" onclick="editPinConfiguration('${pinNumber}')" title="Edit Configuration">
+                            <span style="font-size: 12px;">✏️</span> Edit
+                        </button>
                     </div>
                 ` : ''}
             </div>
+            ${isConfigured && configDetailsHtml ? `
+                <div class="context-menu-config-details">
+                    <div class="menu-section-title" style="color: #4caf50;">Configuration Details</div>
+                    ${configDetailsHtml}
+                </div>
+            ` : ''}
             <div class="context-menu-actions">                
                 <!-- Configuration options container -->
                 <div class="menu-section" id="configuration-options">
-                    <div class="menu-section-title">Configuration</div>
+                    <div class="menu-section-title">Configuration Options</div>
                     <div class="menu-options-container">
                         ${generateConfigurationOptions(capabilities, functionType, pinNumber, pinLabel)}
                     </div>
@@ -1325,8 +1399,11 @@ window.removePinConfiguration = function(pinNumber, pinLabel) {
         // Reset pin visual state
         const connector = document.querySelector(`.connector[data-number="${pinNumber}"]`);
         if (connector) {
-            // Remove configured class
-            connector.classList.remove('configured');
+            // Remove configured class and type-specific classes
+            connector.classList.remove('configured', 'dio', 'pwm');
+            
+            // Remove stored config data
+            connector.removeAttribute('data-config');
             
             // Remove highlighting
             highlightPin(pinNumber, false);
@@ -1352,6 +1429,60 @@ window.removePinConfiguration = function(pinNumber, pinLabel) {
     hideConnectorContextMenu();
 };
 
+// Edit pin configuration function
+window.editPinConfiguration = function(pinNumber) {
+    const existingConfig = window.PinConfigurationManager.getConfiguration(pinNumber);
+    
+    if (!existingConfig) {
+        alert('No configuration found for this pin.');
+        return;
+    }
+    
+    // Close context menu first
+    hideConnectorContextMenu();
+    
+    // Navigate to configuration page with pin data
+    try {
+        const configurationUrl = `../../function/configuration/configuration.html?pin=${pinNumber}&edit=true`;
+        
+        // Try different navigation methods
+        if (window.parent && window.parent !== window) {
+            // If in iframe, try to communicate with parent
+            window.parent.postMessage({
+                action: 'openConfiguration',
+                pinNumber: pinNumber,
+                config: existingConfig
+            }, '*');
+        } else {
+            // Direct navigation
+            window.location.href = configurationUrl;
+        }
+        
+    } catch (error) {
+        console.error('Error navigating to configuration:', error);
+        
+        // Fallback: Show configuration details in a modal/alert
+        const configDetails = [
+            `Pin ${pinNumber} Configuration:`,
+            `Short Name: ${existingConfig.shortName || existingConfig.custSpecName || 'N/A'}`,
+            `Output Type: ${existingConfig.outputType || 'N/A'}`,
+            existingConfig.outputType === 'DIO' ? [
+                `Direction: ${existingConfig.direction || 'N/A'}`,
+                `Connected To: ${existingConfig.connectedTo || existingConfig.ConnectedTo || 'N/A'}`,
+                `Init State: ${existingConfig.initState || existingConfig.InitState || 'N/A'}`
+            ].join('\n') : '',
+            existingConfig.outputType === 'PWM' ? [
+                `Frequency: ${existingConfig.frequency || 'N/A'} Hz`,
+                `Duty Cycle: ${existingConfig.dutyCycle || 'N/A'}%`,
+                `Connected To: ${existingConfig.connectedTo || 'N/A'}`
+            ].join('\n') : '',
+            `Timestamp: ${existingConfig.timestamp ? new Date(existingConfig.timestamp).toLocaleString() : 'N/A'}`
+        ].filter(line => line).join('\n');
+        
+        alert(configDetails);
+    }
+};
+
 // Helper function to get stored short name
 function getStoredShortName(pinNumber) {
     const config = getStoredConfig(pinNumber);
@@ -1366,30 +1497,43 @@ function getStoredConfig(pinNumber) {
 }
 
 // New Simple Highlighting Function - Changes connector to green and wire to green
-function highlightPin(pinNumber, isConfigured = true) {
+function highlightPin(pinNumber, isConfigured = true, outputType = null) {
     const connector = document.querySelector(`.connector[data-number="${pinNumber}"]`);
     if (!connector) return;
     
     if (isConfigured) {
-        // Change connector to green
-        connector.style.backgroundColor = '#4caf50';
-        connector.style.borderColor = '#388e3c';
+        let backgroundColor, borderColor;
+        
+        // Set colors based on output type
+        if (outputType === 'DIO') {
+            backgroundColor = '#007bff';  // Blue for DIO
+            borderColor = '#0056b3';
+        } else if (outputType === 'PWM') {
+            backgroundColor = '#fd7e14';  // Orange for PWM
+            borderColor = '#e85d07';
+        } else {
+            backgroundColor = '#28a745';  // Green for generic configured
+            borderColor = '#1e7e34';
+        }
+        
+        // Apply colors to connector
+        connector.style.backgroundColor = backgroundColor;
+        connector.style.borderColor = borderColor;
         connector.style.color = 'white';
         
-        // Find and change associated wire to green (try multiple wire classes)
+        // Find and change associated wire color
         let wire = connector.querySelector('.wire');
         if (!wire) wire = connector.querySelector('.wire-right');
         if (!wire) wire = connector.querySelector('.wire-left');
         
         if (wire) {
-            wire.style.backgroundColor = '#4caf50'; // Green color for configured wires
+            wire.style.backgroundColor = backgroundColor;
         }
         
-        // Change pin label to green
+        // Change pin label color
         const pinLabel = connector.getAttribute('pin-lable');
         if (pinLabel) {
-            // Update the connector's ::before and ::after pseudo-elements via CSS custom properties
-            connector.style.setProperty('--label-color', '#4caf50');
+            connector.style.setProperty('--label-color', backgroundColor);
         }
         
         // Mark as temporarily highlighted (not persisted)

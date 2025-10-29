@@ -130,7 +130,7 @@ function displayConfigurations(configs) {
         const isPWM = config.outputType === 'PWM';
         
         configHTML += `
-            <div class="config-card ${config.outputType.toLowerCase()}" data-config-index="${index}" onclick="selectConfiguration(${index})">
+            <div class="config-card ${config.outputType.toLowerCase()}" data-config-index="${index}" data-pin="${config.pin}" onclick="selectConfiguration(${index})">
                 <div class="pin-number">Pin ${config.pin}</div>
                 <div class="short-name">${config.shortName}</div>
                 <div style="font-weight: bold; color: ${isPWM ? '#ff9800' : '#4caf50'};">
@@ -452,6 +452,34 @@ function exportARXML(pinNumber) {
 /**
  * Trigger file selection for loading configuration data
  */
+/**
+ * Navigate back to terminal diagram
+ */
+function backToTerminalDiagram() {
+    try {
+        // Try multiple navigation methods
+        
+        // Method 1: Check if we're in an iframe and communicate with parent
+        if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ action: 'showTerminalDiagram' }, '*');
+            return;
+        }
+        
+        // Method 2: Navigate to the terminal diagram HTML file
+        const terminalDiagramPath = '../../element/vd1cc055/termaildiagram.html';
+        window.location.href = terminalDiagramPath;
+        
+    } catch (error) {
+        console.error('Error navigating to terminal diagram:', error);
+        // Fallback: try to go to parent directory
+        try {
+            window.history.back();
+        } catch (fallbackError) {
+            alert('Unable to navigate back to terminal diagram. Please use browser back button or navigate manually.');
+        }
+    }
+}
+
 function loadConfigData() {
     const fileInput = document.getElementById('configFileInput');
     if (fileInput) {
@@ -739,6 +767,32 @@ function exportAllData(){
 // Load configurations when page loads
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Config viewer loaded, attempting to load configurations...');
+    
+    // Check URL parameters for edit mode
+    const urlParams = new URLSearchParams(window.location.search);
+    const pinNumber = urlParams.get('pin');
+    const editMode = urlParams.get('edit');
+    
+    if (pinNumber && editMode === 'true') {
+        console.log(`Edit mode detected for pin ${pinNumber}`);
+        // Add a visual indicator that we're in edit mode
+        const header = document.querySelector('.header h1');
+        if (header) {
+            header.innerHTML = `Pin Configuration Viewer - Editing Pin ${pinNumber}`;
+            header.style.color = '#007bff';
+        }
+        
+        // Highlight the specific configuration when loaded
+        setTimeout(() => {
+            const configCard = document.querySelector(`[data-pin="${pinNumber}"]`);
+            if (configCard) {
+                configCard.scrollIntoView({ behavior: 'smooth' });
+                configCard.style.border = '2px solid #007bff';
+                configCard.style.boxShadow = '0 0 10px rgba(0, 123, 255, 0.3)';
+            }
+        }, 1000);
+    }
+    
     loadConfigurations();
     
     // Auto-refresh every 5 seconds to catch updates

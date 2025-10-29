@@ -201,6 +201,48 @@ body {
     transform: translateY(-50%);
 }
 
+/* Configured connector styling */
+.connector.configured {
+    background-color: #28a745;
+    border-color: #1e7e34;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.6);
+}
+
+.connector.configured:hover {
+    background-color: #218838;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.8);
+}
+
+.connector.configured.selected {
+    background-color: #155724;
+    border-color: #0d4118;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.9);
+}
+
+/* DIO configured styling */
+.connector.configured.dio {
+    background-color: #007bff;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.6);
+}
+
+.connector.configured.dio:hover {
+    background-color: #0069d9;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.8);
+}
+
+/* PWM configured styling */
+.connector.configured.pwm {
+    background-color: #fd7e14;
+    border-color: #e85d07;
+    box-shadow: 0 0 5px rgba(253, 126, 20, 0.6);
+}
+
+.connector.configured.pwm:hover {
+    background-color: #e76500;
+    box-shadow: 0 0 8px rgba(253, 126, 20, 0.8);
+}
+
 /* Wire (dây nối) chung */
 .wire {
     position: absolute;
@@ -1150,4 +1192,122 @@ body {
         transition: none !important;
         animation: none !important;
     }
+}
+
+/* Context Menu Styling */
+.context-menu {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    min-width: 200px;
+    max-width: 350px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 10000;
+}
+
+.context-menu-header {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background: #f8f9fa;
+    border-radius: 6px 6px 0 0;
+}
+
+.connector-info {
+    margin-bottom: 8px;
+}
+
+.connector-info strong {
+    color: #007acc;
+    font-size: 14px;
+}
+
+.connector-info small {
+    display: block;
+    color: #666;
+    margin: 2px 0;
+    line-height: 1.3;
+}
+
+.context-menu-header-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.remove-config-btn, .edit-config-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.2s;
+}
+
+.edit-config-btn {
+    background: #007bff;
+}
+
+.remove-config-btn:hover {
+    background: #c82333;
+}
+
+.edit-config-btn:hover {
+    background: #0056b3;
+}
+
+.context-menu-config-details {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    background: #f0f8f0;
+}
+
+.menu-section-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.config-details {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.config-detail-item {
+    margin: 4px 0;
+    padding: 2px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.config-detail-item:last-child {
+    border-bottom: none;
+}
+
+.config-detail-item strong {
+    color: #555;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 80px;
+}
+
+.context-menu-actions {
+    padding: 8px;
+}
+
+.menu-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
 }
