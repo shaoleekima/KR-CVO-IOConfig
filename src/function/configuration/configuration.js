@@ -449,6 +449,269 @@ function exportARXML(pinNumber) {
     URL.revokeObjectURL(url);
 }
 
+/**
+ * Trigger file selection for loading configuration data
+ */
+function loadConfigData() {
+    const fileInput = document.getElementById('configFileInput');
+    if (fileInput) {
+        fileInput.click();
+    } else {
+        alert('File input not found. Please refresh the page and try again.');
+    }
+}
+
+/**
+ * Handle the selected configuration file and load its data
+ */
+function handleConfigFileLoad(event) {
+    const file = event.target.files[0];
+    if (!file) {
+        return;
+    }
+
+    // Validate file type
+    if (!file.name.toLowerCase().endsWith('.json')) {
+        displayError('Please select a valid JSON file.');
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const configData = JSON.parse(e.target.result);
+            loadConfigurationData(configData);
+        } catch (error) {
+            console.error('Error parsing JSON file:', error);
+            displayError('Error parsing JSON file: ' + error.message);
+        }
+    };
+
+    reader.onerror = function() {
+        alert('Error reading file. Please try again.');
+    };
+
+    reader.readAsText(file);
+    
+    // Reset file input so the same file can be loaded again
+    event.target.value = '';
+}
+
+/**
+ * Load configuration data from parsed JSON and apply it to the system
+ */
+function loadConfigurationData(configData) {
+    try {
+        console.log('Loading configuration data:', configData);
+        
+        // Validate the configuration data structure
+        if (!validateConfigurationData(configData)) {
+            displayError('Invalid configuration file format. Please check the file structure.');
+            return;
+        }
+
+        // Count configurations to be loaded
+        const dioConfigs = configData.savedConfigurations?.DIO || {};
+        const pwmConfigs = configData.savedConfigurations?.PWM || {};
+        const totalConfigs = Object.keys(dioConfigs).length + Object.keys(pwmConfigs).length;
+
+        if (totalConfigs === 0) {
+            displayError('No valid configurations found in the file.');
+            return;
+        }
+
+        // Confirm with user before loading
+        const confirmMessage = `This will load ${totalConfigs} configuration(s):\n- ${Object.keys(dioConfigs).length} DIO configurations\n- ${Object.keys(pwmConfigs).length} PWM configurations\n\nDo you want to continue?`;
+        
+        if (!confirm(confirmMessage)) {
+            return;
+        }
+
+        // Apply the configurations
+        applyConfigurationData(configData);
+        
+        // Refresh the display
+        loadConfigurations();
+        
+        // Show success message
+        displaySuccessMessage(`Successfully loaded ${totalConfigs} configuration(s)!`);
+        
+    } catch (error) {
+        console.error('Error loading configuration data:', error);
+        displayError('Error loading configuration data: ' + error.message);
+    }
+}
+
+/**
+ * Display success message to user
+ */
+function displaySuccessMessage(message) {
+    // Show alert for immediate feedback
+    alert(message);
+    
+    // Also add a temporary success indicator in the UI
+    const summaryContainer = document.getElementById('summary-stats');
+    if (summaryContainer) {
+        const originalContent = summaryContainer.innerHTML;
+        summaryContainer.innerHTML = `<div style="color: #28a745; text-align: center; padding: 10px; background: #d4edda; border-radius: 4px; margin-bottom: 10px;">${message}</div>` + originalContent;
+        
+        // Remove the success message after 5 seconds
+        setTimeout(() => {
+            const successDiv = summaryContainer.querySelector('div[style*="color: #28a745"]');
+            if (successDiv) {
+                successDiv.remove();
+            }
+        }, 5000);
+    }
+}
+
+/**
+ * Validate the structure of configuration data
+ */
+function validateConfigurationData(configData) {
+    // Check if it has the expected structure
+    if (!configData || typeof configData !== 'object') {
+        return false;
+    }
+
+    // Check for required sections
+    if (!configData.savedConfigurations) {
+        return false;
+    }
+
+    // It's valid if it has at least DIO or PWM configurations
+    const hasDIO = configData.savedConfigurations.DIO && typeof configData.savedConfigurations.DIO === 'object';
+    const hasPWM = configData.savedConfigurations.PWM && typeof configData.savedConfigurations.PWM === 'object';
+    
+    return hasDIO || hasPWM;
+}
+
+/**
+ * Apply configuration data to the system
+ */
+function applyConfigurationData(configData) {
+    const configs = [];
+    const timestamp = new Date().toISOString();
+
+    // Process DIO configurations
+    if (configData.savedConfigurations.DIO) {
+        Object.entries(configData.savedConfigurations.DIO).forEach(([pinNumber, config]) => {
+            const processedConfig = {
+                pin: pinNumber,
+                pinNumber: pinNumber,
+                outputType: 'DIO',
+                configured: true,
+                timestamp: config.timestamp || timestamp,
+                originalLabel: config.originalLabel || `Pin_${pinNumber}`,
+                shortName: config.custSpecName || config.CustSpecName || '',
+                
+                // DIO specific properties
+                custSpecName: config.custSpecName || config.CustSpecName || '',
+                direction: config.direction || 'Output',
+                connectedTo: config.connectedTo || config.ConnectedTo || '',
+                directionChangeable: config.directionChangeable || config.DirectionChangeable || 'FALSE',
+                invert: config.invert || config.Invert || 'FALSE',
+                calibAlterText: config.calibAlterText || config.CalibAlterText || '',
+                calibratable: config.calibratable || config.Calibratable || 'FALSE',
+                calibratableInvert: config.calibratableInvert || config.CalibratableInvert || 'FALSE',
+                initState: config.initState || config.InitState || 'Idle',
+                initStrategy: config.initStrategy || config.InitStrategy || 'AnyReset',
+                outDiagCurrent: config.outDiagCurrent || config.OutDiagCurrent || 'FALSE',
+                outProtectStrategy: config.outProtectStrategy || config.OutProtectStrategy || 'SwitchOff'
+            };
+            
+            configs.push(processedConfig);
+        });
+    }
+
+    // Process PWM configurations
+    if (configData.savedConfigurations.PWM) {
+        Object.entries(configData.savedConfigurations.PWM).forEach(([pinNumber, config]) => {
+            const processedConfig = {
+                pin: pinNumber,
+                pinNumber: pinNumber,
+                outputType: 'PWM',
+                configured: true,
+                timestamp: config.timestamp || timestamp,
+                originalLabel: config.originalLabel || `Pin_${pinNumber}`,
+                shortName: config.custSpecName || '',
+                
+                // PWM specific properties
+                custSpecName: config.custSpecName || '',
+                frequency: config.frequency || '1000',
+                dutyCycle: config.dutyCycle || '50',
+                period: config.period || 'variable',
+                polarity: config.polarity || 'normal',
+                overload: config.overload || 'enabled',
+                diagnostics: config.diagnostics || 'full',
+                connectedTo: config.connectedTo || '',
+                calibratable: config.calibratable || 'FALSE',
+                calibAlterText: config.calibAlterText || '',
+                initState: config.initState || 'Idle',
+                initStrategy: config.initStrategy || 'AnyReset'
+            };
+            
+            configs.push(processedConfig);
+        });
+    }
+
+    // Save to localStorage
+    saveConfigurationsToStorage(configs);
+    
+    // Update terminal diagram if available
+    updateTerminalDiagram(configs);
+    
+    console.log('Successfully applied configuration data:', configs);
+}
+
+/**
+ * Save configurations to localStorage
+ */
+function saveConfigurationsToStorage(configs) {
+    try {
+        // Save as array format
+        localStorage.setItem('pin_configurations_array', JSON.stringify(configs));
+        
+        // Also save individual configs for compatibility
+        configs.forEach(config => {
+            if (config.pin) {
+                localStorage.setItem(`pin_config_${config.pin}`, JSON.stringify(config));
+            }
+        });
+        
+        console.log('Configurations saved to localStorage');
+    } catch (error) {
+        console.error('Error saving configurations to localStorage:', error);
+        throw error;
+    }
+}
+
+/**
+ * Update terminal diagram with loaded configurations
+ */
+function updateTerminalDiagram(configs) {
+    try {
+        // Try to update the terminal diagram if the update function is available
+        if (window.updatePinConfigurationFromData && typeof window.updatePinConfigurationFromData === 'function') {
+            configs.forEach(config => {
+                window.updatePinConfigurationFromData(config);
+            });
+            console.log('Terminal diagram updated with loaded configurations');
+        } else if (window.parent && window.parent.updatePinConfigurationFromData) {
+            // Try parent window if this is in an iframe
+            configs.forEach(config => {
+                window.parent.updatePinConfigurationFromData(config);
+            });
+            console.log('Parent terminal diagram updated with loaded configurations');
+        } else {
+            console.log('Terminal diagram update function not available');
+        }
+    } catch (error) {
+        console.error('Error updating terminal diagram:', error);
+        // Don't throw - this is not critical
+    }
+}
+
 function exportAllData(){
     //alert(`AUTOSAR XML exported for Pin ${pinNumber}`);
     // if (!validateDIOConfiguration()) return;

@@ -13,6 +13,7 @@
     <script src="sidebar/side-digital.js"></script>
     <script src="../../function/libs/bsw/export-arxml.js"></script>
     <script src="../../function/tle7244/tle7244.js"></script>
+    <script src="../../element/vd1cc055/data-storage.js"></script>
     <sctipt src="terminaldiagram.js"></sctipt>
     <script src="configuration.js"></script>
     <style>
@@ -325,6 +326,8 @@
                 <h1>Pin Configuration Viewer</h1>
                 <p>This page demonstrates how to access configuration data from the terminal diagram.</p>
                 <button class="refresh-btn" onclick="loadConfigurations()">Refresh Data</button>
+                <button class="refresh-btn" onclick="loadConfigData()" style="background: #28a745;">Load Config Data</button>
+                <input type="file" id="configFileInput" accept=".json" style="display: none;" onchange="handleConfigFileLoad(event)">
                 <button class="refresh-btn" onclick="exportData()">Export JSON</button>
                 <button class="refresh-btn" onclick="exportCSV()">Export CSV</button>
                 <button class="refresh-btn" onclick="clearAllData()" style="background: #dc3545;">Clear All Data</button>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Config Data Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .refresh-btn {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .refresh-btn:hover {
+            background: #005a99;
+        }
+        .demo-area {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .config-item {
+            background: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 4px solid #007acc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Load Config Data Demo</h1>
+        <p>Test the Load Config Data functionality with the provided JSON file.</p>
+        
+        <div>
+            <button class="refresh-btn" onclick="loadConfigData()" style="background: #28a745;">Load Config Data</button>
+            <input type="file" id="configFileInput" accept=".json" style="display: none;" onchange="handleConfigFileLoad(event)">
+            <button class="refresh-btn" onclick="clearDisplay()">Clear Display</button>
+        </div>
+        
+        <div class="demo-area">
+            <h3>Loaded Configurations:</h3>
+            <div id="configDisplay">
+                <p>No configurations loaded yet. Click "Load Config Data" to test.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Demo version of the load functions
+        function loadConfigData() {
+            const fileInput = document.getElementById('configFileInput');
+            if (fileInput) {
+                fileInput.click();
+            } else {
+                alert('File input not found. Please refresh the page and try again.');
+            }
+        }
+
+        function handleConfigFileLoad(event) {
+            const file = event.target.files[0];
+            if (!file) {
+                return;
+            }
+
+            if (!file.name.toLowerCase().endsWith('.json')) {
+                alert('Please select a valid JSON file.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const configData = JSON.parse(e.target.result);
+                    displayConfigData(configData);
+                } catch (error) {
+                    console.error('Error parsing JSON file:', error);
+                    alert('Error parsing JSON file: ' + error.message);
+                }
+            };
+
+            reader.onerror = function() {
+                alert('Error reading file. Please try again.');
+            };
+
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function displayConfigData(configData) {
+            const display = document.getElementById('configDisplay');
+            let html = '<h4>Configuration Data Loaded Successfully!</h4>';
+            
+            // Display general settings
+            if (configData.generalSettings) {
+                html += '<div class="config-item">';
+                html += '<strong>General Settings:</strong><br>';
+                html += `Version: ${configData.generalSettings.version}<br>`;
+                html += `Last Updated: ${configData.generalSettings.lastUpdated}<br>`;
+                html += `Auto Save: ${configData.generalSettings.autoSave}`;
+                html += '</div>';
+            }
+
+            // Display DIO configurations
+            if (configData.savedConfigurations && configData.savedConfigurations.DIO) {
+                const dioConfigs = configData.savedConfigurations.DIO;
+                html += '<div class="config-item">';
+                html += `<strong>DIO Configurations (${Object.keys(dioConfigs).length}):</strong><br>`;
+                Object.entries(dioConfigs).forEach(([pin, config]) => {
+                    html += `Pin ${pin}: ${config.custSpecName || config.CustSpecName || 'No Name'} (${config.direction || 'Output'})<br>`;
+                });
+                html += '</div>';
+            }
+
+            // Display PWM configurations
+            if (configData.savedConfigurations && configData.savedConfigurations.PWM) {
+                const pwmConfigs = configData.savedConfigurations.PWM;
+                html += '<div class="config-item">';
+                html += `<strong>PWM Configurations (${Object.keys(pwmConfigs).length}):</strong><br>`;
+                Object.entries(pwmConfigs).forEach(([pin, config]) => {
+                    html += `Pin ${pin}: ${config.custSpecName || 'No Name'} (${config.frequency}Hz, ${config.dutyCycle}%)<br>`;
+                });
+                html += '</div>';
+            }
+
+            display.innerHTML = html;
+        }
+
+        function clearDisplay() {
+            document.getElementById('configDisplay').innerHTML = '<p>Display cleared. Click "Load Config Data" to test.</p>';
+        }
+    </script>
+</body>
+</html>
