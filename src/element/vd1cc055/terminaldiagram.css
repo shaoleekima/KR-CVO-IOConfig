@@ -942,3 +942,212 @@ body {
 .remove-config-btn:active {
     transform: translateY(0);
 }
+
+/* ===== RESPONSIVE DESIGN FOR ALL DEVICES ===== */
+
+/* Extra Small Devices (Phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px;
+        min-height: 100vh;
+    }
+    
+    .select-panel {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    
+    .panel-section {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .section-group {
+        flex-direction: column;
+        gap: 5px;
+        align-items: stretch;
+    }
+    
+    .section-title-inline {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .panel-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        margin: 2px 0;
+    }
+    
+    .terminal-body {
+        transform: scale(0.6);
+        transform-origin: center top;
+        margin-top: 20px;
+    }
+    
+    .tle7244 {
+        margin: 20px auto;
+    }
+    
+    .context-menu {
+        max-width: 280px;
+        font-size: 12px;
+    }
+    
+    .context-menu input,
+    .context-menu select {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    .menu-option {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Small Devices (Portrait tablets and large phones, 600px to 768px) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .select-panel {
+        position: relative;
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+    
+    .panel-section {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .section-group {
+        flex-wrap: wrap;
+        min-width: 200px;
+    }
+    
+    .panel-button {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    
+    .terminal-body {
+        transform: scale(0.8);
+        transform-origin: center top;
+    }
+    
+    .context-menu {
+        max-width: 320px;
+    }
+}
+
+/* Medium Devices (Landscape tablets, 768px to 992px) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .select-panel {
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+    .terminal-body {
+        transform: scale(0.9);
+        transform-origin: center top;
+    }
+    
+    .panel-section {
+        gap: 20px;
+    }
+}
+
+/* Large Devices (Laptops/Desktops, 992px to 1200px) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .select-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    
+    .terminal-body {
+        transform: scale(1);
+        margin-top: 80px;
+    }
+}
+
+/* Extra Large Devices (Large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .select-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    
+    .terminal-body {
+        transform: scale(1.1);
+        margin-top: 80px;
+    }
+}
+
+/* Portrait Orientation Specific */
+@media only screen and (orientation: portrait) {
+    .select-panel {
+        position: relative !important;
+        margin-bottom: 20px;
+    }
+    
+    .terminal-body {
+        margin-top: 20px !important;
+    }
+    
+    .panel-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .section-group {
+        margin-bottom: 10px;
+    }
+}
+
+/* Landscape Orientation Specific */
+@media only screen and (orientation: landscape) and (max-width: 1024px) {
+    .select-panel {
+        position: relative;
+        margin-bottom: 15px;
+    }
+    
+    .panel-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .terminal-body {
+        margin-top: 10px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .panel-button {
+        border-width: 0.5px;
+    }
+    
+    .tle7244-connector {
+        border-width: 0.5px;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .tle7244-connector,
+    .panel-button,
+    .context-menu,
+    .menu-option {
+        transition: none !important;
+        animation: none !important;
+    }
+}

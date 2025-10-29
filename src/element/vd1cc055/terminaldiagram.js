@@ -123,10 +123,191 @@ window.PinConfigurationManager = {
     }
 };
 
+// Function to load configurations from the unified data storage system
+function loadAndDisplayExistingConfigurations() {
+    console.log('🔄 Loading existing configurations from unified storage...');
+    
+    // Load from DataStorageManager if available
+    if (window.DataStorageManager) {
+        console.log('✅ DataStorageManager is available');
+        const allData = window.DataStorageManager.getAllData();
+        console.log('📊 All data from storage:', allData);
+        
+        if (allData && allData.savedConfigurations) {
+            console.log('✅ Found saved configurations:', allData.savedConfigurations);
+            
+            // Clear existing configurations first
+            window.PinConfigurationManager.clearAllConfigurations();
+            console.log('🧹 Cleared existing configurations');
+            
+            // Convert DIO configurations
+            if (allData.savedConfigurations.DIO) {
+                console.log('🔧 Processing DIO configurations:', Object.keys(allData.savedConfigurations.DIO));
+                Object.keys(allData.savedConfigurations.DIO).forEach(pinNumber => {
+                    const dioConfig = allData.savedConfigurations.DIO[pinNumber];
+                    console.log(`🔧 Processing DIO config for pin ${pinNumber}:`, dioConfig);
+                    
+                    // Get original label from HTML
+                    const originalLabel = getOriginalPinLabelFromHTML(pinNumber);
+                    
+                    const terminalConfig = {
+                        pin: parseInt(pinNumber),
+                        shortName: dioConfig.CustSpecName || dioConfig.custSpecName || dioConfig.shortName,
+                        outputType: 'DIO',
+                        timestamp: dioConfig.timestamp,
+                        originalLabel: originalLabel || dioConfig.originalLabel || `Pin ${pinNumber}`,
+                        configured: true
+                    };
+                    
+                    console.log(`✅ Adding DIO configuration for pin ${pinNumber}:`, terminalConfig);
+                    window.PinConfigurationManager.addConfiguration(terminalConfig);
+                    
+                    // Apply visual styling to the pin
+                    console.log(`🎨 Applying visual styling to pin ${pinNumber}`);
+                    applyConfigurationToPin(pinNumber, terminalConfig);
+                });
+            } else {
+                console.log('⚠️ No DIO configurations found');
+            }
+            
+            // Convert PWM configurations  
+            if (allData.savedConfigurations.PWM) {
+                Object.keys(allData.savedConfigurations.PWM).forEach(pinNumber => {
+                    const pwmConfig = allData.savedConfigurations.PWM[pinNumber];
+                    console.log(`Processing PWM config for pin ${pinNumber}:`, pwmConfig);
+                    
+                    // Get original label from HTML
+                    const originalLabel = getOriginalPinLabelFromHTML(pinNumber);
+                    
+                    const terminalConfig = {
+                        pin: parseInt(pinNumber),
+                        shortName: pwmConfig.CustSpecName || pwmConfig.custSpecName || pwmConfig.shortName,
+                        outputType: 'PWM',
+                        pwmFrequency: pwmConfig.frequency,
+                        pwmDutyCycle: pwmConfig.dutyCycle,
+                        timestamp: pwmConfig.timestamp,
+                        originalLabel: originalLabel || pwmConfig.originalLabel || `Pin ${pinNumber}`,
+                        configured: true
+                    };
+                    
+                    console.log(`Adding PWM configuration for pin ${pinNumber}:`, terminalConfig);
+                    window.PinConfigurationManager.addConfiguration(terminalConfig);
+                    
+                    // Apply visual styling to the pin
+                    applyConfigurationToPin(pinNumber, terminalConfig);
+                });
+            }
+            
+            const totalConfigs = Object.keys(allData.savedConfigurations.DIO || {}).length + 
+                               Object.keys(allData.savedConfigurations.PWM || {}).length;
+            console.log(`Loaded and applied ${totalConfigs} configurations to terminal diagram`);
+            
+            // Ensure TLE7244 remains hidden after loading configurations
+            const terminalBody = document.querySelector('.terminal-body');
+            if (terminalBody) {
+                terminalBody.style.display = 'none';
+                console.log('🔒 TLE7244 kept hidden after loading configurations - only shows on expand width');
+            }
+        } else {
+            console.log('No saved configurations found in unified storage');
+        }
+    } else {
+        console.log('DataStorageManager not available, using fallback loading');
+        // Fallback to legacy loading
+        window.PinConfigurationManager.loadFromStorage();
+        
+        // Apply visual styling to all loaded configurations
+        const configs = window.PinConfigurationManager.getAllConfigurations();
+        configs.forEach(config => {
+            applyConfigurationToPin(config.pin.toString(), config);
+        });
+    }
+}
+
+// Function to get original pin label from HTML DOM
+function getOriginalPinLabelFromHTML(pinNumber) {
+    const connector = document.querySelector(`.connector[data-number="${pinNumber}"]`);
+    if (connector) {
+        return connector.getAttribute('pin-lable') || connector.getAttribute('pin-label') || null;
+    }
+    return null;
+}
+
+// Function to apply configuration styling to a pin
+function applyConfigurationToPin(pinNumber, config) {
+    console.log(`Attempting to apply styling to pin ${pinNumber}:`, config);
+    
+    const connector = document.querySelector(`.connector[data-number="${pinNumber}"]`);
+    if (connector) {
+        // Add configured class
+        connector.classList.add('configured');
+        
+        // Apply green highlighting
+        highlightPin(pinNumber, true);
+        
+        // Update title to show configuration
+        const originalLabel = connector.getAttribute('pin-lable') || '';
+        connector.title = `${config.shortName} (${config.outputType}) - Configured`;
+        
+        console.log(`✅ Applied styling to Pin ${pinNumber} (${originalLabel}): ${config.shortName}`);
+    } else {
+        console.error(`❌ Could not find connector for pin ${pinNumber}`);
+        
+        // Try to find all connectors for debugging
+        const allConnectors = document.querySelectorAll('.connector[data-number]');
+        console.log('Available connectors:', Array.from(allConnectors).map(c => c.getAttribute('data-number')));
+    }
+}
+
+// Global refresh function for other files to call
+window.refreshTerminalDiagram = function() {
+    console.log('🔄 Refreshing terminal diagram...');
+    
+    // Clear all current visual configurations
+    const connectors = document.querySelectorAll('.connector');
+    connectors.forEach(connector => {
+        connector.classList.remove('configured');
+        const pinNumber = connector.getAttribute('data-number');
+        if (pinNumber) {
+            highlightPin(pinNumber, false);
+            const originalLabel = connector.getAttribute('pin-lable') || '';
+            connector.title = originalLabel;
+        }
+    });
+    
+    // Reload and display configurations with a small delay
+    setTimeout(() => {
+        console.log('🔄 Loading and displaying existing configurations...');
+        loadAndDisplayExistingConfigurations();
+        
+        // Ensure TLE7244 remains hidden after refresh
+        const terminalBody = document.querySelector('.terminal-body');
+        if (terminalBody) {
+            terminalBody.style.display = 'none';
+            console.log('🔒 TLE7244 kept hidden after refresh - only shows on expand width');
+        }
+    }, 50);
+};
+
 // Initialize the configuration manager on page load
 window.PinConfigurationManager.loadFromStorage();
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Add a small delay to ensure all DOM elements are ready
+    setTimeout(() => {
+        console.log('DOM ready, loading existing configurations...');
+        // Load existing configurations from storage and display them
+        loadAndDisplayExistingConfigurations();
+    }, 100);
+    
+    // Hide terminal body initially until expand width is clicked
+    const terminalBody = document.querySelector('.terminal-body');
+    if (terminalBody) {
+        // Always hide initially - only show when expand width is clicked
+        terminalBody.style.display = 'none';
+        console.log('Terminal diagram (TLE) hidden - will show on expand width click');
+    }
+    
     // Get all connectors
     const connectors = document.querySelectorAll('.connector');
     const filterButtons = document.querySelectorAll('.panel-button');
@@ -1032,10 +1213,25 @@ window.applyDIOPWMConfig = function(pinNumber, pinLabel) {
     // Store configuration in localStorage for persistence (legacy support)
     const configKey = `pin_config_${pinNumber}`;
     localStorage.setItem(configKey, JSON.stringify(config));
-    
+
     // Add configuration to global array storage system
     window.PinConfigurationManager.addConfiguration(config);
-    
+
+    // Save to data storage system (no server required)
+    if (window.DataStorageManager) {
+        if (outputType === 'DIO') {
+            const success = window.DataStorageManager.saveDIOConfiguration(pinNumber, config);
+            if (success) {
+                console.log(`DIO configuration saved to localStorage for pin ${pinNumber}`);
+            }
+        } else if (outputType === 'PWM') {
+            const success = window.DataStorageManager.savePWMConfiguration(pinNumber, config);
+            if (success) {
+                console.log(`PWM configuration saved to localStorage for pin ${pinNumber}`);
+            }
+        }
+    }
+
     // Dispatch custom event to notify other windows/tabs
     const event = new CustomEvent('configurationUpdated', {
         detail: {
@@ -1133,7 +1329,7 @@ function getStoredConfig(pinNumber) {
     return storedConfig ? JSON.parse(storedConfig) : null;
 }
 
-// New Simple Highlighting Function - Changes connector and wire to green
+// New Simple Highlighting Function - Changes connector to green and wire to green
 function highlightPin(pinNumber, isConfigured = true) {
     const connector = document.querySelector(`.connector[data-number="${pinNumber}"]`);
     if (!connector) return;
@@ -1144,10 +1340,13 @@ function highlightPin(pinNumber, isConfigured = true) {
         connector.style.borderColor = '#388e3c';
         connector.style.color = 'white';
         
-        // Find and change associated wire to green
-        const wire = connector.querySelector('.wire');
+        // Find and change associated wire to green (try multiple wire classes)
+        let wire = connector.querySelector('.wire');
+        if (!wire) wire = connector.querySelector('.wire-right');
+        if (!wire) wire = connector.querySelector('.wire-left');
+        
         if (wire) {
-            wire.style.backgroundColor = '#4caf50';
+            wire.style.backgroundColor = '#4caf50'; // Green color for configured wires
         }
         
         // Change pin label to green
@@ -1165,7 +1364,10 @@ function highlightPin(pinNumber, isConfigured = true) {
         connector.style.borderColor = '';
         connector.style.color = '';
         
-        const wire = connector.querySelector('.wire');
+        let wire = connector.querySelector('.wire');
+        if (!wire) wire = connector.querySelector('.wire-right');
+        if (!wire) wire = connector.querySelector('.wire-left');
+        
         if (wire) {
             wire.style.backgroundColor = '';
         }
@@ -1206,7 +1408,12 @@ function clearStoredConfigurations() {
 
 // Function to manually clear all configurations (both legacy and new)
 function clearAllStoredConfigurations() {
-    // Get all localStorage keys
+    // Clear from unified data storage system
+    if (window.DataStorageManager) {
+        window.DataStorageManager.clearAllSavedConfigurations();
+    }
+    
+    // Get all localStorage keys for legacy clearing
     const keys = Object.keys(localStorage);
     
     // Filter and remove only pin configuration keys
@@ -1219,7 +1426,19 @@ function clearAllStoredConfigurations() {
     // Clear the global configuration array
     window.PinConfigurationManager.clearAllConfigurations();
     
-    console.log('All stored pin configurations cleared manually');
+    // Clear all visual configurations from the terminal diagram
+    const connectors = document.querySelectorAll('.connector');
+    connectors.forEach(connector => {
+        connector.classList.remove('configured');
+        const pinNumber = connector.getAttribute('data-number');
+        if (pinNumber) {
+            highlightPin(pinNumber, false);
+            const originalLabel = connector.getAttribute('pin-lable') || '';
+            connector.title = originalLabel;
+        }
+    });
+    
+    console.log('All stored pin configurations cleared from all systems');
 }
 
 // Add page reload warning
@@ -1238,6 +1457,171 @@ window.getConfigurationData = function() {
 
 window.getConfigurationSummary = function() {
     return window.PinConfigurationManager.getSummary();
+};
+
+// Function to load and display existing configurations
+window.loadAndDisplayExistingConfigurations = function() {
+    if (!window.DataStorageManager) return;
+    
+    const savedConfigs = window.DataStorageManager.getAllSavedConfigurations();
+    console.log('Loading existing configurations:', savedConfigs);
+    
+    // Load DIO configurations
+    Object.keys(savedConfigs.DIO).forEach(pinNumber => {
+        const config = savedConfigs.DIO[pinNumber];
+        applyConfigurationToPin(pinNumber, config, 'DIO');
+    });
+    
+    // Load PWM configurations
+    Object.keys(savedConfigs.PWM).forEach(pinNumber => {
+        const config = savedConfigs.PWM[pinNumber];
+        applyConfigurationToPin(pinNumber, config, 'PWM');
+    });
+};
+
+// Function to apply configuration to a pin visually
+window.applyConfigurationToPin = function(pinNumber, config, outputType) {
+    // Find connector by pin number (check both connector classes)
+    let connector = document.querySelector(`.tle7244-connector[data-number="${pinNumber}"]`);
+    if (!connector) {
+        connector = document.querySelector(`.connector[data-number="${pinNumber}"]`);
+    }
+    
+    if (connector) {
+        // Get original pin label from pin-lable attribute (note the typo in HTML)
+        const originalLabel = connector.getAttribute('pin-lable') || `Pin ${pinNumber}`;
+        
+        // Add configured class and styling
+        connector.classList.add('configured');
+        connector.title = `${config.custSpecName || originalLabel} (${outputType}) - Configured`;
+        
+        // Apply visual styling based on type
+        if (outputType === 'DIO') {
+            connector.style.backgroundColor = '#4caf50';
+            connector.style.borderColor = '#2e7d32';
+            connector.style.color = 'white';
+        } else if (outputType === 'PWM') {
+            connector.style.backgroundColor = '#ff9800';
+            connector.style.borderColor = '#ef6c00';
+            connector.style.color = 'white';
+        }
+        
+        // Add or update pin label display
+        let labelElement = connector.querySelector('.pin-label');
+        if (!labelElement) {
+            labelElement = document.createElement('div');
+            labelElement.className = 'pin-label';
+            labelElement.style.cssText = `
+                position: absolute;
+                top: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 2px 6px;
+                border-radius: 3px;
+                font-size: 10px;
+                white-space: nowrap;
+                z-index: 100;
+                pointer-events: none;
+            `;
+            connector.style.position = 'relative';
+            connector.appendChild(labelElement);
+        }
+        
+        // Update label text
+        labelElement.textContent = config.custSpecName || originalLabel;
+        
+        // Store original label for reference
+        connector.setAttribute('data-original-label', originalLabel);
+        
+        console.log(`Applied ${outputType} configuration to pin ${pinNumber}: ${config.custSpecName || originalLabel}`);
+    } else {
+        console.warn(`Could not find connector for pin ${pinNumber}`);
+    }
+};
+
+// Function to show message when no configurations exist
+window.showNoConfigMessage = function() {
+    const terminalDiagram = document.querySelector('.terminaldiagram');
+    if (terminalDiagram) {
+        const messageDiv = document.createElement('div');
+        messageDiv.id = 'no-config-message';
+        messageDiv.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #666;
+            font-size: 18px;
+            background: white;
+            padding: 40px;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            max-width: 500px;
+            z-index: 1000;
+        `;
+        messageDiv.innerHTML = `
+            <h3>No Pin Configurations Found</h3>
+            <p>Load a configuration file to see your pin settings, or configure pins by right-clicking on them.</p>
+            <p style="margin-top: 20px;">
+                <button onclick="document.querySelector('#config-button').click()" 
+                        style="padding: 10px 20px; background: #007acc; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                    Go to Configuration Viewer
+                </button>
+            </p>
+        `;
+        terminalDiagram.appendChild(messageDiv);
+    }
+};
+
+// Function to hide the no config message
+window.hideNoConfigMessage = function() {
+    const messageDiv = document.getElementById('no-config-message');
+    if (messageDiv) {
+        messageDiv.remove();
+    }
+};
+
+// Function to refresh the terminal diagram when configurations change
+window.refreshTerminalDiagram = function() {
+    // Remove existing configured styling from both connector types
+    document.querySelectorAll('.tle7244-connector.configured, .connector.configured').forEach(connector => {
+        connector.classList.remove('configured');
+        connector.style.backgroundColor = '';
+        connector.style.borderColor = '';
+        connector.style.color = '';
+        connector.title = '';
+        
+        // Remove pin label if it exists
+        const label = connector.querySelector('.pin-label');
+        if (label) {
+            label.remove();
+        }
+    });
+    
+    // Hide no config message if it exists
+    hideNoConfigMessage();
+    
+    // Reload configurations
+    loadAndDisplayExistingConfigurations();
+    
+    // Show/hide terminal body based on configurations
+    const terminalBody = document.querySelector('.terminal-body');
+    const savedConfigs = window.DataStorageManager ? window.DataStorageManager.getAllSavedConfigurations() : null;
+    const hasConfigs = savedConfigs && (Object.keys(savedConfigs.DIO).length > 0 || Object.keys(savedConfigs.PWM).length > 0);
+    
+    if (terminalBody) {
+        if (hasConfigs) {
+            terminalBody.style.display = 'block';
+            console.log('Configurations found, showing terminal diagram');
+        } else {
+            terminalBody.style.display = 'none';
+            console.log('No configurations found, hiding terminal diagram');
+            showNoConfigMessage();
+        }
+    }
 };
 
 window.exportConfigurationData = function() {

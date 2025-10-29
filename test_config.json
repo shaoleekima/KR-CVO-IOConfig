@@ -1,0 +1,95 @@
+{
+  "generalSettings": {
+    "lastUpdated": "2025-10-28T10:00:00.000Z",
+    "version": "1.0",
+    "autoSave": true,
+    "loadDefaultsOnStart": false
+  },
+  "defaultConfigurations": {
+    "DIO": {
+      "custSpecName": "",
+      "direction": "Output",
+      "connectedTo": "",
+      "directionChangeable": "FALSE",
+      "invert": "FALSE",
+      "calibAlterText": "",
+      "calibratable": "FALSE",
+      "calibratableInvert": "FALSE",
+      "initState": "Idle",
+      "initStrategy": "AnyReset",
+      "outDiagCurrent": "FALSE",
+      "outProtectStrategy": "SwitchOff"
+    },
+    "PWM": {
+      "custSpecName": "",
+      "frequency": "1000",
+      "dutyCycle": "50",
+      "period": "variable",
+      "polarity": "normal",
+      "overload": "enabled",
+      "diagnostics": "full",
+      "connectedTo": "",
+      "calibratable": "FALSE",
+      "calibAlterText": "",
+      "initState": "Idle",
+      "initStrategy": "AnyReset"
+    }
+  },
+  "savedConfigurations": {
+    "DIO": {
+      "3": {
+        "custSpecName": "O_T_RL05",
+        "direction": "Output",
+        "connectedTo": "TLE7244_0_3",
+        "directionChangeable": "FALSE",
+        "invert": "FALSE",
+        "calibAlterText": "",
+        "calibratable": "FALSE",
+        "calibratableInvert": "FALSE",
+        "initState": "Idle",
+        "initStrategy": "AnyReset",
+        "outDiagCurrent": "FALSE",
+        "outProtectStrategy": "SwitchOff",
+        "timestamp": "2025-10-28T10:00:00.000Z",
+        "pinNumber": "3",
+        "originalLabel": "SCLK"
+      },
+      "7": {
+        "custSpecName": "luan",
+        "direction": "Output",
+        "connectedTo": "TLE7244_0_7",
+        "directionChangeable": "FALSE",
+        "invert": "FALSE",
+        "calibAlterText": "",
+        "calibratable": "FALSE",
+        "calibratableInvert": "FALSE",
+        "initState": "Idle",
+        "initStrategy": "AnyReset",
+        "outDiagCurrent": "FALSE",
+        "outProtectStrategy": "SwitchOff",
+        "timestamp": "2025-10-28T10:00:00.000Z",
+        "pinNumber": "7",
+        "originalLabel": "IN1"
+      }
+    },
+    "PWM": {
+      "15": {
+        "custSpecName": "Motor_Speed_PWM",
+        "frequency": "2000",
+        "dutyCycle": "75",
+        "period": "variable",
+        "polarity": "normal",
+        "overload": "enabled",
+        "diagnostics": "full",
+        "connectedTo": "TLE7244_0_15",
+        "calibratable": "FALSE",
+        "calibAlterText": "",
+        "initState": "Idle",
+        "initStrategy": "AnyReset",
+        "timestamp": "2025-10-28T10:00:00.000Z",
+        "pinNumber": "15",
+        "originalLabel": "O_T_RL09"
+      }
+    }
+  }
+}

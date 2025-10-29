@@ -1,0 +1,60 @@
+{
+  "generalSettings": {
+    "lastUpdated": "2025-10-28T13:25:17.454Z",
+    "version": "1.0",
+    "autoSave": true,
+    "loadDefaultsOnStart": false
+  },
+  "defaultConfigurations": {
+    "DIO": {
+      "custSpecName": "",
+      "direction": "Output",
+      "connectedTo": "",
+      "directionChangeable": "FALSE",
+      "invert": "FALSE",
+      "calibAlterText": "",
+      "calibratable": "FALSE",
+      "calibratableInvert": "FALSE",
+      "initState": "Idle",
+      "initStrategy": "AnyReset",
+      "outDiagCurrent": "FALSE",
+      "outProtectStrategy": "SwitchOff"
+    },
+    "PWM": {
+      "custSpecName": "",
+      "frequency": "1000",
+      "dutyCycle": "50",
+      "period": "variable",
+      "polarity": "normal",
+      "overload": "enabled",
+      "diagnostics": "full",
+      "connectedTo": "",
+      "calibratable": "FALSE",
+      "calibAlterText": "",
+      "initState": "Idle",
+      "initStrategy": "AnyReset"
+    }
+  },
+  "savedConfigurations": {
+    "DIO": {
+      "80": {
+        "connectedTo": "TLE7244_01_01",
+        "direction": "Output",
+        "custSpecName": "luan",
+        "directionChangeable": "false",
+        "invert": "false",
+        "calibAlterText": "",
+        "calibratable": "false",
+        "calibratableInvert": "false",
+        "initState": "Idle",
+        "initStrategy": "AnyReset",
+        "outDiagCurrent": "false",
+        "outProtectStrategy": "SwitchOff",
+        "timestamp": "2025-10-28T13:25:17.454Z",
+        "pinNumber": "80",
+        "originalLabel": "Output1"
+      }
+    },
+    "PWM": {}
+  }
+}

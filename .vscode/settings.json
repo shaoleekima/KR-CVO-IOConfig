@@ -1,0 +1,6 @@
+{
+    "html.preview.externalBrowser": true,
+    "workbench.editorAssociations": {
+        "*.html": "default"
+    }
+}
