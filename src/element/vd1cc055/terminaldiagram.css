@@ -1194,6 +1194,50 @@ body {
     }
 }
 
+/* TLE7244 Title Styling */
+.tle7244-title {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #007acc 0%, #005a99 100%);
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 122, 204, 0.3);
+    border: 2px solid #005a99;
+}
+
+.tle7244-title h2 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tle7244-title p {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.9;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive title styling */
+@media only screen and (max-width: 768px) {
+    .tle7244-title h2 {
+        font-size: 16px;
+    }
+    
+    .tle7244-title p {
+        font-size: 10px;
+    }
+    
+    .tle7244-title {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+}
+
 /* Context Menu Styling */
 .context-menu {
     background: white;

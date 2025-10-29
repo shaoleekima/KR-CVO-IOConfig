@@ -189,7 +189,7 @@ function exportCSV() {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `pin_configurations_${new Date().toISOString().split('T')[0]}.csv`;
+            a.download = generateOutputFilename(`pin_configurations_${new Date().toISOString().split('T')[0]}.csv`);
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -444,7 +444,7 @@ function exportARXML(pinNumber) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `TLE7244_DIO_Pin${pinNumber}_Config.arxml`;
+    a.download = generateOutputFilename(`TLE7244_DIO_Pin${pinNumber}_Config.arxml`);
     a.click();
     URL.revokeObjectURL(url);
 }
@@ -478,6 +478,17 @@ function backToTerminalDiagram() {
             alert('Unable to navigate back to terminal diagram. Please use browser back button or navigate manually.');
         }
     }
+}
+
+/**
+ * Generate filename with output folder prefix for downloads
+ * @param {string} baseFilename - The base filename without path
+ * @returns {string} Filename prefixed with output/
+ */
+function generateOutputFilename(baseFilename) {
+    // For browser downloads, we can't directly control the folder, but we can suggest it
+    // The user will see "output/" prefix in the download name, suggesting they save to output folder
+    return `output/${baseFilename}`;
 }
 
 function loadConfigData() {
@@ -759,7 +770,7 @@ function exportAllData(){
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `TLE7244_DIO_Ext_Config.arxml`;
+    a.download = generateOutputFilename(`TLE7244_DIO_Ext_Config.arxml`);
     a.click();
     URL.revokeObjectURL(url);
 }

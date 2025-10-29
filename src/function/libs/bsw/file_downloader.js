@@ -1,6 +1,17 @@
 // FileDownloader - utilities to download files and generate filenames
 class FileDownloader {
     /**
+     * Generate filename with output folder prefix for downloads
+     * @param {string} baseFilename - The base filename without path
+     * @returns {string} Filename prefixed with output/
+     */
+    static generateOutputFilename(baseFilename) {
+        // For browser downloads, we can't directly control the folder, but we can suggest it
+        // The user will see "output/" prefix in the download name, suggesting they save to output folder
+        return `output/${baseFilename}`;
+    }
+
+    /**
      * Download content as file
      * @param {string} content - File content
      * @param {string} fileName - File name
@@ -12,7 +23,8 @@ class FileDownloader {
         
         const downloadLink = document.createElement('a');
         downloadLink.href = url;
-        downloadLink.download = fileName;
+        // Apply output folder prefix to all downloads
+        downloadLink.download = this.generateOutputFilename(fileName);
         downloadLink.style.display = 'none';
         
         document.body.appendChild(downloadLink);

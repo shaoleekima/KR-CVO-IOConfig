@@ -91,6 +91,17 @@ class DataStorageManager {
     }
 
     /**
+     * Generate filename with output folder prefix for downloads
+     * @param {string} baseFilename - The base filename without path
+     * @returns {string} Filename prefixed with output/
+     */
+    generateOutputFilename(baseFilename) {
+        // For browser downloads, we can't directly control the folder, but we can suggest it
+        // The user will see "output/" prefix in the download name, suggesting they save to output folder
+        return `output/${baseFilename}`;
+    }
+
+    /**
      * Download configuration data as JSON file
      */
     downloadConfigData(filename = null) {
@@ -104,13 +115,14 @@ class DataStorageManager {
             
             const a = document.createElement('a');
             a.href = url;
-            a.download = filename || `kr_cvo_config_${new Date().toISOString().split('T')[0]}.json`;
+            const defaultFilename = `kr_cvo_config_${new Date().toISOString().split('T')[0]}.json`;
+            a.download = this.generateOutputFilename(filename || defaultFilename);
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
-            console.log('Configuration data downloaded');
+            console.log('Configuration data downloaded to output folder');
             return true;
         } catch (error) {
             console.error('Error downloading configuration:', error);

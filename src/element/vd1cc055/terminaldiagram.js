@@ -1804,6 +1804,17 @@ window.refreshTerminalDiagram = function() {
     }
 };
 
+/**
+ * Generate filename with output folder prefix for downloads
+ * @param {string} baseFilename - The base filename without path
+ * @returns {string} Filename prefixed with output/
+ */
+function generateOutputFilename(baseFilename) {
+    // For browser downloads, we can't directly control the folder, but we can suggest it
+    // The user will see "output/" prefix in the download name, suggesting they save to output folder
+    return `output/${baseFilename}`;
+}
+
 window.exportConfigurationData = function() {
     const data = window.PinConfigurationManager.exportConfigurations();
     console.log('Configuration Data (JSON):');
@@ -1814,7 +1825,7 @@ window.exportConfigurationData = function() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `pin_configurations_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = generateOutputFilename(`pin_configurations_${new Date().toISOString().split('T')[0]}.json`);
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
