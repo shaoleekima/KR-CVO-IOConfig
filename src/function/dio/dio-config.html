@@ -2,439 +2,242 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIO Configuration - TLE7244</title>
-    <link rel="stylesheet" href="dio.css">
-    <!-- <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/tle7244.css"> -->
+    <title>Dio Config</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+            margin: 0;
+            position: relative;
+        }
+        /* Sidebar container */
+        .sidebar {
+            display: block;
+            position: fixed;
+            width: 400px;
+            height: 100vh;
+            background: #ffffff;
+            border-left: 2px solid #dee2e6;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar.active { animation: slideInRight 0.3s ease-out; }
+        .sidebar.closing { animation: slideOutRight 0.3s ease-in; }
+        @keyframes slideInRight { from{transform:translateX(100%)} to{transform:translateX(0)} }
+        @keyframes slideOutRight { from{transform:translateX(0)} to{transform:translateX(100%)} }
+
+        /* Pin header */
+        .pin-info h4{margin:0 0 6px}
+        .pin-info p{margin:4px 0;color:#333}
+
+        /* Advanced Settings Styles */
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display:block; font-weight:600; margin-bottom:5px; color:#333; font-size:13px }
+        .form-group input, .form-group select { width:100%; padding:8px 12px; border:1px solid #ddd; border-radius:4px; font-size:13px; box-sizing:border-box }
+        .form-group input:focus, .form-group select:focus { outline:none; border-color:#007acc; box-shadow:0 0 0 2px rgba(0,122,204,0.1) }
+        .form-group small { display:block; color:#666; font-size:11px; margin-top:4px }
+
+        .collapsible-header { background:#e9ecef; padding:10px 15px; margin:10px 0 5px 0; border-radius:4px; cursor:pointer; user-select:none }
+        .collapsible-header h4{margin:0; font-size:14px; color:#495057; display:flex; justify-content:space-between; align-items:center }
+        .toggle-icon { transition: transform 0.2s ease }
+        .collapsible-header.collapsed .toggle-icon { transform: rotate(-90deg) }
+
+        .collapsible-content { padding:0 10px; max-height:1000px; overflow:hidden; transition:max-height 0.3s ease }
+        .collapsible-content.collapsed { max-height:0; padding:0 10px }
+
+        .button-row { margin-top:20px; display:flex; gap:10px; flex-wrap:wrap }
+        .btn { padding:8px 16px; border:none; border-radius:4px; font-size:12px; cursor:pointer }
+        .btn-primary{ background:#007acc; color:white }
+        .btn-secondary{ background:#6c757d; color:white }
+        .btn-info{ background:#17a2b8; color:white }
+        .btn-success{ background:#28a745; color:white }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>DIO Configuration</h1>
-            <div class="nav-links">
-            </div>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="config-section">
-            <h2>Digital I/O Configuration for TLE7244</h2>
-            <p>Configure digital input/output settings for the selected pin.</p>
-            
-            <!-- DIO Configuration Form -->
-            <div class="config-form" id="dioConfigForm">
-                <!-- Tab Navigation -->
-                <div class="tab-navigation">
-                    <button type="button" class="tab-button active" data-tab="basic">Basic Configuration</button>
-                    <button type="button" class="tab-button" data-tab="advanced">Advanced Configuration</button>
-                </div>
-                
-                <!-- Basic Tab Content -->
-                <div class="tab-content active" id="basic-tab">
-                    <div class="form-grid">
-                        <div class="form-column">
-
-                            <div class="form-group">
-                                <label for="rba_IoSigDio_0CustSpecName">Customer Specific Name (Short Name):</label>
-                                <input type="text" id="rba_IoSigDio_0CustSpecName" name="custSpecName" 
-                                    placeholder="Custom signal name">
-                                <small>Customer-specific name for documentation</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="dio-direction">Direction *:</label>
-                                <select id="dio-direction" name="direction" required>
-                                    <option value="Output" selected>Output</option>
-                                    <option value="Input">Input</option>
-                                </select>
-                                <small>Signal direction (Input/Output)</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="rba_IoSigDio_1ConnectedTo">Connected To *:</label>
-                                <input type="text" id="rba_IoSigDio_1ConnectedTo" name="connectedTo" 
-                                    placeholder="DevType_DevOrPortIdx_Pin" 
-                                    pattern="^[A-Z][A-Za-z0-9]*?_.*"
-                                    title="Format: DevType_DevOrPortIdx_Pin" required>
-                                <small>Device and pin connection specification</small>
-                            </div> 
-                            
-                        </div>
-                    </div>
-                
-                <!-- Advanced Tab Content -->
-                <div class="tab-content" id="advanced-tab">
-                    <div class="form-grid">
-                        <!-- Column 1 - Signal Control -->
-                        <div class="form-column">
-                            <div class="collapsible-header" data-target="signal-control">
-                                <h4>Signal Control <span class="toggle-icon">▼</span></h4>
-                            </div>
-                            <div class="collapsible-content collapsed" id="signal-control">
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_1DirectionChangeable">Direction Changeable:</label>
-                                    <select id="rba_IoSigDio_1DirectionChangeable" name="directionChangeable">
-                                        <option value="false" selected>False</option>
-                                        <option value="true">True</option>
-                                    </select>
-                                    <small>Enable runtime direction change</small>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_1Invert">Signal Inversion:</label>
-                                    <select id="rba_IoSigDio_1Invert" name="invert">
-                                        <option value="false" selected>False</option>
-                                        <option value="true">True</option>
-                                    </select>
-                                    <small>Invert signal polarity (negative logic)</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Column 2 - Calibration -->
-                        <div class="form-column">
-                            <div class="collapsible-header" data-target="calibration-settings">
-                                <h4>Calibration Settings <span class="toggle-icon">▼</span></h4>
-                            </div>
-                            <div class="collapsible-content collapsed" id="calibration-settings">
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_CalibAlterText">Calibration Alternate Text:</label>
-                                    <input type="text" id="rba_IoSigDio_CalibAlterText" name="calibAlterText" 
-                                           maxlength="32" placeholder="A2L alternate text">
-                                    <small>Alternate text for A2L file (1-32 chars)</small>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_Calibratable">Calibration Routing Support:</label>
-                                    <select id="rba_IoSigDio_Calibratable" name="calibratable">
-                                        <option value="false" selected>False</option>
-                                        <option value="true">True</option>
-                                    </select>
-                                    <small>Enable HW signal routing calibration</small>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_CalibratableInvert">Calibration Inversion Support:</label>
-                                    <select id="rba_IoSigDio_CalibratableInvert" name="calibratableInvert">
-                                        <option value="false" selected>False</option>
-                                        <option value="true">True</option>
-                                    </select>
-                                    <small>Enable signal inversion calibration</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Column 3 - Initialization -->
-                        <div class="form-column">
-                            <div class="collapsible-header" data-target="initialization-settings">
-                                <h4>Initialization Settings <span class="toggle-icon">▼</span></h4>
-                            </div>
-                            <div class="collapsible-content collapsed" id="initialization-settings">
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_InitState">Initial State:</label>
-                                    <select id="rba_IoSigDio_InitState" name="initState">
-                                        <option value="Idle" selected>Idle</option>
-                                        <option value="Active">Active</option>
-                                    </select>
-                                    <small>Signal state after initialization</small>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_InitStrategy">Initialization Strategy:</label>
-                                    <select id="rba_IoSigDio_InitStrategy" name="initStrategy">
-                                        <option value="AnyReset" selected>Any Reset</option>
-                                        <option value="PwrOnReset">Power-On Reset</option>
-                                    </select>
-                                    <small>When to re-initialize signal</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Column 4 - Diagnostic & Protection -->
-                        <div class="form-column">
-                            <div class="collapsible-header" data-target="diagnostic-protection">
-                                <h4>Diagnostic & Protection <span class="toggle-icon">▼</span></h4>
-                            </div>
-                            <div class="collapsible-content collapsed" id="diagnostic-protection">
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_OutDiagCurrent">Output Diagnostic Current:</label>
-                                    <select id="rba_IoSigDio_OutDiagCurrent" name="outDiagCurrent">
-                                        <option value="true" selected>Enabled</option>
-                                        <option value="false">Disabled</option>
-                                    </select>
-                                    <small>Enable diagnostic current for power stages</small>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="rba_IoSigDio_OutProtectStrategy">Output Protection Strategy:</label>
-                                    <select id="rba_IoSigDio_OutProtectStrategy" name="outProtectStrategy">
-                                        <option value="">Not Specified</option>
-                                        <option value="SwitchOff" selected>Switch-Off</option>
-                                        <option value="CurrentLimit">Current Limitation</option>
-                                        <option value="NoProtect">No Protection</option>
-                                    </select>
-                                    <small>Overload protection behavior</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Action Buttons Row -->
-                <div class="button-row">
-                    <button type="button" id="dio-saveConfig" class="btn btn-primary">💾 Save Configuration</button>
-                    <button type="button" id="dio-loadConfig" class="btn btn-secondary">📁 Load Default</button>
-                    <button type="button" id="dio-validateConfig" class="btn btn-info">✓ Validate</button>
-                    <button type="button" id="dio-exportConfig" class="btn btn-success">📤 Export AUTOSAR</button>
-                    <button type="button" id="dio-clearConfig" class="btn btn-warning">🗑️ Clear</button>
-                </div>
-            </div>
-            
-            <!-- Pin Information Display -->
-            <div class="pin-info-display" id="pinInfoDisplay">
-                <h3>Pin Information</h3>
-                <div id="selectedPinInfo">
-                    <p>Please select a pin from the main interface to configure.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 TLE7244 Configuration Tool</p>
-    </footer>
-    
-    <!-- Scripts -->
-    <!-- <script src="src/function/bsw_function.js"></script> -->
-    <script src="dio.js"></script>
-    <script src="../bsw_function.js"></script>
-    <script>
-        // DIO Configuration specific JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DIO Configuration page loaded');
-            
-            // Get pin number from URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const pinNumber = urlParams.get('pin');
-            
-            if (pinNumber) {
-                // Load configuration for specific pin
-                loadDIOConfigForPin(pinNumber);
-            }
-            
-            // Setup form event listeners
-            setupDIOFormListeners();
-            
-            // Setup tab functionality
-            setupTabFunctionality();
-        });
+    <div class="sidebar">
+        <div class="pin-info">
+            <h4>Pin ${config.pin} - ${config.shortName}</h4>
+            <p><strong>Type:</strong> ${config.outputType}</p>
+            <p><strong>Original Label:</strong> ${config.originalLabel}</p>
+        </div>
         
-        function setupTabFunctionality() {
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetTab = this.getAttribute('data-tab');
-                    
-                    // Remove active class from all buttons and content
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button and corresponding content
-                    this.classList.add('active');
-                    document.getElementById(targetTab + '-tab').classList.add('active');
-                });
-            });
-            
-            // Setup collapsible sections
-            setupCollapsibleSections();
-        }
+        <!-- Basic Configuration -->
+        <div class="form-group">
+            <label for="rba_IoSigDio_0CustSpecName">Customer Specific Name (Short Name):</label>
+            <input type="text" id="rba_IoSigDio_0CustSpecName" name="custSpecName" 
+                value="${config.shortName}" placeholder="Custom signal name">
+            <small>Customer-specific name for documentation</small>
+        </div>
+
+        <div class="form-group">
+            <label for="dio-direction">Direction *:</label>
+            <select id="dio-direction" name="direction" required>
+                <option value="Output" selected>Output</option>
+                <option value="Input">Input</option>
+            </select>
+            <small>Signal direction (Input/Output)</small>
+        </div>
+
+        <div class="form-group">
+            <label for="rba_IoSigDio_1ConnectedTo">Connected To *:</label>
+            <input type="text" id="rba_IoSigDio_1ConnectedTo" name="connectedTo" 
+                placeholder="DevType_DevOrPortIdx_Pin" 
+                pattern="^[A-Z][A-Za-z0-9]*?_.*"
+                title="Format: DevType_DevOrPortIdx_Pin" value="${VD1CC055.getIcByPin(config.pin)}" required>
+            <small>Device and pin connection specification</small>
+        </div>
+
+        <div class="form-group">
+            <label for="rba_IoExtTle7244_ConnectedTo">Connected To Port *:</label>
+            <select type="text" id="rba_IoExtTle7244_ConnectedTo" name="extConnectedTo" 
+                placeholder="DevType_DevOrPortIdx_Pin" 
+                pattern="^[A-Z][A-Za-z0-9]*?_.*"
+                title="Format: DevType_DevOrPortIdx_Pin" required>
+                <option value="${config.outputType}_10_00">${config.outputType}_10_00</option>
+                <option value="${config.outputType}_10_06">${config.outputType}_10_06</option>
+                <option value="${config.outputType}_10_05">${config.outputType}_10_05</option>
+                <option value="${config.outputType}_23_01">${config.outputType}_23_01</option>
+            <small>Device and pin connection specification</small>
+            </select>
+        </div>
         
-        function setupCollapsibleSections() {
-            const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+        <!-- Advanced Configuration -->
+        <div class="collapsible-header" data-target="signal-control">
+            <h4>Signal Control <span class="toggle-icon">▼</span></h4>
+        </div>
+        <div class="collapsible-content collapsed" id="signal-control">
+            <div class="form-group">
+                <label for="rba_IoSigDio_1DirectionChangeable">Direction Changeable:</label>
+                <select id="rba_IoSigDio_1DirectionChangeable" name="directionChangeable">
+                    <option value="true">TRUE</option>
+                    <option value="false" selected>FALSE</option>
+                </select>
+                <small>Enable runtime direction change</small>
+            </div>
             
-            collapsibleHeaders.forEach(header => {
+            <div class="form-group">
+                <label for="rba_IoSigDio_1Invert">Signal Inversion:</label>
+                <select id="rba_IoSigDio_1Invert" name="invert">
+                    <option value="true">TRUE</option>
+                    <option value="false" selected>FALSE</option>
+                </select>
+                <small>Invert signal polarity (negative logic)</small>
+            </div>
+        </div>
+        
+        <div class="collapsible-header" data-target="calibration-settings">
+            <h4>Calibration Settings <span class="toggle-icon">▼</span></h4>
+        </div>
+        <div class="collapsible-content collapsed" id="calibration-settings">
+            <div class="form-group">
+                <label for="rba_IoSigDio_Calibratable">Calibration Routing Support:</label>
+                <select id="rba_IoSigDio_Calibratable" name="calibratable">
+                    <option value="true">TRUE</option>
+                    <option value="false" selected>FALSE</option>
+                </select>
+                <small>Enable HW signal routing calibration</small>
+            </div>
+
+            <div class="form-group">
+                <label for="rba_IoSigDio_CalibAlterText">Calibration Alternate Text:</label>
+                <input type="text" id="rba_IoSigDio_CalibAlterText" name="calibAlterText" 
+                    maxlength="32" placeholder="A2L alternate text">
+                <small>Alternate text for A2L file (1-32 chars)</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="rba_IoSigDio_CalibratableInvert">Calibration Inversion Support:</label>
+                <select id="rba_IoSigDio_CalibratableInvert" name="calibratableInvert">
+                    <option value="true">TRUE</option>
+                    <option value="false" selected>FALSE</option>
+                </select>
+                <small>Enable signal inversion calibration</small>
+            </div>
+        </div>
+        
+        <div class="collapsible-header" data-target="initialization-settings">
+            <h4>Initialization Settings <span class="toggle-icon">▼</span></h4>
+        </div>
+        <div class="collapsible-content collapsed" id="initialization-settings">
+            <div class="form-group">
+                <label for="rba_IoSigDio_InitState">Initial State:</label>
+                <select id="rba_IoSigDio_InitState" name="initState">
+                    <option value="Idle" selected>Idle</option>
+                    <option value="Active">Active</option>
+                </select>
+                <small>Signal state after initialization</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="rba_IoSigDio_InitStrategy">Initialization Strategy:</label>
+                <select id="rba_IoSigDio_InitStrategy" name="initStrategy">
+                    <option value="AnyReset" selected>Any Reset</option>
+                    <option value="PwrOnReset">Power-On Reset</option>
+                </select>
+                <small>When to re-initialize signal</small>
+            </div>
+        </div>
+        
+        <div class="collapsible-header" data-target="diagnostic-protection">
+            <h4>Diagnostic & Protection <span class="toggle-icon">▼</span></h4>
+        </div>
+        <div class="collapsible-content collapsed" id="diagnostic-protection">
+            <div class="form-group">
+                <label for="rba_IoSigDio_OutDiagCurrent">Output Diagnostic Current:</label>
+                <select id="rba_IoSigDio_OutDiagCurrent" name="outDiagCurrent">
+                    <option value="true">TRUE</option>
+                    <option value="false" selected>FALSE</option>
+                </select>
+                <small>Enable diagnostic current for power stages</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="rba_IoSigDio_OutProtectStrategy">Output Protection Strategy:</label>
+                <select id="rba_IoSigDio_OutProtectStrategy" name="outProtectStrategy">
+                    <option value="">Not Specified</option>
+                    <option value="SwitchOff" selected>Switch-Off</option>
+                    <option value="CurrentLimit">Current Limitation</option>
+                    <option value="NoProtect">No Protection</option>
+                </select>
+                <small>Overload protection behavior</small>
+            </div>
+
+            <div class="form-group">
+                <label for=""></label>
+                <select id="" name="">
+                    <option value=""></option>
+                </select>
+                <small></small>
+            </div>
+        </div>
+        
+        <div class="button-row">
+            <button type="button" class="btn btn-primary" onclick="saveAdvancedConfig('${config.pin}')">💾 Save Configuration</button>
+            <button type="button" class="btn btn-secondary" onclick="loadDefaultConfig()">📁 Load Default</button>
+            <button type="button" class="btn btn-info" onclick="validateConfig()">✓ Validate</button>
+            <button type="button" class="btn btn-success" onclick="exportARXML('${config.pin}')">📤 Export AUTOSAR</button>
+        </div>
+    </div>
+</body>
+<script>
+    initializeCollapsibles();
+
+    function initializeCollapsibles() {
+            document.querySelectorAll('.collapsible-header').forEach(header => {
                 header.addEventListener('click', function() {
                     const targetId = this.getAttribute('data-target');
                     const content = document.getElementById(targetId);
-                    const icon = this.querySelector('.toggle-icon');
                     
-                    // Toggle classes
-                    this.classList.toggle('expanded');
-                    content.classList.toggle('collapsed');
-                    content.classList.toggle('expanded');
+                    if (content) {
+                        content.classList.toggle('collapsed');
+                        this.classList.toggle('collapsed');
+                    }
                 });
             });
         }
-        
-        function loadDIOConfigForPin(pinNumber) {
-            // Update pin info display
-            document.getElementById('selectedPinInfo').innerHTML = `
-                <h4>Configuring Pin ${pinNumber}</h4>
-                <p>Digital I/O configuration for TLE7244 Pin ${pinNumber}</p>
-            `;
-            
-            // Load saved configuration if exists
-            const savedConfig = localStorage.getItem(`tle7244_dio_pin_${pinNumber}`);
-            if (savedConfig) {
-                const config = JSON.parse(savedConfig);
-                populateDIOForm(config);
-            }
-        }
-        
-        function setupDIOFormListeners() {
-            // Save button
-            document.getElementById('dio-saveConfig').addEventListener('click', saveDIOConfiguration);
-            
-            // Load default button
-            document.getElementById('dio-loadConfig').addEventListener('click', loadDefaultDIOConfiguration);
-            
-            // Validate button
-            document.getElementById('dio-validateConfig').addEventListener('click', validateDIOConfiguration);
-            
-            // Export button
-            document.getElementById('dio-exportConfig').addEventListener('click', exportDIOConfiguration);
-            
-            // Clear button
-            document.getElementById('dio-clearConfig').addEventListener('click', clearDIOConfiguration);
-        }
-        
-        function saveDIOConfiguration() {
-            const config = collectDIOFormData();
-            const urlParams = new URLSearchParams(window.location.search);
-            const pinNumber = urlParams.get('pin');
-            
-            if (pinNumber && config) {
-                localStorage.setItem(`tle7244_dio_pin_${pinNumber}`, JSON.stringify(config));
-                alert('DIO configuration saved successfully!');
-            }
-        }
-        
-        function loadDefaultDIOConfiguration() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const pinNumber = urlParams.get('pin') || '3';
-            
-            const defaultConfig = {
-                connectedTo: `TLE7244_01_0${pinNumber}`,
-                direction: 'Output',
-                custSpecName: `DIO_Pin_${pinNumber}`,
-                directionChangeable: 'false',
-                invert: 'false',
-                calibAlterText: `Pin${pinNumber}_DIO`,
-                calibratable: 'false',
-                calibratableInvert: 'false',
-                initState: 'Idle',
-                initStrategy: 'AnyReset',
-                outDiagCurrent: 'true',
-                outProtectStrategy: 'SwitchOff'
-            };
-            
-            populateDIOForm(defaultConfig);
-        }
-        
-        function validateDIOConfiguration() {
-            const config = collectDIOFormData();
-            
-            // Basic validation
-            if (!config.connectedTo) {
-                alert('Connected To field is required');
-                return false;
-            }
-            
-            if (!config.direction) {
-                alert('Direction field is required');
-                return false;
-            }
-            
-            alert('DIO configuration is valid!');
-            return true;
-        }
-        
-        function exportDIOConfiguration() {
-            if (!validateDIOConfiguration()) return;
-            
-            const config = collectDIOFormData();
-            const urlParams = new URLSearchParams(window.location.search);
-            const pinNumber = urlParams.get('pin') || '3';
-            
-            // Add pin number to config
-            config.pinNumber = pinNumber;
-            
-            // Generate AUTOSAR XML for DIO using the template-based function
-            const autosarXml = exportDIOToAutosar(config);
-            
-            // Download file
-            const blob = new Blob([autosarXml], { type: 'application/xml' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `TLE7244_DIO_Pin${pinNumber}_Config.arxml`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-        
-        function clearDIOConfiguration() {
-            if (confirm('Are you sure you want to clear the configuration?')) {
-                // Clear all form fields manually
-                document.getElementById('rba_IoSigDio_1ConnectedTo').value = '';
-                document.getElementById('dio-direction').value = 'Output';
-                document.getElementById('rba_IoSigDio_0CustSpecName').value = '';
-                document.getElementById('rba_IoSigDio_1DirectionChangeable').value = 'false';
-                document.getElementById('rba_IoSigDio_1Invert').value = 'false';
-                document.getElementById('rba_IoSigDio_CalibAlterText').value = '';
-                document.getElementById('rba_IoSigDio_Calibratable').value = 'false';
-                document.getElementById('rba_IoSigDio_CalibratableInvert').value = 'false';
-                document.getElementById('rba_IoSigDio_InitState').value = 'Idle';
-                document.getElementById('rba_IoSigDio_InitStrategy').value = 'AnyReset';
-                document.getElementById('rba_IoSigDio_OutDiagCurrent').value = 'true';
-                document.getElementById('rba_IoSigDio_OutProtectStrategy').value = 'SwitchOff';
-                
-                const urlParams = new URLSearchParams(window.location.search);
-                const pinNumber = urlParams.get('pin');
-                if (pinNumber) {
-                    localStorage.removeItem(`tle7244_dio_pin_${pinNumber}`);
-                }
-            }
-        }
-        
-        function collectDIOFormData() {
-            const config = {};
-            
-            // Basic Configuration
-            config.connectedTo = document.getElementById('rba_IoSigDio_1ConnectedTo')?.value || '';
-            config.direction = document.getElementById('dio-direction')?.value || '';
-            config.custSpecName = document.getElementById('rba_IoSigDio_0CustSpecName')?.value || '';
-            
-            // Direction & Signal Control
-            config.directionChangeable = document.getElementById('rba_IoSigDio_1DirectionChangeable')?.value || '';
-            config.invert = document.getElementById('rba_IoSigDio_1Invert')?.value || '';
-            config.calibAlterText = document.getElementById('rba_IoSigDio_CalibAlterText')?.value || '';
-            
-            // Calibration & Initialization
-            config.calibratable = document.getElementById('rba_IoSigDio_Calibratable')?.value || '';
-            config.calibratableInvert = document.getElementById('rba_IoSigDio_CalibratableInvert')?.value || '';
-            config.initState = document.getElementById('rba_IoSigDio_InitState')?.value || '';
-            
-            // Advanced Settings
-            config.initStrategy = document.getElementById('rba_IoSigDio_InitStrategy')?.value || '';
-            config.outDiagCurrent = document.getElementById('rba_IoSigDio_OutDiagCurrent')?.value || '';
-            config.outProtectStrategy = document.getElementById('rba_IoSigDio_OutProtectStrategy')?.value || '';
-            
-            return config;
-        }
-        
-        function populateDIOForm(config) {
-            Object.keys(config).forEach(key => {
-                const element = document.getElementById(`dio-${key}`);
-                if (element) {
-                    element.value = config[key];
-                }
-            });
-        }
-        
-
-    </script>
-</body>
+</script>
 </html>

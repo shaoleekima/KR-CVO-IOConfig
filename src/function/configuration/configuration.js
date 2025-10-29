@@ -1,33 +1,5 @@
 // Function to load and display configurations
 
-// Helper function to get original pin label from HTML
-function getOriginalPinLabel(pinNumber) {
-    // This function tries to get the original pin label from the terminal diagram
-    if (window.parent && window.parent.document) {
-        // If in iframe, try to access parent document
-        const connector = window.parent.document.querySelector(`[data-number="${pinNumber}"]`);
-        if (connector) {
-            return connector.getAttribute('pin-lable') || connector.getAttribute('pin-label');
-        }
-    }
-    
-    // Try current document
-    const connector = document.querySelector(`[data-number="${pinNumber}"]`);
-    if (connector) {
-        return connector.getAttribute('pin-lable') || connector.getAttribute('pin-label');
-    }
-    
-    // Fallback - try VD1CC055 data if available
-    if (window.VD1CC055_DATA && window.VD1CC055_DATA.pins) {
-        const pinData = window.VD1CC055_DATA.pins.find(p => p.number == pinNumber);
-        if (pinData) {
-            return pinData.label;
-        }
-    }
-    
-    return null;
-}
-
 function loadConfigurations() {
     try {
         let configs = [];
@@ -53,59 +25,13 @@ function loadConfigurations() {
     }
 }
 
-// Make loadConfigurations available globally for other scripts to call
-window.loadConfigurations = loadConfigurations();
-
 // Fallback function to load configurations directly from localStorage
 function loadConfigurationsFromLocalStorage() {
     const configs = [];
     
-    console.log('🔄 Loading configurations from localStorage...');
+    console.log('Loading configurations from localStorage...');
     
-    // Load from new data storage system first
-    if (window.DataStorageManager) {
-        console.log('✅ DataStorageManager found in configuration viewer');
-        const savedConfigs = window.DataStorageManager.getAllSavedConfigurations();
-        console.log('📊 Data storage configurations:', savedConfigs);
-        
-        // Convert DIO configurations to array format
-        Object.keys(savedConfigs.DIO).forEach(pinNumber => {
-            const config = savedConfigs.DIO[pinNumber];
-            console.log(`🔧 Processing DIO config for pin ${pinNumber}:`, config);
-            configs.push({
-                pin: pinNumber,
-                originalLabel: config.originalLabel || getOriginalPinLabel(pinNumber) || `Pin ${pinNumber}`,
-                shortName: config.CustSpecName || config.custSpecName || config.shortName || config.originalLabel || getOriginalPinLabel(pinNumber) || `Pin ${pinNumber}`,
-                outputType: 'DIO',
-                timestamp: config.timestamp || new Date().toISOString(),
-                configured: true,
-                ...config
-            });
-        });
-        
-        // Convert PWM configurations to array format
-        Object.keys(savedConfigs.PWM).forEach(pinNumber => {
-            const config = savedConfigs.PWM[pinNumber];
-            configs.push({
-                pin: pinNumber,
-                originalLabel: config.originalLabel || getOriginalPinLabel(pinNumber) || `Pin ${pinNumber}`,
-                shortName: config.CustSpecName || config.custSpecName || config.shortName || config.originalLabel || getOriginalPinLabel(pinNumber) || `Pin ${pinNumber}`,
-                outputType: 'PWM',
-                timestamp: config.timestamp || new Date().toISOString(),
-                configured: true,
-                pwmFrequency: config.frequency || '1000',
-                pwmDutyCycle: config.dutyCycle || '50',
-                ...config
-            });
-        });
-        
-        if (configs.length > 0) {
-            console.log('Found configurations from data storage:', configs.length);
-            return configs;
-        }
-    }
-    
-    // Fallback to legacy array storage
+    // Load from new array storage
     try {
         const arrayData = localStorage.getItem('pin_configurations_array');
         console.log('Array data from localStorage:', arrayData);
@@ -161,11 +87,9 @@ function generateSummaryFromConfigs(configs) {
 }
 
 function displaySummary(summary) {
-    console.log('📊 Displaying summary statistics:', summary);
     const summaryContainer = document.getElementById('summary-stats');
     
     if (!summary || summary.total === 0) {
-        console.log('⚠️ No summary data to display');
         summaryContainer.innerHTML = '<div class="no-data">No configuration data available</div>';
         return;
     }
@@ -190,7 +114,6 @@ function displaySummary(summary) {
     `;
 
     summaryContainer.innerHTML = summaryHTML;
-    console.log('✅ Summary statistics displayed successfully');
 }
 
 function displayConfigurations(configs) {
@@ -202,10 +125,7 @@ function displayConfigurations(configs) {
     }
 
     let configHTML = '';
-    console.log('🏗️ Building config HTML for', configs.length, 'configurations');
-    
     configs.forEach((config, index) => {
-        console.log(`📌 Processing config ${index + 1}:`, config);
         const configDate = new Date(config.timestamp).toLocaleString();
         const isPWM = config.outputType === 'PWM';
         
@@ -230,8 +150,6 @@ function displayConfigurations(configs) {
             </div>
         `;
     });
-    
-    console.log('✅ Config HTML built, length:', configHTML.length);
 
     configContainer.innerHTML = configHTML;
     
@@ -249,22 +167,11 @@ function displayError(message) {
 
 function exportData() {
     try {
-        if (window.DataStorageManager) {
-            // Export using the data storage manager
-            const success = window.DataStorageManager.downloadConfigData();
-            if (success) {
-                console.log('Configuration data exported using DataStorageManager');
-            } else {
-                throw new Error('Failed to export data using DataStorageManager');
-            }
+        if (window.exportConfigurationData) {
+            const data = window.exportConfigurationData();
+            console.log('Configuration data exported');
         } else {
-            // Fallback: use legacy export method
-            if (window.exportConfigurationData && typeof window.exportConfigurationData === 'function') {
-                const data = window.exportConfigurationData();
-                console.log('Configuration data exported using legacy method');
-            } else {
-                alert('Export function not available. Please configure pins first.');
-            }
+            alert('Export function not available. Please open terminal diagram first.');
         }
     } catch (error) {
         console.error('Export error:', error);
@@ -274,50 +181,24 @@ function exportData() {
 
 function exportCSV() {
     try {
-        let csvData = 'Pin,Original Label,Custom Name,Output Type,Direction,Connected To,Frequency,Duty Cycle,Timestamp\n';
-        
-        if (window.DataStorageManager) {
-            const savedConfigs = window.DataStorageManager.getAllSavedConfigurations();
+        if (window.generateConfigurationForExport) {
+            const csvData = window.generateConfigurationForExport('csv');
             
-            // Export DIO configurations
-            Object.keys(savedConfigs.DIO).forEach(pinNumber => {
-                const config = savedConfigs.DIO[pinNumber];
-                csvData += `${pinNumber},"${config.originalLabel || ''}","${config.custSpecName || ''}","DIO","${config.direction || ''}","${config.connectedTo || ''}","","","${config.timestamp || ''}"\n`;
-            });
+            // Create downloadable CSV file
+            const blob = new Blob([csvData], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `pin_configurations_${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
             
-            // Export PWM configurations
-            Object.keys(savedConfigs.PWM).forEach(pinNumber => {
-                const config = savedConfigs.PWM[pinNumber];
-                csvData += `${pinNumber},"${config.originalLabel || ''}","${config.custSpecName || ''}","PWM","","${config.connectedTo || ''}","${config.frequency || ''}","${config.dutyCycle || ''}","${config.timestamp || ''}"\n`;
-            });
-        } else if (window.currentConfigurations) {
-            // Fallback to current configurations
-            window.currentConfigurations.forEach(config => {
-                const frequency = config.outputType === 'PWM' ? (config.pwmFrequency || config.frequency || '') : '';
-                const dutyCycle = config.outputType === 'PWM' ? (config.pwmDutyCycle || config.dutyCycle || '') : '';
-                const direction = config.outputType === 'DIO' ? (config.direction || '') : '';
-                
-                csvData += `${config.pin},"${config.originalLabel || ''}","${config.shortName || ''}","${config.outputType}","${direction}","${config.connectedTo || ''}","${frequency}","${dutyCycle}","${config.timestamp || ''}"\n`;
-            });
+            console.log('CSV data exported');
+        } else {
+            alert('CSV export function not available. Please open terminal diagram first.');
         }
-        
-        if (csvData === 'Pin,Original Label,Custom Name,Output Type,Direction,Connected To,Frequency,Duty Cycle,Timestamp\n') {
-            alert('No configuration data to export');
-            return;
-        }
-        
-        // Create downloadable CSV file
-        const blob = new Blob([csvData], { type: 'text/csv' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `pin_configurations_${new Date().toISOString().split('T')[0]}.csv`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        
-        console.log('CSV data exported');
     } catch (error) {
         console.error('CSV export error:', error);
         alert('Error exporting CSV: ' + error.message);
@@ -327,15 +208,10 @@ function exportCSV() {
 function clearAllData() {
     if (confirm('Are you sure you want to clear all configuration data? This action cannot be undone.')) {
         try {
-            // Clear from new data storage system
-            if (window.DataStorageManager) {
-                window.DataStorageManager.clearAllSavedConfigurations();
-            }
-            
-            // Clear from localStorage directly (legacy support)
+            // Clear from localStorage directly
             const keys = Object.keys(localStorage);
             keys.forEach(key => {
-                if (key.startsWith('pin_config_') || key === 'pin_configurations_array' || key === 'kr_cvo_config_data') {
+                if (key.startsWith('pin_config_') || key === 'pin_configurations_array') {
                     localStorage.removeItem(key);
                 }
             });
@@ -443,132 +319,64 @@ function initializeCollapsibles() {
 
 // Advanced settings action functions
 function saveAdvancedConfig(pinNumber) {
-    try {
-        // Get the selected configuration
-        const selectedCard = document.querySelector('.config-card.selected');
-        if (!selectedCard) {
-            alert('Please select a configuration first');
-            return;
-        }
+    // alert(`Advanced configuration saved for Pin ${pinNumber}`);
+    
+    // const config = collectDIOFormData();
+    // const urlParams = new URLSearchParams(window.location.search);
+    // pinNumber = urlParams.get('pin');
+    
+    // if (pinNumber && config) {
+    //     localStorage.setItem(`tle7244_dio_pin_${pinNumber}`, JSON.stringify(config));
+    //     alert('DIO configuration saved successfully!');
+    // }
 
-        const configIndex = selectedCard.getAttribute('data-config-index');
-        const config = window.currentConfigurations[configIndex];
-        if (!config) {
-            alert('Configuration not found');
-            return;
-        }
-
-        let formData;
-        let saveResult;
-
-        // Collect form data based on configuration type
-        if (config.outputType === 'DIO') {
-            formData = collectDIOFormData();
-            saveResult = window.DataStorageManager.saveDIOConfiguration(pinNumber, formData);
-        } else if (config.outputType === 'PWM') {
-            formData = collectPWMFormData();
-            saveResult = window.DataStorageManager.savePWMConfiguration(pinNumber, formData);
-        } else {
-            alert('Unsupported configuration type: ' + config.outputType);
-            return;
-        }
-
-        if (saveResult) {
-            alert(`${config.outputType} configuration saved successfully for Pin ${pinNumber}!`);
-            
-            // Update localStorage array for compatibility
-            const arrayData = localStorage.getItem('pin_configurations_array');
-            let configurations = arrayData ? JSON.parse(arrayData) : [];
-            
-            // Update or add configuration
-            const existingIndex = configurations.findIndex(c => c.pin == pinNumber);
-            const updatedConfig = {
-                ...config,
-                ...formData,
-                timestamp: new Date().toISOString()
-            };
-            
-            if (existingIndex >= 0) {
-                configurations[existingIndex] = updatedConfig;
-            } else {
-                configurations.push(updatedConfig);
-            }
-            
-            localStorage.setItem('pin_configurations_array', JSON.stringify(configurations));
-            
-            // Refresh the terminal diagram if function exists
-            if (window.refreshTerminalDiagram) {
-                window.refreshTerminalDiagram();
-            }
-            
-            // Refresh the display
-            loadConfigurations();
-        } else {
-            alert('Error saving configuration. Please try again.');
-        }
-    } catch (error) {
-        console.error('Save error:', error);
-        alert('Error saving configuration: ' + error.message);
-    }
+    localStorage.setItem('pin_configurations_array', JSON.stringify(this.configurations));
 }
 
 function loadDefaultConfig() {
-    try {
-        // Get the sidebar content element
-        const content = document.getElementById('advanced-settings-content');
-        if (!content) return;
+    alert('Default configuration loaded');
+    // Get the sidebar content element
+    const content = document.getElementById('advanced-settings-content');
+    if (!content) return;
 
-        // Check if we have a selected pin configuration
-        const selectedCard = document.querySelector('.config-card.selected');
-        if (!selectedCard) {
-            alert('Please select a configuration first');
-            return;
-        }
-
-        const configIndex = selectedCard.getAttribute('data-config-index');
-        const config = window.currentConfigurations[configIndex];
-        if (!config) return;
-
-        let defaultConfig;
-
-        // Load default values based on configuration type
-        if (config.outputType === 'DIO') {
-            defaultConfig = window.DataStorageManager.loadDIODefaults();
-            
-            // Apply default DIO values
-            document.getElementById('rba_IoSigDio_0CustSpecName').value = defaultConfig.custSpecName || config.originalLabel;
-            document.getElementById('dio-direction').value = defaultConfig.direction || 'Output';
-            document.getElementById('rba_IoSigDio_1ConnectedTo').value = defaultConfig.connectedTo || VD1CC055.getIcByPin(config.pin);
-            document.getElementById('rba_IoSigDio_1DirectionChangeable').value = defaultConfig.directionChangeable || 'FALSE';
-            document.getElementById('rba_IoSigDio_1Invert').value = defaultConfig.invert || 'FALSE';
-            document.getElementById('rba_IoSigDio_CalibAlterText').value = defaultConfig.calibAlterText || '';
-            document.getElementById('rba_IoSigDio_Calibratable').value = defaultConfig.calibratable || 'FALSE';
-            document.getElementById('rba_IoSigDio_CalibratableInvert').value = defaultConfig.calibratableInvert || 'FALSE';
-            document.getElementById('rba_IoSigDio_InitState').value = defaultConfig.initState || 'Idle';
-            document.getElementById('rba_IoSigDio_InitStrategy').value = defaultConfig.initStrategy || 'AnyReset';
-            document.getElementById('rba_IoSigDio_OutDiagCurrent').value = defaultConfig.outDiagCurrent || 'FALSE';
-            document.getElementById('rba_IoSigDio_OutProtectStrategy').value = defaultConfig.outProtectStrategy || 'SwitchOff';
-            
-        } else if (config.outputType === 'PWM') {
-            defaultConfig = window.DataStorageManager.loadPWMDefaults();
-            
-            // Apply default PWM values
-            document.getElementById('pwm-custSpecName').value = defaultConfig.custSpecName || config.originalLabel;
-            document.getElementById('pwm-frequency').value = defaultConfig.frequency || '1000';
-            document.getElementById('pwm-dutyCycle').value = defaultConfig.dutyCycle || '50';
-            document.getElementById('pwm-period').value = defaultConfig.period || 'variable';
-            document.getElementById('pwm-polarity').value = defaultConfig.polarity || 'normal';
-            document.getElementById('pwm-overload').value = defaultConfig.overload || 'enabled';
-            document.getElementById('pwm-diagnostics').value = defaultConfig.diagnostics || 'full';
-        }
-
-        alert(`Default ${config.outputType} configuration loaded from stored defaults`);
-        console.log('Default configuration loaded for', config.outputType, 'pin', config.pin, defaultConfig);
-        
-    } catch (error) {
-        console.error('Error loading default configuration:', error);
-        alert('Error loading default configuration: ' + error.message);
+    // Check if we have a selected pin configuration
+    const selectedCard = document.querySelector('.config-card.selected');
+    if (!selectedCard) {
+        alert('Please select a configuration first');
+        return;
     }
+
+    const configIndex = selectedCard.getAttribute('data-config-index');
+    const config = window.currentConfigurations[configIndex];
+    if (!config) return;
+
+    // Load default values based on configuration type
+    if (config.outputType === 'DIO') {
+        // Default DIO values
+        document.getElementById('rba_IoSigDio_0CustSpecName').value = config.originalLabel;
+        document.getElementById('dio-direction').value = 'Output';
+        document.getElementById('rba_IoSigDio_1ConnectedTo').value = VD1CC055.getIcByPin(config.pin);
+        document.getElementById('rba_IoSigDio_1DirectionChangeable').value = 'FALSE';
+        document.getElementById('rba_IoSigDio_1Invert').value = 'FALSE';
+        document.getElementById('rba_IoSigDio_CalibAlterText').value = '';
+        document.getElementById('rba_IoSigDio_Calibratable').value = 'FALSE';
+        document.getElementById('rba_IoSigDio_CalibratableInvert').value = 'FALSE';
+        document.getElementById('rba_IoSigDio_InitState').value = 'Idle';
+        document.getElementById('rba_IoSigDio_InitStrategy').value = 'AnyReset';
+        document.getElementById('rba_IoSigDio_OutDiagCurrent').value = 'FALSE';
+        document.getElementById('rba_IoSigDio_OutProtectStrategy').value = 'SwitchOff';
+    } else if (config.outputType === 'PWM') {
+        // Default PWM values
+        document.getElementById('pwm-custSpecName').value = config.originalLabel;
+        document.getElementById('pwm-frequency').value = '1000';
+        document.getElementById('pwm-dutyCycle').value = '50';
+        document.getElementById('pwm-period').value = 'variable';
+        document.getElementById('pwm-polarity').value = 'normal';
+        document.getElementById('pwm-overload').value = 'enabled';
+        document.getElementById('pwm-diagnostics').value = 'full';
+    }
+
+    console.log('Default configuration loaded for', config.outputType, 'pin', config.pin);
 }
 
 function validateConfig() {
@@ -576,31 +384,12 @@ function validateConfig() {
     // TODO: Implement validation logic
 }
 
-function collectPWMFormData() {
-    const config = {};
-    
-    // Basic Configuration
-    config.custSpecName = document.getElementById('pwm-custSpecName')?.value || '';
-    config.frequency = document.getElementById('pwm-frequency')?.value || '';
-    config.dutyCycle = document.getElementById('pwm-dutyCycle')?.value || '';
-    config.period = document.getElementById('pwm-period')?.value || '';
-    config.polarity = document.getElementById('pwm-polarity')?.value || '';
-    config.overload = document.getElementById('pwm-overload')?.value || '';
-    config.diagnostics = document.getElementById('pwm-diagnostics')?.value || '';
-    config.connectedTo = document.getElementById('pwm-connectedTo')?.value || '';
-    config.calibratable = document.getElementById('pwm-calibratable')?.value || '';
-    config.calibAlterText = document.getElementById('pwm-calibAlterText')?.value || '';
-    config.initState = document.getElementById('pwm-initState')?.value || '';
-    config.initStrategy = document.getElementById('pwm-initStrategy')?.value || '';
-    
-    return config;
-}
-
 function collectDIOFormData() {
     const config = {};
     
     // Basic Configuration
     config.connectedTo = document.getElementById('rba_IoSigDio_1ConnectedTo')?.value || '';
+    config.extConnectedTo = document.getElementById('rba_IoExtTle7244_ConnectedTo')?.value || '';
     config.direction = document.getElementById('dio-direction')?.value || '';
     config.custSpecName = document.getElementById('rba_IoSigDio_0CustSpecName')?.value || '';
     
@@ -639,7 +428,8 @@ function exportARXML(pinNumber) {
     alert(`AUTOSAR XML exported for Pin ${pinNumber}`);
     // if (!validateDIOConfiguration()) return;
     
-    const config = collectDIOFormData();
+    // const config = collectDIOFormData();
+    const config = diodata();
     //const urlParams = new URLSearchParams(window.location.search);
     //pinNumber = urlParams.get('pin');
     
@@ -659,74 +449,28 @@ function exportARXML(pinNumber) {
     URL.revokeObjectURL(url);
 }
 
-function loadConfigFromFile(input) {
-    const file = input.files[0];
-    if (!file) return;
+function exportAllData(){
+    //alert(`AUTOSAR XML exported for Pin ${pinNumber}`);
+    // if (!validateDIOConfiguration()) return;
     
-    if (file.type !== 'application/json') {
-        alert('Please select a valid JSON file');
-        return;
-    }
+    const config = diodata();
+    //const urlParams = new URLSearchParams(window.location.search);
+    //pinNumber = urlParams.get('pin') || '3';
     
-    window.DataStorageManager.loadConfigFromFile(file)
-        .then(data => {
-            alert('Configuration file loaded successfully!');
-            console.log('Loaded configuration data:', data);
-            // Refresh the display
-            loadConfigurations();
-        })
-        .catch(error => {
-            console.error('Error loading config file:', error);
-            alert('Error loading configuration file: ' + error.message);
-        })
-        .finally(() => {
-            // Clear the file input
-            input.value = '';
-        });
-}
-
-// Function to clear all data
-function clearAllData() {
-    if (confirm('Are you sure you want to clear all configuration data? This action cannot be undone.')) {
-        try {
-            // Clear from unified data storage system
-            if (window.DataStorageManager) {
-                window.DataStorageManager.clearAllSavedConfigurations();
-            }
-            
-            // Clear from localStorage directly (legacy)
-            const keys = Object.keys(localStorage);
-            keys.forEach(key => {
-                if (key.startsWith('pin_config_') || key === 'pin_configurations_array') {
-                    localStorage.removeItem(key);
-                }
-            });
-            
-            // Clear from global manager if available
-            if (window.clearAllStoredConfigurations) {
-                window.clearAllStoredConfigurations();
-            }
-            
-            // Clear from terminal diagram if available
-            if (window.PinConfigurationManager) {
-                window.PinConfigurationManager.clearAllConfigurations();
-            }
-            
-            // Refresh displays
-            loadConfigurations();
-            
-            // Try to refresh terminal diagram if it's available
-            if (window.refreshTerminalDiagram) {
-                window.refreshTerminalDiagram();
-            }
-            
-            alert('All configuration data has been cleared.');
-            console.log('All configuration data cleared from all systems');
-        } catch (error) {
-            console.error('Error clearing data:', error);
-            alert('Error clearing data: ' + error.message);
-        }
-    }
+    // Add pin number to config
+    //config.pinNumber = pinNumber;
+    
+    // Generate AUTOSAR XML for DIO using the template-based function
+    const autosarXml = exportToArxml(TLE7244_TEMPLATES, config);
+    
+    // Download file
+    const blob = new Blob([autosarXml], { type: 'application/xml' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `TLE7244_DIO_Ext_Config.arxml`;
+    a.click();
+    URL.revokeObjectURL(url);
 }
 
 // Load configurations when page loads

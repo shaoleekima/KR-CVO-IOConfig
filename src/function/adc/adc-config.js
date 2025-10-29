@@ -1,5 +1,5 @@
-function generateSideBarDio (config) {
-    return `
+function generateSideBarAnalog (config){
+    return `<div class="sidebar">
         <div class="pin-info">
             <h4>Pin ${config.pin} - ${config.shortName}</h4>
             <p><strong>Type:</strong> ${config.outputType}</p>
@@ -31,20 +31,6 @@ function generateSideBarDio (config) {
                 title="Format: DevType_DevOrPortIdx_Pin" value="${VD1CC055.getIcByPin(config.pin)}" required>
             <small>Device and pin connection specification</small>
         </div>
-
-        <div class="form-group">
-            <label for="rba_IoExtTle7244_ConnectedTo">Connected To Port *:</label>
-            <select type="text" id="rba_IoExtTle7244_ConnectedTo" name="extConnectedTo" 
-                placeholder="DevType_DevOrPortIdx_Pin" 
-                pattern="^[A-Z][A-Za-z0-9]*?_.*"
-                title="Format: DevType_DevOrPortIdx_Pin" required>
-                <option value="${config.outputType}_10_00">${config.outputType}_10_00</option>
-                <option value="${config.outputType}_10_06">${config.outputType}_10_06</option>
-                <option value="${config.outputType}_10_05">${config.outputType}_10_05</option>
-                <option value="${config.outputType}_23_01">${config.outputType}_23_01</option>
-            <small>Device and pin connection specification</small>
-            </select>
-        </div>
         
         <!-- Advanced Configuration -->
         <div class="collapsible-header" data-target="signal-control">
@@ -52,8 +38,8 @@ function generateSideBarDio (config) {
         </div>
         <div class="collapsible-content collapsed" id="signal-control">
             <div class="form-group">
-                <label for="rba_IoSigDio_1DirectionChangeable">Direction Changeable:</label>
-                <select id="rba_IoSigDio_1DirectionChangeable" name="directionChangeable">
+                <label for="rba_IoSigAdc_1DirectionChangeable">Direction Luan:</label>
+                <select id="rba_IoSigAdc_1DirectionChangeable" name="directionChangeable">
                     <option value="true">TRUE</option>
                     <option value="false" selected>FALSE</option>
                 </select>
@@ -74,7 +60,6 @@ function generateSideBarDio (config) {
             <h4>Calibration Settings <span class="toggle-icon">▼</span></h4>
         </div>
         <div class="collapsible-content collapsed" id="calibration-settings">
-            
             <div class="form-group">
                 <label for="rba_IoSigDio_Calibratable">Calibration Routing Support:</label>
                 <select id="rba_IoSigDio_Calibratable" name="calibratable">
@@ -87,7 +72,7 @@ function generateSideBarDio (config) {
             <div class="form-group">
                 <label for="rba_IoSigDio_CalibAlterText">Calibration Alternate Text:</label>
                 <input type="text" id="rba_IoSigDio_CalibAlterText" name="calibAlterText" 
-                        maxlength="32" placeholder="A2L alternate text">
+                    maxlength="32" placeholder="A2L alternate text">
                 <small>Alternate text for A2L file (1-32 chars)</small>
             </div>
             
@@ -149,9 +134,9 @@ function generateSideBarDio (config) {
             </div>
 
             <div class="form-group">
-                <lable for=""> </lable>
+                <label for=""></label>
                 <select id="" name="">
-                    <option value=""> </option>
+                    <option value=""></option>
                 </select>
                 <small></small>
             </div>
@@ -163,5 +148,5 @@ function generateSideBarDio (config) {
             <button type="button" class="btn btn-info" onclick="validateConfig()">✓ Validate</button>
             <button type="button" class="btn btn-success" onclick="exportARXML('${config.pin}')">📤 Export AUTOSAR</button>
         </div>
-    `;
+    </div>`;
 }

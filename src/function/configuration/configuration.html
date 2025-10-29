@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pin Configuration Viewer</title>
     <script src="../../main.js"></script>
-<<<<<<< HEAD:src/element/vd1cc055/configuration.html
-=======
     <script src="../../function/dio/dio.js"></script>
-    <script src="data-storage.js"></script>
     <script src="sidebar/side-dio.js"></script>
     <script src="sidebar/side-pwm.js"></script>
     <script src="sidebar/side-sent.js"></script>
     <script src="sidebar/side-analog.js"></script>
     <script src="sidebar/side-digital.js"></script>
-    <script src="../../element/vd1cc055/terminaldiagram.js"></script>
->>>>>>> 16b1837 (Update configuration and terminal diagram components):src/function/configuration/configuration.html
-    <script src="configuration.js"></script>
-    <script src="../../function/dio/dio.js"></script>
+    <script src="../../function/libs/bsw/export-arxml.js"></script>
+    <script src="../../function/tle7244/tle7244.js"></script>
     <sctipt src="terminaldiagram.js"></sctipt>
+    <script src="configuration.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -320,304 +316,6 @@
         .btn-warning:hover {
             background: #e0a800;
         }
-        
-        /* ===== RESPONSIVE DESIGN FOR ALL DEVICES ===== */
-        
-        /* Extra Small Devices (Phones, 600px and down) */
-        @media only screen and (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                margin-right: 0 !important;
-                padding: 15px;
-                margin: 0;
-            }
-            
-            .sidebar {
-                position: fixed;
-                top: 0;
-                right: 0;
-                left: 0;
-                width: 100% !important;
-                height: 100vh;
-                z-index: 2000;
-            }
-            
-            .sidebar.active {
-                display: block;
-            }
-            
-            .header h1 {
-                font-size: 24px;
-            }
-            
-            .refresh-btn {
-                display: block;
-                width: 100%;
-                margin: 5px 0;
-                padding: 12px;
-                font-size: 14px;
-            }
-            
-            .summary-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-            
-            .stat-card {
-                padding: 10px;
-            }
-            
-            .stat-value {
-                font-size: 18px;
-            }
-            
-            .config-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            .config-card {
-                padding: 12px;
-            }
-            
-            .pin-number {
-                font-size: 16px;
-            }
-            
-            .form-group {
-                margin-bottom: 12px;
-            }
-            
-            .form-group input,
-            .form-group select {
-                padding: 10px;
-                font-size: 14px;
-            }
-            
-            .btn {
-                padding: 10px 14px;
-                font-size: 13px;
-                width: 100%;
-                margin-bottom: 8px;
-            }
-            
-            .button-row {
-                flex-direction: column;
-            }
-        }
-        
-        /* Small Devices (Portrait tablets and large phones, 600px to 768px) */
-        @media only screen and (min-width: 600px) and (max-width: 768px) {
-            .container {
-                margin-right: 0;
-                padding: 18px;
-            }
-            
-            .sidebar {
-                width: 100% !important;
-                position: fixed;
-                top: 0;
-                right: 0;
-                left: 0;
-            }
-            
-            .refresh-btn {
-                padding: 10px 16px;
-                margin: 3px;
-                font-size: 13px;
-            }
-            
-            .summary-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .config-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            
-            .button-row {
-                flex-wrap: wrap;
-            }
-            
-            .btn {
-                flex: 1;
-                min-width: 120px;
-            }
-        }
-        
-        /* Medium Devices (Landscape tablets, 768px to 992px) */
-        @media only screen and (min-width: 768px) and (max-width: 992px) {
-            .container {
-                margin-right: 200px;
-            }
-            
-            .sidebar {
-                width: 350px !important;
-            }
-            
-            .refresh-btn {
-                padding: 9px 14px;
-                margin: 2px;
-            }
-            
-            .summary-stats {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .config-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
-        }
-        
-        /* Large Devices (Laptops/Desktops, 992px to 1200px) */
-        @media only screen and (min-width: 992px) and (max-width: 1200px) {
-            .container {
-                margin-right: 420px;
-                max-width: 1000px;
-            }
-            
-            .sidebar {
-                width: 400px;
-            }
-        }
-        
-        /* Extra Large Devices (Large laptops and desktops, 1200px and up) */
-        @media only screen and (min-width: 1200px) {
-            .container {
-                max-width: 1400px;
-                margin-right: 450px;
-            }
-            
-            .sidebar {
-                width: 430px;
-            }
-            
-            .config-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
-        }
-        
-        /* Portrait Orientation Specific */
-        @media only screen and (orientation: portrait) {
-            .container {
-                margin-right: 0 !important;
-            }
-            
-            .sidebar {
-                position: fixed !important;
-                top: 0;
-                right: 0;
-                left: 0;
-                width: 100% !important;
-                height: 100vh;
-                z-index: 2000;
-            }
-            
-            .refresh-btn {
-                display: inline-block;
-                width: auto;
-                margin: 3px;
-            }
-            
-            .summary-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .config-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Landscape Orientation Specific */
-        @media only screen and (orientation: landscape) and (max-width: 1024px) {
-            .sidebar {
-                width: 300px !important;
-            }
-            
-            .container {
-                margin-right: 320px;
-            }
-            
-            .summary-stats {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-        
-        /* Touch Devices */
-        @media (hover: none) and (pointer: coarse) {
-            .config-card {
-                min-height: 60px;
-                padding: 15px;
-            }
-            
-            .config-card:hover {
-                transform: none;
-            }
-            
-            .config-card:active {
-                transform: scale(0.98);
-                background: #e3f2fd;
-            }
-            
-            .btn {
-                min-height: 44px;
-                padding: 12px;
-                font-size: 14px;
-            }
-            
-            .refresh-btn {
-                min-height: 44px;
-                padding: 12px 16px;
-            }
-        }
-        
-        /* High DPI Displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .config-card {
-                border-width: 0.5px;
-            }
-            
-            .sidebar {
-                border-width: 1px;
-            }
-        }
-        
-        /* Accessibility - Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            .config-card,
-            .sidebar,
-            .btn,
-            .refresh-btn {
-                transition: none !important;
-                animation: none !important;
-            }
-            
-            .config-card:hover {
-                transform: none !important;
-            }
-        }
-        
-        /* Print Styles */
-        @media print {
-            .sidebar,
-            .refresh-btn {
-                display: none !important;
-            }
-            
-            .container {
-                margin-right: 0 !important;
-                box-shadow: none !important;
-            }
-            
-            .config-card {
-                break-inside: avoid;
-                border: 1px solid #333 !important;
-                background: white !important;
-            }
-        }
     </style>
 </head>
 <body>
@@ -626,17 +324,11 @@
             <div class="header">
                 <h1>Pin Configuration Viewer</h1>
                 <p>This page demonstrates how to access configuration data from the terminal diagram.</p>
-                <button class="refresh-btn" onclick="window.location.href='../../element/vd1cc055/termaildiagram.html'" style="background: #6c757d;">← Back to Terminal</button>
                 <button class="refresh-btn" onclick="loadConfigurations()">Refresh Data</button>
                 <button class="refresh-btn" onclick="exportData()">Export JSON</button>
                 <button class="refresh-btn" onclick="exportCSV()">Export CSV</button>
-                <input type="file" id="configFileInput" accept=".json" style="display: none;" onchange="loadConfigFromFile(this)">
-                <button class="refresh-btn" onclick="document.getElementById('configFileInput').click()" style="background: #28a745;">Load Config File</button>
                 <button class="refresh-btn" onclick="clearAllData()" style="background: #dc3545;">Clear All Data</button>
-<<<<<<< HEAD:src/element/vd1cc055/configuration.html
-                <button class="refresh-btn" onclick="exportAllData()" style="background: #00ff2a;">Export All Data</button>
-=======
->>>>>>> 16b1837 (Update configuration and terminal diagram components):src/function/configuration/configuration.html
+                <button class="refresh-btn" onclick="exportAllData()" style="background: #3700ff;">Export All Data</button>
             </div>
 
             <div id="summary-section">

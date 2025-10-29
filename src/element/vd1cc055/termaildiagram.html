@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terminal Diagram</title>
     <link rel="stylesheet" href="terminaldiagram.css">
     <link rel="stylesheet" href="tle7244.css">
-    <script src="../../function/configuration/data-storage.js"></script>
     <script src="terminaldiagram.js"></script>
+    <script src="../../main.js"></script>
 </head>
 <body>
     <div class="select-panel">
@@ -27,11 +28,7 @@
             <div class="section-group">
                 <span class="section-title-inline">View:</span>
                 <button class="panel-button" id="expand-button">Expand Width</button>
-<<<<<<< HEAD
-                <button class="panel-button" id="config-button" onclick="window.open('../vd1cc055/configuration.html', '_blank')">Configuration</button>
-=======
-                <button class="panel-button" id="config-button" onclick="window.location.href='../../function/configuration/configuration.html'">Configuration</button>
->>>>>>> 16b1837 (Update configuration and terminal diagram components)
+                <button class="panel-button" id="config-button" onclick="window.open('../../function/configuration/configuration.html', '_blank')">Configuration</button>
             </div>
         </div>
     </div>
@@ -41,19 +38,6 @@
         <!-- Architech of Terminal-->
         <div class="terminal-body" style="display: none;">
             <div class="tle7244">
-                <!-- TLE7244 Title -->
-                <div class="tle7244-title" style="
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    font-weight: bold;
-                    font-size: 14px;
-                    color: #000;
-                    z-index: 10;
-                    pointer-events: none;
-                ">TLE7244</div>
-                
                 <div class="tle7244-container-left">
                     <div class="tle7244-connector left-connector left-connector-1" data-number="1" pin-lable="SO">
                         <div class="tle7244-wire tle7244-wire-left"></div>
@@ -87,7 +71,30 @@
                     </div>
                 </div>
                 <div class="tle7244-container-right">
-                    <!-- TLE7244 outputs removed - using external connectors instead -->
+                    <div class="tle7244-connector right-connector right-connector-1" data-number="80" pin-lable="Output1">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-2" data-number="81" pin-lable="Output2">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-3" data-number="82" pin-lable="Output3">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-4" data-number="83" pin-lable="Output4">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-5" data-number="84" pin-lable="Output5">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-6" data-number="85" pin-lable="Output6">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-7" data-number="86" pin-lable="Output7">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
+                    <div class="tle7244-connector right-connector right-connector-8" data-number="87" pin-lable="Output8">
+                        <div class="tle7244-wire tle7244-wire-right"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -332,9 +339,7 @@
             <div class="connector connector-right connector-right-8" data-number="86" pin-lable="O_T_FSCOD2" style="background-color: blue;"><div class="wire wire-right"></div></div>
 
             <div class="connector connector-right connector-right-9" data-number="09" pin-lable="O S RH05" pin-type="4"><div class="wire wire-right"></div></div>
-            <div class="connector connector-right connector-right-10" data-number="80" pin-lable="O_T_RL05" pin-type="4">
-                <div class="wire wire-right"></div>
-            </div>
+            <div class="connector connector-right connector-right-10" data-number="80" pin-lable="O_T_RL05" pin-type="4"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-11" data-number="81" pin-lable="O_T_RL06" pin-type="4"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-12" data-number="82" pin-lable="O_T_RL07" pin-type="4"><div class="wire wire-right"></div></div>
             <div class="connector connector-right connector-right-13" data-number="83" pin-lable="O_T_RL08" pin-type="4"><div class="wire wire-right"></div></div>
